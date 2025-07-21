@@ -1,0 +1,22 @@
+<nav>
+  <ul class="sidebar">
+    <li onclick="hideSidebar()">
+      <img src="{{ '/assets/images/close.svg' | relative_url }}" alt="" class="open-close">
+    </li>
+    <li style="margin-top: 25px;"><a href="{{ '/' | relative_url }}">HOME</a>HOME</a></li>
+    <li><a href="{{ '/wie/' | relative_url }}">Wie</a></li>
+    <li><a href="{{ '/wat/' | relative_url }}">Wat</a></li>
+    <li><a href="{{ '/waar/' | relative_url }}">Waar</a></li>
+    <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+    
+  </ul>
+  <ul class="topbar">
+    <li class="hideOnMobile"><a href="{{ '/wie/' | relative_url }}">Wie</a></li>
+    <li class="hideOnMobile"><a href="{{ '/wat/' | relative_url }}">Wat</a></li>
+    <li class="hideOnMobile"><a href="{{ '/waar/' | relative_url }}">Waar</a></li>
+    <li class="hideOnMobile"><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+    <li class="menu-button" onclick="showSidebar()">
+      <img src="{{ '/assets/images/open.svg' | relative_url }}" alt="" class="open-close">
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    {% include nav.html %}
+
+    <div class="background"></div>
+    <a href="{{ '/' | relative_url }}"><div class="home"><img src="{{ '/assets/images/home.svg' | relative_url }}" alt="home"></div></a>
+    
+
+    <main>
+      {{ content }}
+    </main>
+
+    {% include scripts.html %}
+
+<script>
+  function updateRightOffset() {
+    const catDiv = document.querySelector('.main-cat');
+    const screenWidth = window.innerWidth;
+    const offset = -220000 / screenWidth + 140; // adjust as needed
+    catDiv.style.right = offset + 'px';
+  }
+
+  window.addEventListener('load', updateRightOffset);
+  window.addEventListener('resize', updateRightOffset);
+</script>
+
+  </body>
+</html>

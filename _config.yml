@@ -1,0 +1,5 @@
+title: My Clean Site
+description: A simple Jekyll site with clear structure
+baseurl: "/ikzoeknietmijnkat"
+permalink: pretty
+theme: minima
