@@ -1,7 +1,6 @@
-title: My Jekyll Site
-description: A simple Jekyll site with dynamic navigation
-baseurl: "" 
-url: ""
-theme: minima
+title: To DO did DONE!
+description: ""
+baseurl: "/werkplaats"
+url: "https://endlessplayground.github.io"
 
-# Collections or plugins can be added here if needed
+theme: minima
