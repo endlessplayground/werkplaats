@@ -5,6 +5,8 @@
   --phone-width: 430px;
 
   --grey-dark: rgb(49, 47, 47);
+  --grey-light: rgb(63, 60, 60);
+  --text-color: rgb(63, 60, 60);
   --blue: #14c8ff;
   --blue-lighter: #5cd9ff;
   --blue-darker: #00c3ff;
@@ -118,7 +120,7 @@ footer p {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  background-color: var(--grey-light);
   height: 50px;
   margin: -42px 20px 0 0;
   background-color: var(--yellow-light);
@@ -158,8 +160,8 @@ footer p {
     justify-content: center;
     padding: 5px;
 
-    background: var(--yellow-light);
-    color: var(--grey-dark);
+    background: var(--grey-light);
+    color: white;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
