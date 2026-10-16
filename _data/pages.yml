@@ -1,0 +1,24 @@
+- id: home
+  title: Home
+  url: /
+
+- id: agenda
+  title: Vandaag
+  url: /agenda/
+
+- id: to-do-list
+  title: To-do lijstje
+  url: /to-do-list/
+
+- id: shopping-list
+  title: Boodschappenlijstje
+  url: /to-do-list/
+
+- id: health-goals
+  title: Gezondheid
+  url: /shopping-list/
+
+- id: blog
+  title: Blog
+  url: /blog/
+

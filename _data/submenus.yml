@@ -1,0 +1,10 @@
+
+household:
+  - title: Vandaag
+    url: /day/
+  - title: Deze week
+    url: /week/
+  - title: Deze maand
+    url: /month/
+  - title: Agenda
+    url: /agenda/

@@ -1,6 +1,12 @@
 ---
-layout: default
+layout: home
 title: Home
 ---
 
-Welcome to my new site.
+<div class="home-grid">
+  {% for item in site.data.home_tiles %}
+    <a class="home-tile" href="{{ item.url | relative_url }}">
+      {{ item.title }}
+    </a>
+  {% endfor %}
+</div>

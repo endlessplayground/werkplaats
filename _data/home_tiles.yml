@@ -1,0 +1,36 @@
+
+- title: Vandaag
+  url: /agenda/
+
+- title: To-do lijstje
+  url: /to-do-list/
+
+- title: Boodschappen
+  url: /shopping-list/
+
+- title: Gezondheid
+  url: /health-goals/
+
+- title: Daily to-do
+  url: /daily/
+
+- title: Weekly to-do
+  url: /weekly/
+
+- title: Monthly to-do
+  url: /monthly/
+
+- title: Notities
+  url: /notes/
+
+- title: Ideeën
+  url: /ideas/
+
+- title: Projecten
+  url: /projects/
+
+- title: Later
+  url: /later/
+
+- title: Overig
+  url: /other/

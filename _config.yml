@@ -1,5 +1,7 @@
-title: Werkpaats
-description: A simple Jekyll site with clear structure
-baseurl: "/werkplaats"
-permalink: pretty
+title: My Jekyll Site
+description: A simple Jekyll site with dynamic navigation
+baseurl: "" 
+url: ""
 theme: minima
+
+# Collections or plugins can be added here if needed
