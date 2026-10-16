@@ -138,7 +138,7 @@ footer p {
 .home-main {
     display: flex;
     flex-direction: column;
-    padding: 62px 18px 18px 18px;
+    padding: 55px 18px 18px 18px;
 }
 
 .home-grid {
