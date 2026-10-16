@@ -136,7 +136,7 @@ footer p {
 .home-main {
     display: flex;
     flex-direction: column;
-    padding: 18px;
+    padding: 28px 18px 18px 18px;
 }
 
 .home-grid {
@@ -163,8 +163,6 @@ footer p {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    background-color: var(--blue);
-    color: white;
 }
 
 .home-tile:hover {
