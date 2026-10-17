@@ -1,6 +1,7 @@
 
 const klusjes = [
     "Planten water geven",
+    "Mail checken",
     "Keukenvloer",
     "Kamervloer",
     "Badkamer",
