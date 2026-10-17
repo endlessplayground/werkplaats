@@ -5,7 +5,7 @@ const klusjes = [
     "Kleding 3"
 ];
 
-const opslagKey = "tododiddone-permanent";
+const opslagKey = "zolder-kleding";
 const lijst = document.getElementById("todo-list");
 
 let opgeslagen = {};
