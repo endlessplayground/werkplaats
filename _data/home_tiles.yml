@@ -1,36 +1,41 @@
+- title: Planning actueel
+  url: /01/01_do-today/
 
-- title: Vandaag
-  url: /agenda/
-
-- title: To-do lijstje
-  url: /to-do-list/
+- title: Periodiek
+  url: /01/01_period-day/
 
 - title: Boodschappen
-  url: /shopping-list/
+  url: /01/01_groc-super/
 
-- title: Gezondheid
-  url: /health-goals/
 
-- title: Daily to-do
-  url: /daily/
 
-- title: Weekly to-do
-  url: /weekly/
-
-- title: Monthly to-do
-  url: /monthly/
-
-- title: Notities
-  url: /notes/
+- title: Personal
+  url: /03/03_personal-voeding/
 
 - title: Ideeën
-  url: /ideas/
+  url: /03/03_ideas-digi/
 
-- title: Projecten
-  url: /projects/
+- title: Notities
+  url: /03/03_notes/
 
-- title: Later
-  url: /later/
 
-- title: Overig
-  url: /other/
+
+- title: Huis beneden
+  url: /06/06_huis-beneden/
+
+- title: Huis boven
+  url: /06/06_huis-boven/
+
+- title: Huis zolder
+  url: /06/06_huis-zolder/
+
+
+
+- title: Huis buiten
+  url: /06/06_huis-buiten/
+
+- title: …
+  url: /10/10_dinges/
+
+- title: …
+  url: /10/10_dinges/

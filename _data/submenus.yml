@@ -1,10 +1,87 @@
-
-household:
+huishouden:
   - title: Vandaag
-    url: /day/
+    url: /01/01_do-today/
   - title: Deze week
-    url: /week/
+    url: /01/01_do-week/
   - title: Deze maand
-    url: /month/
+    url: /01/01_do-month/
   - title: Agenda
-    url: /agenda/
+    url: /01/01_do-agenda/
+
+boodschappen:
+  - title: Super
+    url: /01/01_groc-super/
+  - title: Ekoplaza
+    url: /01/01_groc-eko/
+  - title: Markt
+    url: /01/01_groc-markt/
+  - title: Verder nog…
+    url: /01/01_groc-overig/
+
+periodiek:
+  - title: Elke dag
+    url: /01/01_period-day/
+  - title: Elke week
+    url: /01/01_period-week/
+  - title: Elke maand
+    url: /01/01_period-month/
+  - title: Elk jaar
+    url: /01/01_period-year/
+
+personal:
+  - title: Voeding
+    url: /03/03_personal-voeding/
+  - title: Sport
+    url: /03/03_personal-sport/
+  - title: Mentaal
+    url: /03/03_personal-mentaal/
+  
+ideeen:
+  - title: Digitaal
+    url: /03/03_ideas-digi/
+  - title: POP
+    url: /03/03_ideas-pop/
+  - title: Overig
+    url: /03/03_ideas-overig/
+
+notities:
+  - title: Notities
+    url: /03/03_notes/
+
+
+huis-beneden:
+  - title: Kamer algemeen
+    url: /06/06_huis-beneden/
+  - title: Planten
+    url: /dinges/
+  - title: Kasten
+    url: /dinges/
+  - title: Keuken
+    url: /dinges/
+
+huis-boven:
+  - title: Item 1
+    url: /06/06_huis-boven/
+  - title: Item 2
+    url: /dinges/
+  - title: Item 3
+    url: /dinges/
+  - title: Item 4
+    url: /dinges/
+
+huis-zolder:
+  - title: Optie 1
+    url: /06/06_huis-zolder/
+  - title: Optie 2
+    url: /dinges/
+  - title: Optie 3
+    url: /dinges/
+  - title: Optie 4
+    url: /dinges/
+
+huis-buiten:
+  - title: Schuurtje
+    url: /06/06_huis-buiten/
+  - title: Planten potten
+    url: /dinges/
+  - title: Voorkant huis
