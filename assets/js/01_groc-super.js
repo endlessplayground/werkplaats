@@ -32,7 +32,7 @@ const standaardTaken = [
    OPSLAG
    ================================= */
 
-const todoKey = "tododiddone-daily";
+const todoKey = "groc-super";
 
 let taken = [];
 
