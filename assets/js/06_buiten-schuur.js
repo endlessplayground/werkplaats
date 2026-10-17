@@ -5,7 +5,7 @@ const klusjes = [
     "Schuur 3"
 ];
 
-const opslagKey = "tododiddone-permanent";
+const opslagKey = "buiten-buiten-schuur-overig";
 const lijst = document.getElementById("todo-list");
 
 let opgeslagen = {};
