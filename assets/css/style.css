@@ -12,6 +12,7 @@
   --blue-darker: #00c3ff;
   --pink-dark: rgb(255, 140, 160);
   --pink-light: rgb(255, 200, 210);
+  --pink-light: rgb(205, 255, 200);
   --yellow-light: rgb(255, 245, 210);
 
 }
@@ -133,20 +134,29 @@ footer p {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
-  width: 50px;
-  margin: -42px 20px 0 0;
-  background-color: var(--yellow-light);
+  height: 60px;
+  width: 60px;
+  margin: -48px 20px 0 0;
+  background-color: var(--blue-lighter);
   border-radius: 50%;
-  box-shadow: 2px 2px 12px rgba(10, 10, 10, 0.49);
+  /*box-shadow: 2px 2px 12px rgba(10, 10, 10, 0.49);*/
 }
 
 .home img {
-  width: 60px;
+  width: 70px;
   margin-top: -4px;
 }
 
+.home.ik {
+  width: 70px;
+  height: 70px;
+  margin: -62px 10px 0 0;
+}
 
+.home.ik img {
+  width: 90px;
+  margin-top: -4px;
+}
 
 /* HOME GRID */
 
