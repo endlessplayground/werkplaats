@@ -14,6 +14,7 @@
   --pink-light: rgb(255, 200, 210);
   --pink-light: rgb(205, 255, 200);
   --yellow-light: rgb(255, 245, 210);
+  --magenta: rgb(255, 13, 122);
 
 }
 
@@ -123,7 +124,7 @@ footer {
   max-width: var(--phone-width);
   min-height:25px;
   background-color: var(--grey-dark);
-  border-top: 4px solid var(--blue);
+  border-top: 4px solid var(--magenta);
 }
 
 footer p {
