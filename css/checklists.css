@@ -1,0 +1,91 @@
+
+#todo-add,
+#todo-form {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+#todo-choice,
+#todo-input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 8px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text-color);
+  background: var(--yellow-light);
+  border: none;
+  border-radius: 3px;
+}
+
+#todo-choice {
+  cursor: pointer;
+}
+
+#todo-choice:focus,
+#todo-input:focus {
+  outline: 2px solid var(--blue);
+}
+
+#todo-add-stock,
+#todo-form button {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 3px;
+  background: var(--blue);
+  color: var(--grey-dark);
+  font: inherit;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#todo-add-stock:hover,
+#todo-form button:hover {
+  background: var(--blue-lighter);
+}
+
+#todo-list {
+  list-style: none;
+  margin-top: 16px;
+  width: fit-content;
+  margin: 0.8rem auto;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  overflow-wrap: anywhere;
+}
+
+.todo-done {
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#todo-reset {
+  display: block;
+  margin: 20px auto;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 3px;
+  background: var(--blue);
+  color:white;
+  font-weight: bold;
+  font: inherit;
+  cursor: pointer;
+}
+
+#todo-reset:hover {
+  background: var(--blue-lighter);
+}
