@@ -6,6 +6,7 @@
 const standaardTaken = [
     "Tahin",
     "Chocola",
+    "Kamille",
     "Rijstvlokken",
     "Havermout",
     "Brood",
