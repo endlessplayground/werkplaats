@@ -9,6 +9,7 @@ const standaardTaken = [
     "Tuinbonen",
     "Garam massala",
     "Roti pannekoeken",
+    "Noedels",
 ];
 
 
