@@ -5,8 +5,10 @@ huishouden:
     url: /01/01_do-week/
   - title: Deze maand
     url: /01/01_do-month/
+    dimmed: true
   - title: Agenda
     url: /01/01_do-agenda/
+    dimmed: true
 
 boodschappen:
   - title: Super
@@ -27,6 +29,7 @@ periodiek:
     url: /01/01_period-month/
   - title: Elk jaar
     url: /01/01_period-year/
+    dimmed: true
 
 personal:
   - title: Voeding

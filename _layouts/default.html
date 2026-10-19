@@ -28,14 +28,14 @@
 
     {% assign submenu = site.data.submenus[page.submenu] %}
 
-    <nav class="submenu" aria-label="Page navigation">
-      {% for item in submenu %}
-        <a href="{{ item.url | relative_url }}"
-           class="submenu-item{% if item.url == page.url %} active{% endif %}">
-          {{ item.title }}
-        </a>
-      {% endfor %}
-    </nav>
+  <nav class="submenu" aria-label="Page navigation">
+    {% for item in submenu %}
+      <a href="{{ item.url | relative_url }}"
+        class="submenu-item{% if item.url == page.url %} active{% endif %}{% if item.dimmed %} dimmed{% endif %}">
+        {{ item.title }}
+      </a>
+    {% endfor %}
+  </nav>
 
     <main>
       {{ content }}

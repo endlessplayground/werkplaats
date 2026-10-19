@@ -4,7 +4,7 @@ title: Daily to-do
 submenu: huis-buiten
 ---
 
-<h4>De schuur… &#128559;</h4>
+<h4>De schuur… <span style="font-size: 1.5rem; line-height: 0.5;">&#128559;</span></h4>
 
 <ul id="todo-list"></ul>
 

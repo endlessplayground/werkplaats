@@ -11,9 +11,11 @@
 
 - title: Personal
   url: /03/03_personal-voeding/
+  dimmed: true
 
 - title: Ideeën
   url: /03/03_ideas-digi/
+  dimmed: true
 
 - title: Notities
   url: /03/03_notes/
@@ -36,6 +38,8 @@
 
 - title: …
   url: /10/10_dinges/
+  dimmed: true
 
 - title: …
   url: /10/10_dinges/
+  dimmed: true

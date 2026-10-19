@@ -8,7 +8,7 @@ submenu: boodschappen
 
 <div id="todo-add">
     <select id="todo-choice">
-        <option value="">Kies een boodschap uit de lijst …</option>
+        <option value="" selected disabled hidden>Kies een boodschap uit de lijst …</option>
     </select>
     <button type="button" id="todo-add-stock">+</button>
 </div>

@@ -8,7 +8,7 @@ submenu: huishouden
 
 <div id="todo-add">
     <select id="todo-choice">
-        <option value="">Kies een klus uit de lijst …</option>
+        <option value="" selected disabled hidden>Kies een klus uit de lijst …</option>
     </select>
     <button type="button" id="todo-add-stock">+</button>
 </div>
