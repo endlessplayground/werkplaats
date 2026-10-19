@@ -76,6 +76,7 @@ standaardTaken.forEach((taak) => {
 });
 
 
+
 /* =================================
    TAAK TOEVOEGEN
    ================================= */
@@ -141,5 +142,5 @@ function toonTaken() {
 /* =================================
    START
    ================================= */
-
+console.log("Loaded daily script:", standaardTaken);
 toonTaken();

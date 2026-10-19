@@ -60,6 +60,12 @@ h4 {
 
 /* HEADER IMAGE */
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
 header img {
   display: block;
   width: 100%;
@@ -105,6 +111,10 @@ header img {
   text-shadow: 1px 1px 6px rgba(40, 115, 236, 0.95);
 }
 
+.submenu-item.dimmed {
+    opacity: 0.4;
+}
+
 
 /* MAIN CONTENT */
 
@@ -117,14 +127,17 @@ main {
 /* FOOTER */
 
 footer {
+  position: sticky;
+  bottom: 0;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
   width: 100%;
   max-width: var(--phone-width);
-  min-height:25px;
+  height:25px;
   background-color: var(--grey-dark);
   border-top: 4px solid var(--magenta);
+  z-index: 100;
 }
 
 footer p {
@@ -188,4 +201,14 @@ footer p {
 
 .home-tile:active {
     transform: scale(0.97);
+}
+
+.home-tile.dimmed {
+    opacity: 0.4;
+}
+
+.not-yettt {
+  background-image: url("../images/not-yet.svg");
+  background-position: center;
+  background-repeat: no-repeat;
 }
