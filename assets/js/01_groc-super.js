@@ -29,6 +29,7 @@ const standaardTaken = [
     "- - - - - - - - -",
     "Pasta",
     "Rijst",
+    "Wraps",
     "Koffie",
     "Eieren",
     "Pitten",
