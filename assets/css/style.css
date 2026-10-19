@@ -155,7 +155,7 @@ footer p {
 }
 
 .home.ik img {
-  width: 94px;
+  width: 90px;
   margin-top: -4px;
 }
 
@@ -191,6 +191,7 @@ footer p {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
+    text-shadow: 0px 0px 4px rgba(0,0,0,0.5);
 }
 
 .home-tile:hover {
