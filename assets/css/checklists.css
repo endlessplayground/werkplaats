@@ -51,16 +51,16 @@
 
 #todo-list {
   list-style: none;
-  margin-top: 16px;
   width: fit-content;
-  margin: 0.8rem auto;
+  margin: 1.5rem auto;
+  padding-right: 25px;
 }
 
 #todo-list li {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  margin-bottom: 6px;
+  margin: 6px 0;
   overflow-wrap: anywhere;
 }
 
@@ -69,7 +69,7 @@
   padding: 0;
   border: none;
   background: none;
-  font-size: 1rem;
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
