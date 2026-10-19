@@ -138,24 +138,12 @@ footer p {
   height: 60px;
   width: 60px;
   margin: -48px 20px 0 0;
-  background-color: var(--blue-lighter);
   border-radius: 50%;
   /*box-shadow: 2px 2px 12px rgba(10, 10, 10, 0.49);*/
 }
 
 .home img {
   width: 70px;
-  margin-top: -4px;
-}
-
-.home.ik {
-  width: 70px;
-  height: 70px;
-  margin: -62px 10px 0 0;
-}
-
-.home.ik img {
-  width: 90px;
   margin-top: -4px;
 }
 
