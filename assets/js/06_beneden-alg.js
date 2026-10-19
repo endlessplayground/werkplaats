@@ -2,6 +2,9 @@
 const klusjes = [
     "Woonkamer 1",
     "Woonkamer 2",
+    "Woonkamer 3",
+    "Woonkamer 8",
+    "Woonkamer 2",
     "Woonkamer 3"
 ];
 
