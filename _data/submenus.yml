@@ -89,3 +89,7 @@ huis-buiten:
     url: /06/06_buiten-planten/
   - title: Buiten overig
     url: /06/06_buiten-overig/
+
+bestellijst:
+  - title: Bestellijst
+    url: /10/10_bestellijst/
