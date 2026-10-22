@@ -177,5 +177,12 @@ select.appendChild(placeholder);
         });
     }
 
+const toggleButton = document.getElementById("toggle-input");
+const inputSection = document.getElementById("hidden");
+
+toggleButton.addEventListener("click", () => {
+    inputSection.hidden = !inputSection.hidden;
+});
+
     renderItems();
 })();
