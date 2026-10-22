@@ -11,7 +11,7 @@ submenu: boodschappen
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px 10px;
-    margin-top: 120px;
+    margin-top: 30px;
 }
 
 .item-category h5,
@@ -59,6 +59,7 @@ submenu: boodschappen
     flex: 1;
     padding: 6px;
     font: inherit;
+    font-size: 0.8rem;
 }
 
 .item-custom button {
@@ -91,26 +92,59 @@ submenu: boodschappen
 .item-button:active {
     transform: scale(0.96);
 }
+
+#hidden {
+    heigth: 0px;
+}
+
+h4 {
+    display: flex;
+    flex-direction: ro;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 40px;
+}
+
+.show-hide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--yellow-light);
+    cursor: pointer;
+    font-size: 2.4rem;
+}
+
+.dinges {
+    padding-bottom: 6px;
+}
 </style>
 
 
 
-<h4>Boodschappen supermarkt</h4>
+<h4><div id="toggle-input" class="show-hide"><span class="dinges">🖋️</span></div>Boodschappen supermarkt</h4>
 
-<div id="item-list"></div>
+
+
+<div id="hidden" hidden>
 
 <div id="item-categories" class="item-grid"></div>
 
 <form id="item-custom-form" class="item-custom">
     <input
-        type="text"
-        id="item-custom-input"
-        placeholder="Voeg zelf toe …"
-        autocomplete="off"
+            type="text"
+            id="item-custom-input"
+            placeholder="Voeg zelf toe …"
+            autocomplete="off"
     >
     <button type="submit">+</button>
 </form>
+</div>
 
+<div id="item-list"></div>
 
 <script>
 window.itemListConfig = {
