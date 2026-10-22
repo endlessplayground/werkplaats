@@ -123,7 +123,7 @@
             input.value = "";
         });
 
-        section.append(heading, row, form);
+        section.append(row, form);
         categoryContainer.appendChild(section);
     });
 
