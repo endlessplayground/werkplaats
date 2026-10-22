@@ -13,12 +13,8 @@ huishouden:
 boodschappen:
   - title: Super
     url: /01/01_groc-super/
-  - title: Ekoplaza
-    url: /01/01_groc-eko/
-  - title: Markt
-    url: /01/01_groc-markt/
-  - title: Verder nog…
-    url: /01/01_groc-overig/
+  - title: Diversen
+    url: /01/01_groc-div/
 
 periodiek:
   - title: Elke dag
