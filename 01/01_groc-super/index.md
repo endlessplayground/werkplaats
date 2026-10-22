@@ -3,36 +3,30 @@ layout: default
 title: Supermarkt
 submenu: boodschappen
 ---
+
 <style>
+/* CATEGORY GRID */
 
-/* =================================
-   SUPERMARKT: CATEGORIEËN
-   ================================= */
-
-#grocery-list {
-    margin-bottom: 200px;
-}
-
-.grocery-grid {
+.item-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px 10px;
+    margin-top: 120px;
 }
 
-.grocery-category h5,
-.grocery-list-group h5 {
-    margin-bottom: 5px;
+.item-category h5,
+.item-group h5 {
+    margin: 0 0 5px;
     font-size: 0.9rem;
-    color: var(--text-color);
     font-weight: 600;
 }
 
-.grocery-select-row {
+.item-select-row {
     display: flex;
     gap: 4px;
 }
 
-.grocery-select-row select {
+.item-select-row select {
     min-width: 0;
     width: 100%;
     flex: 1;
@@ -40,8 +34,8 @@ submenu: boodschappen
     font-size: 0.8rem;
 }
 
-.grocery-select-row button,
-.grocery-custom button {
+.item-select-row button,
+.item-custom button {
     padding: 3px 9px;
     border: none;
     border-radius: 4px;
@@ -51,41 +45,39 @@ submenu: boodschappen
     cursor: pointer;
 }
 
-/* EIGEN BOODSCHAP: VOLLE BREEDTE */
+/* CUSTOM ITEM */
 
-.grocery-custom {
+.item-custom {
     display: flex;
     gap: 6px;
     width: 100%;
     margin-top: 16px;
 }
 
-.grocery-custom input {
+.item-custom input {
     min-width: 0;
     flex: 1;
     padding: 6px;
     font: inherit;
 }
 
-.grocery-custom button {
+.item-custom button {
     padding: 4px 12px;
 }
 
-/* BOODSCHAPPENLIJST PER CATEGORIE */
+/* SAVED ITEMS */
 
-.grocery-list-group {
+.item-group {
     margin-top: 18px;
 }
 
-.grocery-items {
+.item-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
 }
 
-/* GROCERY BUTTONS: CHANGE THEIR STYLE HERE */
-
-.grocery-item {
+.item-button {
     padding: 5px 9px;
     border: none;
     border-radius: 5px;
@@ -93,29 +85,26 @@ submenu: boodschappen
     color: var(--yellow-light);
     font: inherit;
     font-size: 0.9rem;
-    font-weight: 500;
     cursor: pointer;
 }
 
-.grocery-item:active {
+.item-button:active {
     transform: scale(0.96);
 }
-
-
 </style>
+
 
 
 <h4>Boodschappen supermarkt</h4>
 
-<div id="grocery-list"></div>
+<div id="item-list"></div>
 
+<div id="item-categories" class="item-grid"></div>
 
-<div id="grocery-categories" class="grocery-grid"></div>
-
-<form id="grocery-custom-form" class="grocery-custom">
+<form id="item-custom-form" class="item-custom">
     <input
         type="text"
-        id="grocery-custom-input"
+        id="item-custom-input"
         placeholder="Voeg zelf toe …"
         autocomplete="off"
     >
@@ -123,4 +112,38 @@ submenu: boodschappen
 </form>
 
 
-<script src="{{ '/assets/js/01_groc-super.js' | relative_url }}"></script>
+<script>
+window.itemListConfig = {
+    storageKey: "groc-super",
+    customCategory: "Rest",
+
+    categories: {
+    "Groenten & fruit 1": [
+        "Uien", "Knoflook", "Gember", "Peper"
+    ],
+    "Groenten & fruit 2": [
+        "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen"
+    ],
+    "Groenten & fruit 3": [
+        "Aardappelen", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
+    ],
+    "Vlees & eieren": [
+        "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
+    ],
+    "Blik & pot": [
+        "Bliktomaten", "Tomatenpuree", "Pesto", "Jalapeño", "Artisjokken", "Bonen", "Mosterd",
+    ],
+    "Granen & noten": [
+        "Pasta", "Rijst", "Wraps", "Walnoten", "Cashew", "Pistache", "Zonnebloempit", "Pompoenpit", "Pijnoompit"
+    ],
+    "Zuivel & vriezer": [
+        "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
+    ],
+    "Rest": [
+        "Koffie", "Koekjes", "Kattenvoer", "Toiletpapier", "Vuilniszak", "Handzeep"
+    ]
+}
+};
+</script>
+
+<script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
