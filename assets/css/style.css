@@ -9,7 +9,7 @@
   --text-color: rgb(63, 60, 60);
   --blue: #14c8ff;
   --blue-lighter: #5cd9ff;
-  --blue-darker: #00c3ff;
+  --blue-darker: #1067be;
   --pink-dark: rgb(255, 140, 160);
   --pink-light: rgb(255, 200, 210);
   --pink-light: rgb(205, 255, 200);
@@ -32,10 +32,11 @@ body {
   background: var(--grey-dark);
   color: var(--text-color);
   font-family: Arial, sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
 }
 
 p {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
 }
 
 h4 {
@@ -120,7 +121,7 @@ header img {
 
 main {
   flex: 1;
-  padding: 18px;
+  padding: 18px 18px 80px 18px;
 }
 
 
