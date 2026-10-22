@@ -1,171 +1,190 @@
-/* =================================
-   STANDAARDKLUSSEN
-   Voeg hier zelf taken toe of pas ze aan.
-   ================================= */
 
-const standaardTaken = [
-    "Uien",
-    "Knoflook",
-    "Paprika",
-    "Aardappelen",
-    "Gember",
-    "Koriander",
-    "Lente-ui",
-    "Brocccoli",
-    "Courgette",
-    "Pompoen",
-    "Gesneden groenten",
-    "- - - - - - - - -",
-    "Gehakt",
-    "Kip",
-    "Hamburger",
-    "Rookworst",
-    "- - - - - - - - -",
-    "Bliktomaten",
-    "Tomatenpuree",
-    "Pesto",
-    "Bonen",
-    "Mosterd",
-    "- - - - - - - - -",
-    "Pasta",
-    "Rijst",
-    "Wraps",
-    "Koffie",
-    "Eieren",
-    "Pitten",
-    "- - - - - - - - -",
-    "Melk",
-    "Melk M",
-    "Karnemelk",
-    "Kwark",
-    "Yoghurt",
-    "Crème fraiche",
-    "Boter",
-    "- - - - - - - - -",
-    "Sperziebonen",
-    "Spinazie / bloemkool",
-    "Zoete aardappel",
-    "Bosfruit",
-    "- - - - - - - - -",
-    "Koekjes",
-    "Kattenvoer",
-    "Toiletpapier",
-    "Walnoten",
-    "Cashewnoten", 
-];
-
-
-/* =================================
-   OPSLAG
-   ================================= */
+const categorieen = {
+    "Groenten & fruit 1": [
+        "Uien", "Knoflook", "Gember", "Peper"
+    ],
+    "Groenten & fruit 2": [
+        "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen"
+    ],
+    "Groenten & fruit 3": [
+        "Aardappelen", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
+    ],
+    "Vlees & eieren": [
+        "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
+    ],
+    "Blik & pot": [
+        "Bliktomaten", "Tomatenpuree", "Pesto", "Jalapeño", "Artisjokken", "Bonen", "Mosterd",
+    ],
+    "Granen & noten": [
+        "Pasta", "Rijst", "Wraps", "Walnoten", "Cashew", "Pistache", "Zonnebloempit", "Pompoenpit", "Pijnoompit"
+    ],
+    "Zuivel & vriezer": [
+        "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
+    ],
+    "Rest": [
+        "Koffie", "Koekjes", "Kattenvoer", "Toiletpapier", "Vuilniszak", "Handzeep"
+    ]
+};
 
 const todoKey = "groc-super";
+const namenCategorieen = Object.keys(categorieen);
 
-let taken = [];
+function categorieVan(naam) {
+    return namenCategorieen.find(
+        categorie => categorieen[categorie].includes(naam)
+    ) || "Rest";
+}
+
+let boodschappen = [];
 
 try {
-    const opgeslagen = localStorage.getItem(todoKey);
-    taken = opgeslagen ? JSON.parse(opgeslagen) : [];
+    const opgeslagen = JSON.parse(localStorage.getItem(todoKey)) || [];
 
-    if (!Array.isArray(taken)) {
-        taken = [];
+    if (Array.isArray(opgeslagen)) {
+        boodschappen = opgeslagen
+            .filter(item => typeof item === "string" || (
+                item && typeof item.name === "string"
+            ))
+            .map(item => typeof item === "string"
+                ? { name: item, category: categorieVan(item) }
+                : {
+                    name: item.name,
+                    category: namenCategorieen.includes(item.category)
+                        ? item.category
+                        : categorieVan(item.name)
+                }
+            )
+            .filter(item => !item.name.startsWith("- -"));
     }
 } catch (error) {
-    taken = [];
+    boodschappen = [];
 }
 
-function bewaarTaken() {
-    localStorage.setItem(todoKey, JSON.stringify(taken));
+function bewaarBoodschappen() {
+    localStorage.setItem(todoKey, JSON.stringify(boodschappen));
 }
 
+/* CATEGORIEËN OPBOUWEN */
 
-/* =================================
-   ELEMENTEN
-   ================================= */
+const categorieGrid = document.getElementById("grocery-categories");
 
-const keuze = document.getElementById("todo-choice");
-const voorraadKnop = document.getElementById("todo-add-stock");
-const formulier = document.getElementById("todo-form");
-const invoer = document.getElementById("todo-input");
-const lijst = document.getElementById("todo-list");
+namenCategorieen.forEach(categorie => {
+    const vak = document.createElement("section");
+    vak.className = "grocery-category";
 
+    const titel = document.createElement("h5");
+    titel.textContent = categorie;
 
-/* =================================
-   STANDAARDTAKEN TONEN
-   ================================= */
+    const rij = document.createElement("div");
+    rij.className = "grocery-select-row";
 
-standaardTaken.forEach((taak) => {
-    const optie = document.createElement("option");
-    optie.value = taak;
-    optie.textContent = taak;
-    keuze.appendChild(optie);
-});
+    const keuze = document.createElement("select");
+    keuze.setAttribute("aria-label", categorie);
 
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Kies...";
+    placeholder.selected = true;
+    placeholder.disabled = true;
+    placeholder.hidden = true;
+    keuze.appendChild(placeholder);
 
-/* =================================
-   TAAK TOEVOEGEN
-   ================================= */
+    categorieen[categorie].forEach(naam => {
+        const optie = document.createElement("option");
+        optie.value = naam;
+        optie.textContent = naam;
+        keuze.appendChild(optie);
+    });
 
-function voegTaakToe(taak) {
-    taak = taak.trim();
+    const knop = document.createElement("button");
+    knop.type = "button";
+    knop.textContent = "+";
+    knop.setAttribute("aria-label", "Voeg toe aan " + categorie);
 
-    if (!taak) return;
+    knop.addEventListener("click", () => {
+        if (!keuze.value) return;
 
-    taken.push(taak);
-    bewaarTaken();
-    toonTaken();
-}
-
-voorraadKnop.addEventListener("click", () => {
-    voegTaakToe(keuze.value);
-    keuze.value = "";
-});
-
-formulier.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    voegTaakToe(invoer.value);
-    invoer.value = "";
-    invoer.focus();
-});
-
-
-/* =================================
-   LIJST TONEN
-   ================================= */
-
-function toonTaken() {
-    lijst.innerHTML = "";
-
-    taken.forEach((taak, index) => {
-        const item = document.createElement("li");
-
-        const klaarKnop = document.createElement("button");
-        klaarKnop.type = "button";
-        klaarKnop.className = "todo-done";
-        klaarKnop.textContent = "✅";
-        klaarKnop.setAttribute(
-            "aria-label",
-            "Verwijder afgerond klusje"
-        );
-
-        klaarKnop.addEventListener("click", () => {
-            taken.splice(index, 1);
-            bewaarTaken();
-            toonTaken();
+        boodschappen.push({
+            name: keuze.value,
+            category: categorie
         });
 
-        const tekst = document.createElement("span");
-        tekst.textContent = taak;
+        keuze.value = "";
+        bewaarBoodschappen();
+        toonBoodschappen();
+    });
 
-        item.append(klaarKnop, tekst);
-        lijst.appendChild(item);
+    rij.append(keuze, knop);
+    vak.append(titel, rij);
+    categorieGrid.appendChild(vak);
+});
+
+/* EIGEN BOODSCHAP TOEVOEGEN */
+
+document.getElementById("grocery-custom-form")
+    .addEventListener("submit", event => {
+        event.preventDefault();
+
+        const invoer = document.getElementById("grocery-custom-input");
+        const naam = invoer.value.trim();
+
+        if (!naam) return;
+
+        boodschappen.push({
+            name: naam,
+            category: "Rest"
+        });
+
+        invoer.value = "";
+        bewaarBoodschappen();
+        toonBoodschappen();
+    });
+
+/* BOODSCHAPPEN TONEN PER CATEGORIE */
+
+function toonBoodschappen() {
+    const lijst = document.getElementById("grocery-list");
+    lijst.innerHTML = "";
+
+    namenCategorieen.forEach(categorie => {
+        const items = boodschappen.filter(
+            item => item.category === categorie
+        );
+
+        if (items.length === 0) return;
+
+        const groep = document.createElement("section");
+        groep.className = "grocery-list-group";
+
+        const titel = document.createElement("h5");
+        titel.textContent = categorie;
+        groep.appendChild(titel);
+
+        const rij = document.createElement("div");
+        rij.className = "grocery-items";
+
+        items.forEach(item => {
+            const knop = document.createElement("button");
+            knop.type = "button";
+            knop.className = "grocery-item";
+            knop.textContent = item.name;
+            knop.title = "Tik om te verwijderen";
+
+            knop.addEventListener("click", () => {
+                const index = boodschappen.indexOf(item);
+                if (index !== -1) {
+                    boodschappen.splice(index, 1);
+                    bewaarBoodschappen();
+                    toonBoodschappen();
+                }
+            });
+
+            rij.appendChild(knop);
+        });
+
+        groep.appendChild(rij);
+        lijst.appendChild(groep);
     });
 }
 
-
-/* =================================
-   START
-   ================================= */
-
-toonTaken();
+toonBoodschappen();
