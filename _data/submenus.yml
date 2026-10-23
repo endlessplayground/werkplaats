@@ -2,13 +2,11 @@ huishouden:
   - title: Van daag
     url: /01/01_do-today/
   - title: Later
-    url: /01/01_do-week/
+    url: /01/01_do-later/
   - title: Elke week
-    url: /01/01_do-month/
-    dimmed: true
+    url: /01/01_do-weekly/
   - title: Elke maand
-    url: /01/01_do-agenda/
-    dimmed: true
+    url: /01/01_do-monthly/
 
 boodschappen:
   - title: Super
