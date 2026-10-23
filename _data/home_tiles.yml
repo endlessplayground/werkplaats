@@ -1,15 +1,15 @@
-- title: Planning
+- title: To do
   url: /01/01_do-today/
 
-- title: Periodiek
-  url: /01/01_period-day/
-
-- title: Boodschappen
+- title: Bood schap pen
   url: /01/01_groc-super/
 
+- title: Perio diek
+  url: /01/01_period-day/
+  dimmed: true
 
 
-- title: Personal
+- title: Per sonal
   url: /03/03_personal-voeding/
   dimmed: true
 
@@ -21,8 +21,7 @@
   url: /03/03_notes/
 
 
-
-- title: Beneden
+- title: Be neden
   url: /06/06_beneden-alg/
 
 - title: Boven
@@ -40,5 +39,5 @@
   url: /10/10_dinges/
   dimmed: true
 
-- title: Bestellijst
+- title: Werk
   url: /10/10_bestellijst/

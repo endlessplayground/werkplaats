@@ -1,12 +1,12 @@
 huishouden:
-  - title: Vandaag
+  - title: Van daag
     url: /01/01_do-today/
-  - title: Deze week
+  - title: Later
     url: /01/01_do-week/
-  - title: Deze maand
+  - title: Elke week
     url: /01/01_do-month/
     dimmed: true
-  - title: Agenda
+  - title: Elke maand
     url: /01/01_do-agenda/
     dimmed: true
 
@@ -15,8 +15,6 @@ boodschappen:
     url: /01/01_groc-super/
   - title: Diversen
     url: /01/01_groc-div/
-  - title: Test to-do
-    url: /01/01_groc-test/
 
 periodiek:
   - title: Elke dag
@@ -89,5 +87,8 @@ huis-buiten:
     url: /06/06_buiten-overig/
 
 bestellijst:
-  - title: Bestellijst
+  - title: Werk to do
+    url: /10/10_werk-to-do/
+
+  - title: Bestel lijst
     url: /10/10_bestellijst/
