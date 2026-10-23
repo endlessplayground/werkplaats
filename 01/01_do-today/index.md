@@ -22,39 +22,17 @@ submenu: huishouden
 
 <div id="item-list"></div>
 
+<script src="{{ '/assets/js/00_daily-tasks.js' | relative_url }}"></script>
+
 <script>
-const dailyTasks = [
-    "Afwassen",
-    "Keuken schoonmaken",
-    "Douchen",
-    "Planten water",
-    "Mail checken",
-    "Badkamer schoonmaken",
-    "Was ophangen",
-    "Was afhalen",
-    "Was opruimen",
-    "Bloezen strijken",
-    "Bloezen in de week zetten",
-    "Tas werk klaarmaken",
-    "Ontbijt werk klaarmaken",
-    "Brooddeeg",
-    "Avondeten voorbereiden",
-    "Groente snijden",
-    "Boodschappen halen",
-    "Markt",
-    "WhatsAppjes beantwoorden",
-    "Administratie",
-    "Post openmaken",
-    "Bed verschonen"
-];
 
 window.itemListConfig = {
     storageKey: "to-do-vandaag",
     customCategory: "Rest",
 
     categories: {
-        "Urgent": dailyTasks,
-        "Optioneel": dailyTasks,
+"Urgent": window.dailyTasks,
+"Optioneel": window.dailyTasks,
         "Administratief": [
             "Mail checken", "WhatsApp beantwoorden", "[Instantie*] bellen", "[Contract*] tekenen", "[Iets ingewikkelds*] uitzoeken", "Post openen"
         ],
