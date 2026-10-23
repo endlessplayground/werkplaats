@@ -9,7 +9,7 @@
   --text-color: rgb(63, 60, 60);
   --blue: #14c8ff;
   --blue-lighter: #5cd9ff;
-  --blue-darker: #1067be;
+  --blue-darker: #1386c9;
   --pink-dark: rgb(255, 140, 160);
   --pink-light: rgb(255, 200, 210);
   --pink-light: rgb(205, 255, 200);
@@ -101,8 +101,10 @@ header img {
   background: var(--grey-light);
   color: white;
   text-decoration: none;
+  font-family: "Rammetto One", sans-serif;
   font-size: 0.9rem;
   line-height: 1;
+  text-shadow: 0px 0px 4px rgba(0,0,0,0.5);
 }
 
 .submenu-item.active {
@@ -193,9 +195,15 @@ footer p {
     color: white;
     text-align: center;
     text-decoration: none;
-    font-weight: bold;
     text-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+
+    font-family: "Rammetto One", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
 }
+
 
 .home-tile:hover {
     filter: brightness(1.1);
@@ -214,3 +222,6 @@ footer p {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/*-------------------------------*/
+
