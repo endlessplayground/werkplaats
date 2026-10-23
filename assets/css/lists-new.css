@@ -204,3 +204,48 @@ h4 {
 .dinges {
     padding-bottom: 6px;
 }
+
+/*------------Period stuff--------------*/
+
+#period-date {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0 auto 14px;
+    padding: 7px 10px;
+    font-size: 0.9rem;
+    color: var(--blue-darker);
+    background: white;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+#period-date strong {
+    font-weight: 600;
+    color: inherit;
+}
+
+#period-date button {
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+#period-date button:hover {
+    opacity: 1;
+}
+
+#period-date input[type="date"] {
+    max-width: 100%;
+    padding: 4px 6px;
+    font: inherit;
+    color: inherit;
+    background: white;
+    border: 1px solid var(--area-color, hsl(171, 77%, 34%));
+    border-radius: 4px;
+}
+
+#period-date input[hidden] {
+    display: none;
+}
