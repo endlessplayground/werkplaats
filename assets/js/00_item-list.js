@@ -11,6 +11,7 @@
     const categoryNames = Object.keys(categories);
     const storageKey = config.storageKey;
     const customCategory = config.customCategory || categoryNames[0];
+    const LOAD_ALL = "__LOAD_ENTIRE_LIST__";
 
     function findCategory(name) {
         return categoryNames.find(category =>
@@ -65,7 +66,25 @@
         name = name.trim();
         if (!name) return;
 
+        // Skip an item already present in the checklist.
+        if (items.some(item =>
+    item.name === name && item.category === category
+)) return;
+
         items.push({ name, category });
+        saveItems();
+        renderItems();
+    }
+
+    function addEntireList(category) {
+        categories[category].forEach(name => {
+            if (!items.some(item =>
+    item.name === name && item.category === category
+)) {
+                items.push({ name, category });
+            }
+        });
+
         saveItems();
         renderItems();
     }
@@ -81,19 +100,16 @@
         const heading = document.createElement("h5");
         heading.textContent = category;
 
-        const row = document.createElement("div");
-        row.className = "item-select-row";
-
         const select = document.createElement("select");
         select.setAttribute("aria-label", category);
 
-const placeholder = document.createElement("option");
-placeholder.value = "";
-placeholder.textContent = "Kies...";
-placeholder.selected = true;
-placeholder.disabled = true;
-placeholder.hidden = true;
-select.appendChild(placeholder);
+        const placeholder = document.createElement("option");
+        placeholder.value = "";
+        placeholder.textContent = "Kies...";
+        placeholder.selected = true;
+        placeholder.disabled = true;
+        placeholder.hidden = true;
+        select.appendChild(placeholder);
 
         categories[category].forEach(name => {
             const option = document.createElement("option");
@@ -102,20 +118,23 @@ select.appendChild(placeholder);
             select.appendChild(option);
         });
 
-        const button = document.createElement("button");
-        button.type = "button";
-        button.textContent = "+";
-        button.setAttribute("aria-label", `Voeg toe: ${category}`);
+        // Special command at the bottom of every dropdown.
+        const loadAllOption = document.createElement("option");
+        loadAllOption.value = LOAD_ALL;
+        loadAllOption.textContent = "📋 Laad de hele lijst";
+        select.appendChild(loadAllOption);
 
-        button.addEventListener("click", () => {
-            if (!select.value) return;
+        select.addEventListener("change", () => {
+            if (select.value === LOAD_ALL) {
+                addEntireList(category);
+            } else if (select.value) {
+                addItem(select.value, category);
+            }
 
-            addItem(select.value, category);
-            select.value = "";
+            select.selectedIndex = 0;
         });
 
-        row.append(select, button);
-        section.append(heading, row);
+        section.append(heading, select);
         categoryContainer.appendChild(section);
     });
 
@@ -177,12 +196,13 @@ select.appendChild(placeholder);
         });
     }
 
-const toggleButton = document.getElementById("toggle-input");
-const inputSection = document.getElementById("hidden");
+    // Show/hide the input area.
+    const toggleButton = document.getElementById("toggle-input");
+    const inputSection = document.getElementById("hidden");
 
-toggleButton.addEventListener("click", () => {
-    inputSection.hidden = !inputSection.hidden;
-});
+    toggleButton.addEventListener("click", () => {
+        inputSection.hidden = !inputSection.hidden;
+    });
 
     renderItems();
 })();
