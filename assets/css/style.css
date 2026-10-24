@@ -171,11 +171,12 @@ footer {
     align-items: center;
     justify-content: center;
 
-    background: var(--blue);
+    background: var(--grey-dark);
     color: white;
     text-align: center;
     text-decoration: none;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9);
 
     font-family: "Rammetto One", sans-serif;
     font-size: 0.8rem;
