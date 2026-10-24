@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/groc-super.css' | relative_url }}">-->
   <link rel="stylesheet" href="{{ '/assets/css/bestellijst.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/lists-new.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/calendar.css' | relative_url }}">
   
 
 
@@ -41,7 +42,7 @@
   <nav class="submenu" aria-label="Page navigation">
     {% for item in submenu %}
       <a href="{{ item.url | relative_url }}"
-        class="submenu-item{% if item.url == page.url %} active{% endif %}{% if item.dimmed %} dimmed{% endif %}">
+        class="submenu-item{% if item.url == page.url %} active{% endif %}{% if item.dimmed %} dimmed{% endif %}{% if item.up %} up{% endif %}">
         {{ item.title }}
       </a>
     {% endfor %}
@@ -51,9 +52,16 @@
       {{ content }}
     </main>
 
-    <footer>
-      <a href="{{ '/' | relative_url }}"><div class="home"><img src="{{ '/assets/images/home.svg' | relative_url }}"></div></a>
-    </footer>
+<footer>
+<!--<img src="{{ '/assets/images/home.svg' | relative_url }}">-->
+
+  <nav class="footer-menu" aria-label="Quick links">
+      <a href="{{ '/01/01_do-today/' | relative_url }}" class="footer-tile">To do</a>
+      <a href="{{ '/01/01_groc-super/' | relative_url }}" class="footer-tile">Bood schap pen</a>
+      <a href="{{ '/01/01_calendar-month/' | relative_url }}" class="footer-tile">Ka len der</a>
+      <a href="{{ '/' | relative_url }}" class="footer-tile"><img src="{{ '/assets/images/home.svg' | relative_url }}"></a>
+  </nav>
+</footer>
 
   </div>
 </body>

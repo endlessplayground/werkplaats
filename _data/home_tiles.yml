@@ -1,17 +1,20 @@
 - title: To do
   url: /01/01_do-today/
+  up: true
 
 - title: Bood schap pen
   url: /01/01_groc-super/
+  up: true
 
-- title: Perio diek
-  url: /01/01_period-day/
-  dimmed: true
+- title: Ka lender
+  url: /01/01_calendar-month/
+  up: true
 
 
 - title: Per sonal
   url: /03/03_personal-voeding/
   dimmed: true
+  up: true
 
 - title: Ideeën
   url: /03/03_ideas-digi/
@@ -23,13 +26,13 @@
 
 - title: Be neden
   url: /06/06_beneden-alg/
+  up: true
 
 - title: Boven
   url: /06/06_boven-overloop/
 
 - title: Zolder
   url: /06/06_zolder-kleding/
-
 
 
 - title: Buiten

@@ -1,18 +1,27 @@
 huishouden:
   - title: Van daag
     url: /01/01_do-today/
+    up: true
   - title: Later
     url: /01/01_do-later/
   - title: Elke week
     url: /01/01_do-weekly/
+    up: true
   - title: Elke maand
     url: /01/01_do-monthly/
+    up: true
 
 boodschappen:
   - title: Super
     url: /01/01_groc-super/
   - title: Diversen
     url: /01/01_groc-div/
+
+kalender:
+  - title: Deze maand
+    url: /01/01_calendar-month/
+  - title: Deze week
+    url: /01/01_calendar-week/
 
 periodiek:
   - title: Elke dag
