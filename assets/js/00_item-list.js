@@ -66,10 +66,10 @@
         name = name.trim();
         if (!name) return;
 
-        // Skip an item already present in the checklist.
+        // Prevent duplicates within the same category.
         if (items.some(item =>
-    item.name === name && item.category === category
-)) return;
+            item.name === name && item.category === category
+        )) return;
 
         items.push({ name, category });
         saveItems();
@@ -79,8 +79,8 @@
     function addEntireList(category) {
         categories[category].forEach(name => {
             if (!items.some(item =>
-    item.name === name && item.category === category
-)) {
+                item.name === name && item.category === category
+            )) {
                 items.push({ name, category });
             }
         });
@@ -93,66 +93,100 @@
     const categoryContainer =
         document.getElementById("item-categories");
 
-    categoryNames.forEach(category => {
-        const section = document.createElement("section");
-        section.className = "item-category";
+    if (categoryContainer) {
+        categoryNames.forEach(category => {
+            const section = document.createElement("section");
+            section.className = "item-category";
 
-        const heading = document.createElement("h5");
-        heading.textContent = category;
+            const heading = document.createElement("h5");
+            heading.textContent = category;
 
-        const select = document.createElement("select");
-        select.setAttribute("aria-label", category);
+            const select = document.createElement("select");
+            select.setAttribute("aria-label", category);
 
-        const placeholder = document.createElement("option");
-        placeholder.value = "";
-        placeholder.textContent = "Kies...";
-        placeholder.selected = true;
-        placeholder.disabled = true;
-        placeholder.hidden = true;
-        select.appendChild(placeholder);
+            const placeholder = document.createElement("option");
+            placeholder.value = "";
+            placeholder.textContent = "Kies...";
+            placeholder.selected = true;
+            placeholder.disabled = true;
+            placeholder.hidden = true;
+            select.appendChild(placeholder);
 
-        categories[category].forEach(name => {
-            const option = document.createElement("option");
-            option.value = name;
-            option.textContent = name;
-            select.appendChild(option);
-        });
+            categories[category].forEach(name => {
+                const option = document.createElement("option");
+                option.value = name;
+                option.textContent = name;
+                select.appendChild(option);
+            });
 
-        // Special command at the bottom of every dropdown.
-        const loadAllOption = document.createElement("option");
-        loadAllOption.value = LOAD_ALL;
-        loadAllOption.textContent = "📋 Laad de hele lijst";
-        select.appendChild(loadAllOption);
+            // Special command at the bottom of every dropdown.
+            const loadAllOption = document.createElement("option");
+            loadAllOption.value = LOAD_ALL;
+            loadAllOption.textContent = "📋 Laad de hele lijst";
+            select.appendChild(loadAllOption);
 
-        select.addEventListener("change", () => {
-            if (select.value === LOAD_ALL) {
-                addEntireList(category);
-            } else if (select.value) {
-                addItem(select.value, category);
+            select.addEventListener("change", () => {
+                if (select.value === LOAD_ALL) {
+                    addEntireList(category);
+                } else if (select.value) {
+                    addItem(select.value, category);
+                }
+
+                select.selectedIndex = 0;
+            });
+
+            section.append(heading, select);
+
+            // Optional custom input for each category.
+            if (config.customInputPerCategory === true) {
+                const customForm = document.createElement("form");
+                customForm.className = "item-custom";
+
+                const customInput = document.createElement("input");
+                customInput.type = "text";
+                customInput.placeholder = "Voeg zelf toe …";
+                customInput.autocomplete = "off";
+
+                const customButton = document.createElement("button");
+                customButton.type = "submit";
+                customButton.textContent = "+";
+
+                customForm.append(customInput, customButton);
+
+                customForm.addEventListener("submit", event => {
+                    event.preventDefault();
+                    addItem(customInput.value, category);
+                    customInput.value = "";
+                });
+
+                section.appendChild(customForm);
             }
 
-            select.selectedIndex = 0;
+            categoryContainer.appendChild(section);
         });
+    }
 
-        section.append(heading, select);
-        categoryContainer.appendChild(section);
-    });
+    // Keep support for pages using one shared custom-input form.
+    const customForm = document.getElementById("item-custom-form");
 
-    // Add a custom item.
-    document.getElementById("item-custom-form")
-        .addEventListener("submit", event => {
+    if (customForm) {
+        customForm.addEventListener("submit", event => {
             event.preventDefault();
 
-            const input =
-                document.getElementById("item-custom-input");
+            const input = document.getElementById("item-custom-input");
 
-            addItem(input.value, customCategory);
-            input.value = "";
+            if (input) {
+                addItem(input.value, customCategory);
+                input.value = "";
+            }
         });
+    }
 
     // Display items grouped by category.
     function renderItems() {
         const container = document.getElementById("item-list");
+        if (!container) return;
+
         container.innerHTML = "";
 
         categoryNames.forEach(category => {
@@ -200,9 +234,11 @@
     const toggleButton = document.getElementById("toggle-input");
     const inputSection = document.getElementById("hidden");
 
-    toggleButton.addEventListener("click", () => {
-        inputSection.hidden = !inputSection.hidden;
-    });
+    if (toggleButton && inputSection) {
+        toggleButton.addEventListener("click", () => {
+            inputSection.hidden = !inputSection.hidden;
+        });
+    }
 
     renderItems();
 })();

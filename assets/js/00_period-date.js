@@ -33,15 +33,16 @@
         if (period === "weekly") {
             next.setDate(next.getDate() + 7);
         } else {
-            // Same day in the following month, or its final day.
             const day = next.getDate();
             next.setDate(1);
             next.setMonth(next.getMonth() + 1);
+
             const lastDay = new Date(
                 next.getFullYear(),
                 next.getMonth() + 1,
                 0
             ).getDate();
+
             next.setDate(Math.min(day, lastDay));
         }
 
@@ -60,7 +61,6 @@
         const today = parseDate(localDateString(new Date()));
         let next = nextPeriod(start);
 
-        // Advance to the next upcoming period boundary.
         while (next <= today) {
             next = nextPeriod(next);
         }
@@ -71,18 +71,19 @@
 
         container.replaceChildren();
 
-        const calendar = document.createElement("span");
-        calendar.textContent = "🗓️ Gestart op ";
+        const calendar = document.createElement("button");
+        calendar.type = "button";
+        calendar.textContent = "🗓️";
+        calendar.setAttribute("aria-label", "Startdatum wijzigen");
+        calendar.title = "Startdatum wijzigen";
+        calendar.style.cssText =
+            "border:0;background:none;cursor:pointer;font:inherit;padding:0 3px;";
+
+        const label = document.createElement("span");
+        label.textContent = " Gestart op ";
 
         const dateText = document.createElement("strong");
         dateText.textContent = formatDate(start);
-
-        const edit = document.createElement("button");
-        edit.type = "button";
-        edit.textContent = "✎";
-        edit.setAttribute("aria-label", "Startdatum wijzigen");
-        edit.style.cssText =
-            "border:0;background:none;cursor:pointer;font:inherit;padding:0 4px;";
 
         const countdown = document.createElement("span");
         countdown.textContent =
@@ -94,18 +95,32 @@
         input.hidden = true;
         input.setAttribute("aria-label", "Startdatum");
 
-        edit.addEventListener("click", () => {
+        calendar.addEventListener("click", () => {
             input.hidden = !input.hidden;
-            if (!input.hidden) input.showPicker?.();
+
+            if (!input.hidden) {
+                if (typeof input.showPicker === "function") {
+                    input.showPicker();
+                } else {
+                    input.focus();
+                }
+            }
         });
 
         input.addEventListener("change", () => {
             if (!input.value) return;
+
             localStorage.setItem(storageKey, input.value);
             render();
         });
 
-        container.append(calendar, dateText, edit, countdown, input);
+        container.append(
+            calendar,
+            label,
+            dateText,
+            countdown,
+            input
+        );
     }
 
     render();
