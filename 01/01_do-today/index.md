@@ -8,16 +8,6 @@ submenu: huishouden
 
 <div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>
-
-    <form id="item-custom-form" class="item-custom">
-        <input
-            type="text"
-            id="item-custom-input"
-            placeholder="Voeg zelf toe …"
-            autocomplete="off"
-        >
-        <button type="submit">+</button>
-    </form>
 </div>
 
 <div id="item-list"></div>
@@ -25,23 +15,13 @@ submenu: huishouden
 <script src="{{ '/assets/js/00_daily-tasks.js' | relative_url }}"></script>
 
 <script>
-
 window.itemListConfig = {
     storageKey: "to-do-vandaag",
-    customCategory: "Rest",
+    customInputPerCategory: true,
 
     categories: {
-"Urgent": window.dailyTasks,
-"Optioneel": window.dailyTasks,
-        "Administratief": [
-            "Mail checken", "WhatsApp beantwoorden", "[Instantie*] bellen", "[Contract*] tekenen", "[Iets ingewikkelds*] uitzoeken", "Post openen"
-        ],
-        "Nog een categorie": [
-            "Dinges", "Dat", "En nog iets..."
-        ],
-        "Rest": [
-            "Dinges", "Dat", "En nog iets..."
-        ]
+        "Urgent": window.dailyTasks,
+        "Optioneel": window.dailyTasks
     }
 };
 </script>
