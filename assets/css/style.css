@@ -177,7 +177,7 @@ footer {
     text-align: center;
     text-decoration: none;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
 
     font-family: "Rammetto One", sans-serif;
     font-size: 0.8rem;
