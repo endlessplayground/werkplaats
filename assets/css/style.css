@@ -171,8 +171,8 @@ footer {
     align-items: center;
     justify-content: center;
 
-    background: var(--magenta);
-    color: white;
+    background: var(--yellow-light);
+    color: var(--magenta);
     text-align: center;
     text-decoration: none;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
