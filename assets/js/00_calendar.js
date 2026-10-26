@@ -15,7 +15,6 @@ const periodInput = document.getElementById("event-period");
 const descriptionInput = document.getElementById("event-description");
 const formTitle = document.getElementById("calendar-form-title");
 const saveButton = document.getElementById("calendar-save");
-const cancelButton = document.getElementById("calendar-cancel");
 
 let events = JSON.parse(localStorage.getItem(eventsKey) || "[]");
 let exceptions = JSON.parse(localStorage.getItem(exceptionsKey) || "[]");
@@ -164,7 +163,6 @@ function editEvent(event) {
         : "Afspraak aanpassen";
 
     saveButton.textContent = "Opslaan";
-    cancelButton.hidden = false;
 
     let deleteButton = document.getElementById("calendar-delete");
 
@@ -191,7 +189,6 @@ function resetForm() {
 
     formTitle.textContent = "Afspraak toevoegen";
     saveButton.textContent = "Toevoegen";
-    cancelButton.hidden = true;
 
     const deleteButton = document.getElementById("calendar-delete");
     if (deleteButton) deleteButton.hidden = true;
@@ -244,7 +241,5 @@ form.addEventListener("submit", event => {
     resetForm();
     renderCalendar();
 });
-
-cancelButton.addEventListener("click", resetForm);
 
 renderCalendar();
