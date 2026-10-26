@@ -11,7 +11,7 @@ submenu: kalender
   <div id="calendar-grid" class="calendar-grid"></div>
 
   <section class="calendar-form-section">
-    <h4 id="calendar-form-title">Afspraak toevoegen</h4>
+    <h5 id="calendar-form-title">Afspraak toevoegen</h5>
 
 <form id="calendar-form">
       <label for="event-date">Datum</label>
@@ -20,7 +20,8 @@ submenu: kalender
 <label for="event-category">Categorie</label>
       <select id="event-category" required>
         <option value="hotel">Hotel</option>
-        <option value="university">Universiteit</option>
+        <option value="university">R'dam</option>
+        <option value="university">Leiden</option>
         <option value="social">Sociaal</option>
       </select>
 
@@ -37,7 +38,6 @@ submenu: kalender
 
 <div class="calendar-form-buttons">
         <button type="submit" id="calendar-save">Toevoegen</button>
-        <button type="button" id="calendar-cancel" hidden>Annuleren</button>
       </div>
     </form>
   </section>
