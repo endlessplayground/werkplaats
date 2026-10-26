@@ -1,0 +1,53 @@
+
+/* ==============================
+   SHARED FORM STYLES
+   ============================== */
+
+/* Dropdowns */
+
+select, input:not([type="checkbox"]):not([type="radio"]),
+textarea, button {
+    border: 2px solid var(--green-dark);
+    border-radius: 4px;
+    padding: 1px 6px 3px 6px;
+    margin: 3px 6px 3px 0;
+    color: var(--text-color);
+}
+
+select {
+    font: inherit;
+    color: var(--text-color);
+    background: white;
+}
+
+/* Text fields */
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+    font: inherit;
+    background: var(--green-lighter);
+}
+
+/* Focus */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--blue);
+    outline-offset: -1px;
+}
+
+/* Buttons */
+
+button {
+    font: inherit;
+    background: var(--blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border: 2px solid var(--blue-little-darker);
+}
+
+button:hover {
+    background: var(--blue-lighter);
+}

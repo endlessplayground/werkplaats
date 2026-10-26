@@ -10,10 +10,12 @@
   --text-color: rgb(63, 60, 60);
   --blue: #14c8ff;
   --blue-lighter: #5cd9ff;
+  --blue-little-darker: #11baed;
   --blue-darker: #1386c9;
   --green-light: rgb(205, 255, 200);
   --green-lighter: rgb(224, 250, 221);
-  --green-darker: rgb(149, 218, 141);
+  --green-dark: rgb(149, 218, 141);
+  --green-darker: rgb(112, 181, 104);
   --yellow-light: rgb(255, 245, 210);
   --magenta: rgb(255, 13, 122);
 
@@ -45,6 +47,12 @@ h4 {
   margin: 4px 0 10px 0;
   font-size: 1.2rem;
   font-weight: 800;
+}
+
+h5, #calendar-form label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 16px 0 4px 0;
 }
 
 /* PHONE SCREEN */
@@ -164,7 +172,6 @@ footer {
     width: 45px;
     height: 45px;
     flex: 0 0 45px;
-    box-sizing: border-box;
     border-radius: 50%;
 
     display: flex;
@@ -177,30 +184,13 @@ footer {
     text-align: center;
     text-decoration: none;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.95);
 
     font-family: "Rammetto One", sans-serif;
     font-size: 0.8rem;
     line-height: 0.9;
     line-height: 1;
 }
-
-.home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  width: 60px;
-  margin: -48px 20px 0 0;
-  border-radius: 50%;
-  /*box-shadow: 2px 2px 12px rgba(10, 10, 10, 0.49);*/
-}
-
-.home img {
-  width: 70px;
-  margin-top: -4px;
-}
-
 /* HOME GRID */
 
 .home-main {
@@ -258,5 +248,5 @@ footer {
   padding-bottom: 10px;
 }
 
-/*-------------------------------*/
+
 

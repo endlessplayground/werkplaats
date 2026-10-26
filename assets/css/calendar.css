@@ -1,7 +1,10 @@
 
+/* ==============================
+   CALENDAR LAYOUT
+   ============================== */
+
 .calendar-page {
     width: 100%;
-    box-sizing: border-box;
 }
 
 .calendar-grid {
@@ -9,31 +12,30 @@
     grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 3px;
     width: 100%;
-}
-
-.calendar-grid {
     align-items: start;
 }
 
 .calendar-weekday {
+    margin: 0 auto 4px auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--green-darker);
+    color: white;
     text-align: center;
     font-size: 0.7rem;
-    padding: 5px 0;
+    padding: 3.5px 0 3px 0;
     font-weight: bold;
-}
-
-.calendar-day {
-    min-width: 0;
-    border-radius: 5px;
-    overflow: hidden;
-    background: var(--yellow-light);
-    border: 1px solid var(--green-darker);
 }
 
 .calendar-day {
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    border-radius: 5px;
     overflow: hidden;
+    background: var(--yellow-light);
+    border: 1px solid var(--green-dark);
 }
 
 .calendar-day.today {
@@ -56,12 +58,16 @@
     font-weight: normal;
 }
 
+
+/* ==============================
+   DAYPART SLOTS
+   ============================== */
+
 .calendar-slot {
     min-height: 22px;
     padding: 2px;
     box-sizing: border-box;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
-    background: var(--grey-lighter);
     background: rgba(255, 255, 255, 0.477);
     overflow-wrap: anywhere;
 }
@@ -76,12 +82,6 @@
 
 .calendar-slot.social {
     background: #fa1c80;
-}
-
-.calendar-day {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
 }
 
 .calendar-slot:last-child {
@@ -102,6 +102,12 @@
     font-size: 0.55rem;
     line-height: 12px;
 }
+
+
+/* ==============================
+   CALENDAR EVENTS
+   ============================== */
+
 .calendar-event {
     display: block;
     width: 100%;
@@ -123,50 +129,17 @@
     background: rgba(255, 255, 255, 0.85);
 }
 
+
+/* ==============================
+   CALENDAR FORM
+   ============================== */
+
 .calendar-form-section {
     margin-top: 20px;
-}
-
-.calendar-form-section h4 {
-    margin-bottom: 10px;
 }
 
 #calendar-form {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-}
-
-#calendar-form label {
-    margin-top: 5px;
-}
-
-#calendar-form input,
-#calendar-form select {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 8px;
-    font: inherit;
-}
-
-.calendar-form-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.calendar-form-buttons button {
-    padding: 8px 12px;
-    font: inherit;
-    cursor: pointer;
-}
-
-.calendar-delete {
-    margin-top: 8px;
-}
-
-.calendar-editing-note {
-    font-size: 0.85rem;
-    margin: 4px 0;
+    gap: 0px;
 }
