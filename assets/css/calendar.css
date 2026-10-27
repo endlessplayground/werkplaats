@@ -272,3 +272,11 @@
     overflow-y: hidden;
     scrollbar-width: none;
 }
+
+
+
+.calendar-scroll {
+    height: 300px !important;
+    overflow-y: scroll !important;
+    border: 3px solid red;
+}

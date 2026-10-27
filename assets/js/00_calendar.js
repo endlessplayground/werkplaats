@@ -84,14 +84,18 @@ function renderCalendar() {
         ...events
     ];
 
-    const weekdays = ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"];
+const weekdayContainer = document.getElementById("calendar-weekdays");
 
-    weekdays.forEach(day => {
-        const heading = document.createElement("div");
-        heading.className = "calendar-weekday";
-        heading.textContent = day;
-        grid.appendChild(heading);
-    });
+weekdayContainer.innerHTML = "";
+
+const weekdays = ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"];
+
+weekdays.forEach(day => {
+    const heading = document.createElement("div");
+    heading.className = "calendar-weekday";
+    heading.textContent = day;
+    weekdayContainer.appendChild(heading);
+});
 
     for (let i = 0; i < calendarDays; i++) {
         const date = new Date(startDate);
