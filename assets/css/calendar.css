@@ -8,11 +8,10 @@
 }
 
 .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 3px;
     width: 100%;
-    align-items: start;
 }
 
 .calendar-weekdays {
@@ -68,6 +67,13 @@
     font-weight: normal;
 }
 
+.calendar-month {
+    grid-column: 1 / -1;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 6px 2px 2px;
+    color: var(--green-darker);
+}
 
 /* ==============================
    DAYPART SLOTS
@@ -229,4 +235,12 @@
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
+}
+
+.calendar-week {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 3px;
+    width: 100%;
+    align-items: start;
 }
