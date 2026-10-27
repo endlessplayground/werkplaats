@@ -84,82 +84,114 @@ function renderCalendar() {
         ...events
     ];
 
-const weekdayContainer = document.getElementById("calendar-weekdays");
+    const weekdayContainer = document.getElementById("calendar-weekdays");
+    weekdayContainer.innerHTML = "";
 
-weekdayContainer.innerHTML = "";
+    const weekdays = ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"];
 
-const weekdays = ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"];
+    weekdays.forEach(day => {
+        const heading = document.createElement("div");
+        heading.className = "calendar-weekday";
+        heading.textContent = day;
+        weekdayContainer.appendChild(heading);
+    });
 
-weekdays.forEach(day => {
-    const heading = document.createElement("div");
-    heading.className = "calendar-weekday";
-    heading.textContent = day;
-    weekdayContainer.appendChild(heading);
-});
+    // Build the calendar one complete week at a time.
+    for (let i = 0; i < calendarDays; i += 7) {
+        const weekStart = new Date(startDate);
+        weekStart.setDate(startDate.getDate() + i);
 
-    for (let i = 0; i < calendarDays; i++) {
-        const date = new Date(startDate);
-        date.setDate(startDate.getDate() + i);
+        const week = document.createElement("div");
+        week.className = "calendar-week";
 
-        const key = dateString(date);
-        const day = document.createElement("div");
-        day.className = "calendar-day";
+        const weekDates = [];
 
-        if (i === 0) {
-            day.classList.add("first-week");
+        for (let j = 0; j < 7; j++) {
+            const date = new Date(weekStart);
+            date.setDate(weekStart.getDate() + j);
+            weekDates.push(date);
         }
 
-        if (key === dateString(new Date())) {
-            day.classList.add("today");
-        }
+        // Add a month heading above the week containing the 1st.
+        const monthStart = weekDates.find(date => date.getDate() === 1);
 
-        const dateLabel = document.createElement("div");
-        dateLabel.className = "calendar-date";
-        dateLabel.textContent = date.getDate();
+        if (i === 0 || monthStart) {
+            const month = document.createElement("div");
+            month.className = "calendar-month";
 
-        const monthLabel = document.createElement("span");
-        monthLabel.textContent = date.toLocaleDateString("nl-NL", {
-            month: "short"
-        });
+            const labelDate = monthStart || weekDates[0];
 
-        dateLabel.appendChild(monthLabel);
-        day.appendChild(dateLabel);
-
-        ["morning", "afternoon", "evening"].forEach(period => {
-            const slot = document.createElement("div");
-            slot.className = "calendar-slot";
-
-            const slotEvents = allEvents.filter(event =>
-                event.date === key && event.period === period
-            );
-
-            const categories = [...new Set(
-                slotEvents.map(event => event.category)
-            )];
-
-            if (categories.length === 1) {
-                slot.classList.add(categories[0]);
-            }
-
-            slotEvents.forEach(event => {
-                const button = document.createElement("button");
-                button.type = "button";
-                button.className = "calendar-event";
-                button.textContent = event.description || "Afspraak";
-                button.title = event.description || "Afspraak";
-
-                if (event.recurring) {
-                    button.title += " (terugkerende werkdag)";
-                }
-
-                button.addEventListener("click", () => editEvent(event));
-                slot.appendChild(button);
+            month.textContent = labelDate.toLocaleDateString("nl-NL", {
+                month: "long",
+                year: "numeric"
             });
 
-            day.appendChild(slot);
+            week.appendChild(month);
+        }
+
+        weekDates.forEach((date, j) => {
+            const key = dateString(date);
+            const day = document.createElement("div");
+            day.className = "calendar-day";
+
+            if (i === 0 && j === 0) {
+                day.classList.add("first-week");
+            }
+
+            if (key === dateString(new Date())) {
+                day.classList.add("today");
+            }
+
+            const dateLabel = document.createElement("div");
+            dateLabel.className = "calendar-date";
+            dateLabel.textContent = date.getDate();
+
+            const monthLabel = document.createElement("span");
+            monthLabel.textContent = date.toLocaleDateString("nl-NL", {
+                month: "short"
+            });
+
+            dateLabel.appendChild(monthLabel);
+            day.appendChild(dateLabel);
+
+            ["morning", "afternoon", "evening"].forEach(period => {
+                const slot = document.createElement("div");
+                slot.className = "calendar-slot";
+
+                const slotEvents = allEvents.filter(event =>
+                    event.date === key && event.period === period
+                );
+
+                const categories = [...new Set(
+                    slotEvents.map(event => event.category)
+                )];
+
+                if (categories.length === 1) {
+                    slot.classList.add(categories[0]);
+                }
+
+                slotEvents.forEach(event => {
+                    const button = document.createElement("button");
+                    button.type = "button";
+                    button.className = "calendar-event";
+                    button.textContent = event.description || "Afspraak";
+                    button.title = event.description || "Afspraak";
+
+                    if (event.recurring) {
+                        button.title += " (terugkerende werkdag)";
+                    }
+
+                    button.addEventListener("click", () => editEvent(event));
+                    slot.appendChild(button);
+                });
+
+                day.appendChild(slot);
+            });
+
+            week.appendChild(day);
         });
 
-        grid.appendChild(day);
+        grid.appendChild(week);
     }
 
     // Start at the current week whenever the calendar is rendered.
@@ -189,6 +221,7 @@ function editEvent(event) {
         deleteButton.id = "calendar-delete";
         deleteButton.className = "calendar-delete";
         deleteButton.textContent = "Verwijderen";
+
         document.querySelector(".calendar-form-buttons")
             .appendChild(deleteButton);
     }
