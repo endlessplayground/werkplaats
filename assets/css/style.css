@@ -66,8 +66,8 @@ h4 {
 }
 
 .pen img {
-  width: 17px;
-    transform: rotate(45deg);
+  width: 23px;
+    transform: rotate(-45deg);
 }
 
 h5, #calendar-form label {

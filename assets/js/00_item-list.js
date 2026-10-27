@@ -141,7 +141,11 @@
             }
 
             // Custom input for each category.
-            if (config.customInputPerCategory === true) {
+            
+            if (
+                config.customInputPerCategory === true &&
+                category !== "Elke dag"
+                ) {
                 const customForm = document.createElement("form");
                 customForm.className = "item-custom";
 
