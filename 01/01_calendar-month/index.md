@@ -6,9 +6,14 @@ submenu: kalender
 
 <div class="calendar-page">
 
-  <h4><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>De komende weken</h4>
+  <h4><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>De komende weken  <button type="button" id="calendar-today"><img src="{{ '/assets/images/up.svg' | relative_url }}"></button></h4>
 
-  <div id="calendar-grid" class="calendar-grid"></div>
+
+<div class="calendar-weekdays" id="calendar-weekdays"></div>
+
+<div id="calendar-scroll" class="calendar-scroll">
+    <div id="calendar-grid" class="calendar-grid"></div>
+</div>
 
   <section class="calendar-form-section">
     <h5 id="calendar-form-title">Afspraak toevoegen</h5>
