@@ -1,0 +1,273 @@
+
+/* ==============================
+   SHARED FORM STYLES
+   ============================== */
+
+/* Dropdowns */
+
+select {
+    box-sizing: border-box;
+    font: inherit;
+    color: var(--text-color);
+    background: white;
+    border: 2px solid var(--green-dark);
+    border-radius: 4px;
+    padding: 4px;
+}
+
+/* Text fields */
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+    box-sizing: border-box;
+    font: inherit;
+    color: var(--text-color);
+    background: var(--green-lighter);
+    border: 2px solid var(--green-dark);
+    border-radius: 4px;
+    padding: 6px;
+}
+
+/* Focus */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--blue);
+    outline-offset: 1px;
+}
+
+/* Buttons */
+
+button {
+    box-sizing: border-box;
+    font: inherit;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--blue-lighter);
+}
+
+
+/* ==============================
+   DAILY TO-DO LIST
+   ============================== */
+
+#todo-add,
+#todo-form {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+#todo-choice,
+#todo-input {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+#todo-choice {
+    cursor: pointer;
+}
+
+#todo-add-stock,
+#todo-form button {
+    padding: 4px 12px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+#todo-list {
+    list-style: none;
+    width: fit-content;
+    margin: 1.5rem auto;
+    padding-right: 25px;
+}
+
+#todo-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 14px 0;
+    overflow-wrap: anywhere;
+}
+
+.todo-done {
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 1.4rem;
+}
+
+#todo-reset {
+    display: block;
+    margin: 20px auto;
+    padding: 4px 12px;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   CATEGORY GRID
+   ============================== */
+
+.item-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.item-category h5,
+.item-group h5 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.item-category select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    font-size: 1.1rem;
+    padding: 3px;
+}
+
+.item-select-row {
+    display: flex;
+    gap: 4px;
+}
+
+.item-select-row select {
+    min-width: 0;
+    width: 100%;
+    flex: 1;
+    font-size: 1rem;
+}
+
+.item-select-row button,
+.item-custom button {
+    padding: 3px 9px;
+    font-weight: 700;
+}
+
+.item-custom {
+    display: flex;
+    gap: 6px;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.item-custom input {
+    min-width: 0;
+    flex: 1;
+    padding: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.item-custom button {
+    padding: 4px 12px;
+}
+
+
+/* ==============================
+   SAVED ITEMS
+   ============================== */
+
+.item-group {
+    margin-top: 18px;
+}
+
+.item-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.item-button {
+    padding: 5px 9px;
+    font-size: 1.1rem;
+}
+
+.item-button:active {
+    transform: scale(0.96);
+}
+
+h4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 40px;
+}
+
+.show-hide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--yellow-light);
+    cursor: pointer;
+    font-size: 2.4rem;
+}
+
+
+/* ==============================
+   PERIOD SELECTOR
+   ============================== */
+
+#period-date {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0 auto 14px;
+    padding: 7px 10px;
+    font-size: 0.9rem;
+    color: var(--blue-darker);
+    background: white;
+    border-radius: 6px;
+    border: 2px solid var(--green-dark);
+    width: fit-content;
+}
+
+#period-date strong {
+    font-weight: 600;
+    color: inherit;
+}
+
+#period-date button {
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+#period-date button:hover {
+    opacity: 1;
+}
+
+#period-date input[type="date"] {
+    max-width: 100%;
+    padding: 4px 6px;
+    color: inherit;
+}
+
+#period-date input[hidden] {
+    display: none;
+}
