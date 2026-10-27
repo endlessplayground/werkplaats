@@ -20,10 +20,14 @@ window.itemListConfig = {
     customInputPerCategory: true,
 
     categories: {
+
+        "Elke dag": [
+            "Post openmaken", "Mail checken", "En nog iets..."
+        ],
+
         "Urgent": window.dailyTasks,
         "Optioneel": window.dailyTasks,
         "Rest": [
-            "…", "…", "…"
         ]
 
     }
