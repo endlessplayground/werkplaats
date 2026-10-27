@@ -20,12 +20,12 @@ boodschappen:
     url: /01/01_groc-div/
 
 kalender:
-  - title: Deze maand
+  - title: Over zicht
     url: /01/01_calendar-month/
   - title: Time line
     url: /01/01_calendar-timeline/
-  - title: Deze week
-    url: /01/01_calendar-week/
+  - title: Af spraken
+    url: /01/01_calendar-afspraken/
 
 periodiek:
   - title: Elke dag
