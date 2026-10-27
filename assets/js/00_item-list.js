@@ -88,7 +88,7 @@
         saveItems();
         renderItems();
     }
-
+    
     // Build the category selectors.
     const categoryContainer =
         document.getElementById("item-categories");
@@ -100,44 +100,47 @@
 
             const heading = document.createElement("h5");
             heading.textContent = category;
+            section.appendChild(heading);
 
-            const select = document.createElement("select");
-            select.setAttribute("aria-label", category);
+            // No dropdown for Rest.
+            if (category !== "Rest") {
+                const select = document.createElement("select");
+                select.setAttribute("aria-label", category);
 
-            const placeholder = document.createElement("option");
-            placeholder.value = "";
-            placeholder.textContent = "Kies...";
-            placeholder.selected = true;
-            placeholder.disabled = true;
-            placeholder.hidden = true;
-            select.appendChild(placeholder);
+                const placeholder = document.createElement("option");
+                placeholder.value = "";
+                placeholder.textContent = "Kies...";
+                placeholder.selected = true;
+                placeholder.disabled = true;
+                placeholder.hidden = true;
+                select.appendChild(placeholder);
 
-            categories[category].forEach(name => {
-                const option = document.createElement("option");
-                option.value = name;
-                option.textContent = name;
-                select.appendChild(option);
-            });
+                categories[category].forEach(name => {
+                    const option = document.createElement("option");
+                    option.value = name;
+                    option.textContent = name;
+                    select.appendChild(option);
+                });
 
-            // Special command at the bottom of every dropdown.
-            const loadAllOption = document.createElement("option");
-            loadAllOption.value = LOAD_ALL;
-            loadAllOption.textContent = "📋 Laad de hele lijst";
-            select.appendChild(loadAllOption);
+                const loadAllOption = document.createElement("option");
+                loadAllOption.value = LOAD_ALL;
+                loadAllOption.textContent = "📋 Laad de hele lijst";
+                select.appendChild(loadAllOption);
 
-            select.addEventListener("change", () => {
-                if (select.value === LOAD_ALL) {
-                    addEntireList(category);
-                } else if (select.value) {
-                    addItem(select.value, category);
-                }
+                select.addEventListener("change", () => {
+                    if (select.value === LOAD_ALL) {
+                        addEntireList(category);
+                    } else if (select.value) {
+                        addItem(select.value, category);
+                    }
 
-                select.selectedIndex = 0;
-            });
+                    select.selectedIndex = 0;
+                });
 
-            section.append(heading, select);
+                section.appendChild(select);
+            }
 
-            // Optional custom input for each category.
+            // Custom input for each category.
             if (config.customInputPerCategory === true) {
                 const customForm = document.createElement("form");
                 customForm.className = "item-custom";
@@ -165,6 +168,7 @@
             categoryContainer.appendChild(section);
         });
     }
+
 
     // Keep support for pages using one shared custom-input form.
     const customForm = document.getElementById("item-custom-form");
