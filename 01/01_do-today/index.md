@@ -21,7 +21,11 @@ window.itemListConfig = {
 
     categories: {
         "Urgent": window.dailyTasks,
-        "Optioneel": window.dailyTasks
+        "Optioneel": window.dailyTasks,
+        "Rest": [
+            "…", "…", "…"
+        ]
+
     }
 };
 </script>
