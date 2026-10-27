@@ -6,8 +6,10 @@ const workCategory = "hotel";
 
 const eventsKey = "personal-calendar-events";
 const exceptionsKey = "personal-calendar-workday-exceptions";
+const calendarDays = 371; // 53 weeks
 
 const grid = document.getElementById("calendar-grid");
+const scrollContainer = document.getElementById("calendar-scroll");
 const form = document.getElementById("calendar-form");
 const dateInput = document.getElementById("event-date");
 const categoryInput = document.getElementById("event-category");
@@ -15,6 +17,7 @@ const periodInput = document.getElementById("event-period");
 const descriptionInput = document.getElementById("event-description");
 const formTitle = document.getElementById("calendar-form-title");
 const saveButton = document.getElementById("calendar-save");
+const todayButton = document.getElementById("calendar-today");
 
 let events = JSON.parse(localStorage.getItem(eventsKey) || "[]");
 let exceptions = JSON.parse(localStorage.getItem(exceptionsKey) || "[]");
@@ -36,12 +39,19 @@ function dateString(date) {
     return `${year}-${month}-${day}`;
 }
 
+function getStartOfCurrentWeek() {
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+    const dayOfWeek = (date.getDay() + 6) % 7;
+    date.setDate(date.getDate() - dayOfWeek);
+    return date;
+}
+
 function getRecurringEvents(startDate) {
     const recurring = [];
     const date = new Date(startDate);
-    date.setHours(0, 0, 0, 0);
 
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < calendarDays; i++) {
         const key = dateString(date);
 
         if (
@@ -67,12 +77,7 @@ function getRecurringEvents(startDate) {
 function renderCalendar() {
     grid.innerHTML = "";
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    const startDate = new Date(today);
-    const dayOfWeek = (startDate.getDay() + 6) % 7;
-    startDate.setDate(startDate.getDate() - dayOfWeek);
+    const startDate = getStartOfCurrentWeek();
 
     const allEvents = [
         ...getRecurringEvents(startDate),
@@ -88,7 +93,7 @@ function renderCalendar() {
         grid.appendChild(heading);
     });
 
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < calendarDays; i++) {
         const date = new Date(startDate);
         date.setDate(startDate.getDate() + i);
 
@@ -96,7 +101,11 @@ function renderCalendar() {
         const day = document.createElement("div");
         day.className = "calendar-day";
 
-        if (date.getTime() === today.getTime()) {
+        if (i === 0) {
+            day.classList.add("first-week");
+        }
+
+        if (key === dateString(new Date())) {
             day.classList.add("today");
         }
 
@@ -108,6 +117,7 @@ function renderCalendar() {
         monthLabel.textContent = date.toLocaleDateString("nl-NL", {
             month: "short"
         });
+
         dateLabel.appendChild(monthLabel);
         day.appendChild(dateLabel);
 
@@ -147,6 +157,9 @@ function renderCalendar() {
 
         grid.appendChild(day);
     }
+
+    // Start at the current week whenever the calendar is rendered.
+    scrollContainer.scrollTop = 0;
 }
 
 function editEvent(event) {
@@ -241,5 +254,14 @@ form.addEventListener("submit", event => {
     resetForm();
     renderCalendar();
 });
+
+if (todayButton) {
+    todayButton.addEventListener("click", () => {
+        scrollContainer.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
 
 renderCalendar();

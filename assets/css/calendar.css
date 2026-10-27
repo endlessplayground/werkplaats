@@ -16,7 +16,9 @@
 }
 
 .calendar-weekday {
+    position: sticky;
     margin: 0 auto 4px auto;
+    top: 0;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -26,6 +28,7 @@
     font-size: 0.7rem;
     padding: 3.5px 0 3px 0;
     font-weight: bold;
+    z-index: 2;
 }
 
 .calendar-day {
@@ -142,4 +145,91 @@
     display: flex;
     flex-direction: column;
     gap: 0px;
+}
+
+
+/* ==============================
+   SCROLLABLE CALENDAR
+   ============================== */
+
+.calendar-scroll {
+    height: 65vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+}
+
+.calendar-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+#calendar-today {
+    display: block;
+    margin: 0 auto 10px;
+}
+
+#calendar-today {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 0 0 6px;
+    background-color: var(--green-darker);
+    border: none;
+}
+
+#calendar-today img {
+    width: 25px;
+}
+
+/* TIMELINE */
+
+.timeline-scroll {
+    width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+.timeline-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* HORIZONTAL TIMELINE */
+
+.timeline-scroll {
+    width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+.timeline-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.timeline-page .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(371, 70px);
+    gap: 3px;
+    width: max-content;
+    align-items: start;
+}
+
+.timeline-day {
+    width: 70px;
+    box-sizing: border-box;
+}
+
+.timeline-weekday {
+    text-align: center;
+    padding: 4px 0;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    background: var(--green-darker);
+    color: white;
 }
