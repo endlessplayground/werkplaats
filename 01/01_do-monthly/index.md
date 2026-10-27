@@ -4,7 +4,7 @@ title: Daily to-do
 submenu: huishouden
 ---
 
-<h4><div id="toggle-input" class="show-hide"><span class="dinges">🖋️</span></div>Terugkerend elke maand</h4>
+<h4><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Terugkerend elke maand</h4>
 
 <div id="period-date" data-period="monthly"></div>
 

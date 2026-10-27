@@ -5,7 +5,7 @@ submenu: boodschappen
 ---
 
 
-<h4><div id="toggle-input" class="show-hide"><span class="dinges">🖋️</span></div>Boodschappen diversen</h4>
+<h4><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Boodschappen diversen</h4>
 
 
 <div id="hidden" hidden>

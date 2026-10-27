@@ -6,7 +6,7 @@ submenu: kalender
 
 <div class="calendar-page">
 
-  <h4><div id="toggle-input" class="show-hide"><span class="dinges">🖋️</span></div>De komende weken</h4>
+  <h4><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>De komende weken</h4>
 
   <div id="calendar-grid" class="calendar-grid"></div>
 
