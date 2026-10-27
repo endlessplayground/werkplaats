@@ -15,10 +15,22 @@
     align-items: start;
 }
 
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 3px;
+}
+
+.calendar-scroll {
+    height: 65vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+}
+
 .calendar-weekday {
-    position: sticky;
     margin: 0 auto 4px auto;
-    top: 0;
     align-self: start;
     width: 20px;
     height: 20px;
@@ -30,6 +42,14 @@
     padding: 3.5px 0 3px 0;
     font-weight: bold;
     z-index: 2;
+}
+
+.calendar-weekday {
+    /* Keep your existing visual styles here */
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 4px;
+    background-color: yellow;
 }
 
 .calendar-day {
