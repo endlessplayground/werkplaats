@@ -23,7 +23,7 @@ kalender:
   - title: Deze maand
     url: /01/01_calendar-month/
   - title: Time line
-    url: /01/01_timeline/
+    url: /01/01_calendar-timeline/
   - title: Deze week
     url: /01/01_calendar-week/
 
