@@ -10,6 +10,8 @@ huishouden:
   - title: Elke maand
     url: /01/01_do-monthly/
     up: true
+  - title: <img src="../../assets/images/devil.svg">
+    url: /01/01_devil/
 
 boodschappen:
   - title: Super
@@ -20,6 +22,8 @@ boodschappen:
 kalender:
   - title: Deze maand
     url: /01/01_calendar-month/
+  - title: Time line
+    url: /01/01_timeline/
   - title: Deze week
     url: /01/01_calendar-week/
 
