@@ -233,3 +233,17 @@
     background: var(--green-darker);
     color: white;
 }
+
+.timeline-page {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
