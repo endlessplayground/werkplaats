@@ -41,6 +41,7 @@ textarea:focus {
 
 button {
     font: inherit;
+    text-align: left;
     background: var(--blue);
     color: white;
     border: none;
