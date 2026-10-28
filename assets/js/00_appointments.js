@@ -3,7 +3,7 @@
     const STORAGE_KEY = "personal-appointments-v1";
     const FILTER_KEY = "personal-appointments-selected-categories-v1";
     const DISMISSED_KEY = "personal-appointments-notice-dismissed-date-v1";
-    const DEFAULT_CATEGORIES = ["Social", "Health", "University", "Hotel", "Personal", "Other"];
+    const DEFAULT_CATEGORIES = ["Van der Valk", "HS Leiden", "HS Rotterdam", "Privé", "Zorg", "Overig"];
 
     const todayKey = () => {
         const date = new Date();
@@ -51,12 +51,12 @@
         localStorage.setItem(STORAGE_KEY, JSON.stringify(appointments));
     }
 
-    function allCategories() {
-        return [...new Set([
-            ...DEFAULT_CATEGORIES,
-            ...appointments.map(item => item.category).filter(Boolean)
-        ])].sort((a, b) => a.localeCompare(b, "nl"));
-    }
+function allCategories() {
+    return [...new Set([
+        ...DEFAULT_CATEGORIES,
+        ...appointments.map(item => item.category).filter(Boolean)
+    ])];
+}
 
     function isCategorySelected(category) {
         return !filterHasBeenSaved || selectedCategories.includes(category);
