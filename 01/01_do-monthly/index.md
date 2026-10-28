@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Daily to-do
+title: Maandelijks
 submenu: huishouden
+category: to-do
 ---
 
 <h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Terugkerend elke maand</h2>
@@ -33,8 +34,14 @@ window.itemListConfig = {
     customCategory: "Rest",
 
     categories: {
-"In ieder geval maandelijks": window.monthlyTasks,
-        "Nog een categorie": [
+"Week 1": window.monthlyTasks,
+        "Week 2": [
+            "Dinges", "Dat", "En nog iets..."
+        ],
+        "Week 3": [
+            "Dinges", "Dat", "En nog iets..."
+        ],
+        "Week 4": [
             "Dinges", "Dat", "En nog iets..."
         ],
         "Rest": [

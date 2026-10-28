@@ -2,10 +2,11 @@
 layout: default
 title: Supermarkt
 submenu: boodschappen
+category: groceries
 ---
 
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Boodschappen supermarkt</h2>
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Dagelijkse boodschappen</h2>
 
 
 

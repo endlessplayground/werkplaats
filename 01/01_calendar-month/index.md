@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Calendar
+title: Overzicht
 submenu: kalender
+category: calendar
 ---
 
 <div class="calendar-page">
@@ -19,27 +20,25 @@ submenu: kalender
     <h3 id="calendar-form-title">Afspraak toevoegen</h3>
 
 <form id="calendar-form">
-      <label for="event-date">Datum</label>
+
       <input type="date" id="event-date" required>
 
-<label for="event-category">Categorie</label>
-      <select id="event-category" required>
-        <option value="hotel">Hotel</option>
-        <option value="university">R'dam</option>
-        <option value="university">Leiden</option>
-        <option value="social">Sociaal</option>
-      </select>
+  <select id="event-category" required>
+      <option value="" selected disabled>Categorie</option>
+      <option value="hotel">Van der Valk</option>
+      <option value="university">HS R'dam</option>
+      <option value="university">HS Leiden</option>
+      <option value="social">Sociaal</option>
+  </select>
 
-<label for="event-period">Dagdeel</label>
-      <select id="event-period" required>
-        <option value="morning">Ochtend</option>
-        <option value="afternoon">Middag</option>
-        <option value="evening">Avond</option>
-      </select>
-
-<label for="event-description">Omschrijving</label>
+  <select id="event-period" required>
+      <option value="" selected disabled>Dagdeel</option>
+      <option value="morning">Ochtend</option>
+      <option value="afternoon">Middag</option>
+      <option value="evening">Avond</option>
+  </select>
       <input type="text" id="event-description"
-             placeholder="Bijv. ontbijtteam">
+             placeholder="Omschrijving…">
 
 <div class="calendar-form-buttons">
         <button type="submit" id="calendar-save">Toevoegen</button>

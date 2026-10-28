@@ -2,7 +2,22 @@
 layout: default
 title: Afspraken
 submenu: kalender
+category: calendar
 ---
+
+<style>
+    .appointment-editor label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+    }
+</style>
 
 <h2>
     <div id="toggle-input" class="show-hide">
@@ -16,18 +31,18 @@ submenu: kalender
 <div class="appointments-page" id="appointments-page"
      data-edit-icon="{{ '/assets/images/edit.svg' | relative_url }}"
      data-delete-icon="{{ '/assets/images/delete.svg' | relative_url }}">
-     
-    <div id="hidden" hidden>
 
-        <section class="appointment-editor">
+<div id="hidden" hidden>
+
+  <section class="appointment-editor">
             <form id="appointment-form">
                 <label for="appointment-date">Datum</label>
                 <input id="appointment-date" name="date" type="date" required>
 
-                <label for="appointment-time">Tijd</label>
+  <label for="appointment-time">Tijd</label>
                 <input id="appointment-time" name="time" type="time">
 
-                <label for="appointment-category">Categorie</label>
+  <label for="appointment-category">Categorie</label>
                 <select id="appointment-category" name="category" required>
                     <option value="" selected disabled>Kies een categorie</option>
                     <option value="Social">Sociaal</option>
@@ -38,29 +53,29 @@ submenu: kalender
                     <option value="Other">Overig</option>
                 </select>
 
-                <label for="appointment-title">Afspraak</label>
+  <label for="appointment-title">Afspraak</label>
                 <input id="appointment-title" name="title" type="text"
-                       placeholder="Bijv. Tandarts" required>
+                       placeholder="Afspraak met / bij" required>
 
-                <label for="appointment-details">Extra informatie (optioneel)</label>
+  <label for="appointment-details">Extra informatie (optioneel)</label>
                 <textarea id="appointment-details" name="details" rows="2"
-                          placeholder="Bijv. Leiden, Breestraat 44"></textarea>
+                          placeholder="Extra informatie (optioneel)"></textarea>
 
-                <div class="appointment-form-buttons">
+  <div class="appointment-form-buttons">
                     <button type="submit" id="appointment-save">Toevoegen</button>
                     <button type="button" id="appointment-cancel" hidden>Annuleren</button>
                 </div>
             </form>
         </section>
 
-        <section class="appointment-filters" aria-labelledby="appointment-filter-heading">
+  <section class="appointment-filters" aria-labelledby="appointment-filter-heading">
             <h4 id="appointment-filter-heading">Toon categorieën</h4>
             <div id="appointment-category-filters"></div>
         </section>
 
-    </div>
+  </div>
 
-    <section id="appointment-list" class="appointment-list" aria-live="polite"></section>
+  <section id="appointment-list" class="appointment-list" aria-live="polite"></section>
 
 </div>
 

@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Daily to-do
+title: Wekelijks
 submenu: huishouden
+category: to-do
 ---
 
 <h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Terugkerend elke week</h2>

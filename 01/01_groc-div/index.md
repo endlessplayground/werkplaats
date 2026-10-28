@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Supermarkt
+title: Diversen
 submenu: boodschappen
+category: groceries
 ---
 
 
