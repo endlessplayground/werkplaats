@@ -72,7 +72,7 @@ namenCategorieen.forEach(categorie => {
     const vak = document.createElement("section");
     vak.className = "grocery-category";
 
-    const titel = document.createElement("h5");
+    const titel = document.createElement("h3");
     titel.textContent = categorie;
 
     const rij = document.createElement("div");
@@ -156,7 +156,7 @@ function toonBoodschappen() {
         const groep = document.createElement("section");
         groep.className = "grocery-list-group";
 
-        const titel = document.createElement("h5");
+        const titel = document.createElement("h3");
         titel.textContent = categorie;
         groep.appendChild(titel);
 

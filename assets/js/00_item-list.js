@@ -98,7 +98,7 @@
             const section = document.createElement("section");
             section.className = "item-category";
 
-            const heading = document.createElement("h5");
+            const heading = document.createElement("h3");
             heading.textContent = category;
             section.appendChild(heading);
 
@@ -207,7 +207,7 @@
             const group = document.createElement("section");
             group.className = "item-group";
 
-            const heading = document.createElement("h5");
+            const heading = document.createElement("h3");
             heading.textContent = category;
 
             const buttons = document.createElement("div");
