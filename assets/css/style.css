@@ -61,7 +61,7 @@ h2 {
 }
 
 h3 {
-  color:red;
+  color:var(--magenta);
 }
 
 h4 {
