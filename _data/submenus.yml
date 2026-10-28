@@ -24,8 +24,10 @@ kalender:
     url: /01/01_calendar-month/
   - title: Time line
     url: /01/01_calendar-timeline/
+    up: true
   - title: Af spraken
-    url: /01/01_calendar-afspraken/
+    url: /01/01_calendar-appointments/
+    up: true
 
 periodiek:
   - title: Elke dag
