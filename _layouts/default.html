@@ -29,7 +29,8 @@
       href="{{ '/assets/images/favicon.svg' | relative_url }}">
 </head>
 
-<body>
+<body class="{{ page.category | default: 'default' }}">
+
   <div class="phone-screen">
 
     <header>
@@ -59,9 +60,9 @@
 
   <nav class="footer-menu" aria-label="Quick links">
       <a href="{{ '/01/01_do-today/' | relative_url }}" class="footer-tile"><img src="{{ '/assets/images/check.svg' | relative_url }}"></a>
-      <a href="{{ '/01/01_groc-super/' | relative_url }}" class="footer-tile"><img src="{{ '/assets/images/cart.svg' | relative_url }}"></a>
-      <a href="{{ '/01/01_calendar-month/' | relative_url }}" class="footer-tile"><img src="{{ '/assets/images/calendar.svg' | relative_url }}"></a>
-      <a href="{{ '/' | relative_url }}" class="footer-tile"><img src="{{ '/assets/images/home.svg' | relative_url }}"></a>
+      <a href="{{ '/01/01_groc-super/' | relative_url }}" class="footer-tile" style="background-color: var(--green);"><img src="{{ '/assets/images/cart.svg' | relative_url }}"></a>
+      <a href="{{ '/01/01_calendar-month/' | relative_url }}" class="footer-tile" style="background-color: var(--purple)"><img src="{{ '/assets/images/calendar.svg' | relative_url }}"></a>
+      <a href="{{ '/' | relative_url }}" class="footer-tile" style="background-color: var(--grey-light);"><img src="{{ '/assets/images/home.svg' | relative_url }}"></a>
   </nav>
 </footer>
 

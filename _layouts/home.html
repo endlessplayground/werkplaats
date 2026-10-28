@@ -21,7 +21,8 @@
       href="{{ '/assets/images/favicon.svg' | relative_url }}">
 </head>
 
-<body>
+<body class="{{ page.category | default: 'default' }}">
+
   <div class="phone-screen">
 
     <header>
