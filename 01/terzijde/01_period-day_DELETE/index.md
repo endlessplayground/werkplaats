@@ -4,7 +4,7 @@ title: Om de dag
 submenu: periodiek
 ---
 
-<h4>Om de dag</h4>
+<h2>Om de dag</h2>
 
 <ul id="todo-list"></ul>
 

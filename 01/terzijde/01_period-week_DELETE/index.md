@@ -4,7 +4,7 @@ title: Om de dag
 submenu: periodiek
 ---
 
-<h4>Elke week</h4>
+<h2>Elke week</h2>
 
 <ul id="todo-list"></ul>
 

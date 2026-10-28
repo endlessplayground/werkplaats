@@ -4,7 +4,7 @@ title: Daily to-do
 submenu: huishouden
 ---
 
-<h4><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Vandaag doen</h4>
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Vandaag doen</h2>
 
 <div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>

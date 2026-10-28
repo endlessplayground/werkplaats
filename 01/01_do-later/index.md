@@ -4,7 +4,7 @@ title: Daily to-do
 submenu: huishouden
 ---
 
-<h4><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Ergens komende dagen doen</h4>
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Ergens komende dagen…</h2>
 
 <div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>
@@ -31,8 +31,6 @@ window.itemListConfig = {
     customCategory: "Rest",
 
     categories: {
-"Urgent": window.dailyTasks,
-"Optioneel": window.dailyTasks,
         "Administratief": [
             "Mail checken", "WhatsApp beantwoorden", "[Instantie*] bellen", "[Contract*] tekenen", "[Iets ingewikkelds*] uitzoeken", "Post openen"
         ],

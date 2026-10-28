@@ -4,7 +4,7 @@ title: Daily to-do
 submenu: boodschappen
 ---
 
-<h4>Overige boodschappen</h4>
+<h2>Overige boodschappen</h2>
 
 <div id="todo-add">
     <select id="todo-choice">

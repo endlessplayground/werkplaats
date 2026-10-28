@@ -4,7 +4,7 @@ title: Daily to-do
 submenu: boodschappen
 ---
 
-<h4>Boodschappen Ekoplaza</h4>
+<h2>Boodschappen Ekoplaza</h2>
 
 <div id="todo-add">
     <select id="todo-choice">

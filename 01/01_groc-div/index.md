@@ -5,7 +5,7 @@ submenu: boodschappen
 ---
 
 
-<h4><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Boodschappen diversen</h4>
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Boodschappen diversen</h2>
 
 
 <div id="hidden" hidden>
@@ -30,9 +30,6 @@ window.itemListConfig = {
     customCategory: "Rest",
 
     categories: {
-    "Ekoplaza": [
-    "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood", 
-    ],
     "Markt": [
         "Avocado", "Kruiden", "Kaas", "Vis"
     ],
@@ -43,7 +40,7 @@ window.itemListConfig = {
         "Ketjap", "Sojasaus", "Oestersaus", "Limoenblad", "Noedels", "Santen"
     ],
     "Drogist": [
-        "Tandenstokers", "Oordopjes", "Neusdruppels", "Pijnstillers",
+        "Oordopjes", "Neusdruppels", "Pijnstillers", "Tandenstokers"
     ],
     "Kringloop": [
         "Borden", "Opscheplepel",
