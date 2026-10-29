@@ -46,9 +46,12 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-    border: 2px solid var(--main-color);
 }
 
 button:hover {
     background: var(--main-color);
+}
+
+.item-button.confirm-removal {
+    background-color: red;
 }
