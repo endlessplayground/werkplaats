@@ -26,6 +26,7 @@ category: calendar
   <select id="event-category" required>
       <option value="" selected disabled>Categorie</option>
       <option value="hotel">Van der Valk</option>
+      <option value="beschikbaarheid">HS?</option>
       <option value="university">HS R'dam</option>
       <option value="university">HS Leiden</option>
       <option value="social">Sociaal</option>
