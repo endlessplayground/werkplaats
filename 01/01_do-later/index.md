@@ -32,11 +32,9 @@ window.itemListConfig = {
     customCategory: "Rest",
 
     categories: {
+        "Basislijst": window.dailyTasks,
         "Administratief": [
             "Mail checken", "WhatsApp beantwoorden", "[Instantie*] bellen", "[Contract*] tekenen", "[Iets ingewikkelds*] uitzoeken", "Post openen"
-        ],
-        "Nog een categorie": [
-            "Dinges", "Dat", "En nog iets..."
         ],
         "Rest": [
             "Dinges", "Dat", "En nog iets..."
