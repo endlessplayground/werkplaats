@@ -66,43 +66,16 @@ notities:
     url: /03/03_notes-nogiets/
 
 
-huis-beneden:
-  - title: Kamer algemeen
-    url: /06/06_beneden-alg/
-  - title: Opberg ruimten
-    url: /06/06_beneden-opberg/
-  - title: Keuken
-    url: /06/06_beneden-keuken/
-  - title: Gang
-    url: /06/06_beneden-gang/
+huis:
+  - title: Be neden
+    url: /06/06_beneden/
+  - title: Boven
+    url: /06/06_boven/
+  - title: Zolder
+    url: /06/06_zolder/
+  - title: Buiten
+    url: /06/06_buiten/
 
-huis-boven:
-  - title: Overloop
-    url: /06/06_boven-overloop/
-  - title: Lege kamer
-    url: /06/06_boven-legekamer/
-  - title: Trappen
-    url: /06/06_boven-trappen/
-  - title: Badkamer
-    url: /06/06_boven-badkamer/
-
-huis-zolder:
-  - title: Optie 1
-    url: /06/06_zolder-kleding/
-  - title: Optie 2
-    url: /06/06_zolder-opberg/
-  - title: Optie 3
-    url: /06/06_zolder-luiken/
-  - title: Optie 4
-    url: /06/06_zolder-overig/
-
-huis-buiten:
-  - title: Schuurtje
-    url: /06/06_buiten-schuur/
-  - title: Planten potten
-    url: /06/06_buiten-planten/
-  - title: Buiten overig
-    url: /06/06_buiten-overig/
 
 bestellijst:
   - title: Werk to do

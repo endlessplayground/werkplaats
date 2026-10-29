@@ -16,31 +16,35 @@
   dimmed: true
   up: true
 
-- title: Ideeën
-  url: /03/03_ideas-digi/
-  dimmed: true
-
 - title: Notities
   url: /03/03_notes-web/
 
-
-- title: Be neden
-  url: /06/06_beneden-alg/
-  up: true
-
-- title: Boven
-  url: /06/06_boven-overloop/
-
-- title: Zolder
-  url: /06/06_zolder-kleding/
-
-
-- title: Buiten
-  url: /06/06_buiten-schuur/
-
 - title: …
-  url: /10/10_dinges/
+  url: /03/03_ideas-digi/
   dimmed: true
 
-- title: Werk
+
+- title: Huis
+  url: /06/06_beneden/
+
+- title: Ru brieken
+  url: /00/00_dinges/
+  up: true
+
+- title: Vind lijst
+  url: /00/00_dinges/
+  up: true
+
+
+- title: …
+  url: /00/00_dinges/
+  dimmed: true
+
+- title: Werk VdV
   url: /10/10_bestellijst/
+  up: true
+  
+- title: Werk HS
+  url: /00/00_dinges/
+  up: true
+
