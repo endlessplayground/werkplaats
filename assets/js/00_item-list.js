@@ -191,52 +191,61 @@
     }
 
     // Display items grouped by category.
-    function renderItems() {
-        const container = document.getElementById("item-list");
-        if (!container) return;
 
-        container.innerHTML = "";
+function renderItems() {
+    const container = document.getElementById("item-list");
+    if (!container) return;
 
-        categoryNames.forEach(category => {
-            const categoryItems = items.filter(
-                item => item.category === category
-            );
+    container.innerHTML = "";
 
-            if (!categoryItems.length) return;
+    categoryNames.forEach(category => {
+        const categoryItems = items.filter(
+            item => item.category === category
+        );
 
-            const group = document.createElement("section");
-            group.className = "item-group";
+        if (!categoryItems.length) return;
 
-            const heading = document.createElement("h3");
-            heading.textContent = category;
+        const group = document.createElement("section");
+        group.className = "item-group";
 
-            const buttons = document.createElement("div");
-            buttons.className = "item-buttons";
+        const heading = document.createElement("h3");
+        heading.textContent = category;
 
-            categoryItems.forEach(item => {
-                const button = document.createElement("button");
-                button.type = "button";
-                button.className = "item-button";
-                button.textContent = item.name;
-                button.title = "Tik om te verwijderen";
+        const buttons = document.createElement("div");
+        buttons.className = "item-buttons";
 
-                button.addEventListener("click", () => {
-                    const index = items.indexOf(item);
+        categoryItems.forEach(item => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "item-button";
+            button.textContent = item.name;
+            button.title = "Tik tweemaal om te verwijderen";
 
-                    if (index !== -1) {
-                        items.splice(index, 1);
-                        saveItems();
-                        renderItems();
-                    }
-                });
+            let confirmRemoval = false;
 
-                buttons.appendChild(button);
+            button.addEventListener("click", () => {
+                if (!confirmRemoval) {
+                    confirmRemoval = true;
+                    button.classList.add("confirm-removal");
+                    return;
+                }
+
+                const index = items.indexOf(item);
+
+                if (index !== -1) {
+                    items.splice(index, 1);
+                    saveItems();
+                    renderItems();
+                }
             });
 
-            group.append(heading, buttons);
-            container.appendChild(group);
+            buttons.appendChild(button);
         });
-    }
+
+        group.append(heading, buttons);
+        container.appendChild(group);
+    });
+}
 
     // Show/hide the input area.
     const toggleButton = document.getElementById("toggle-input");
