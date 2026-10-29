@@ -26,13 +26,14 @@
      inkscape:document-units="mm"
      inkscape:zoom="8.1941058"
      inkscape:cx="56.870147"
-     inkscape:cy="29.228326"
+     inkscape:cy="29.228327"
      inkscape:window-width="1536"
      inkscape:window-height="793"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showgrid="false" />
   <defs
      id="defs1">
     <rect
@@ -352,7 +353,7 @@
      id="layer1">
     <circle
        style="opacity:0.604203;fill:#008080;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:square;stroke-dasharray:none"
-       id="path5"
+       id="path3"
        cx="-30.394955"
        cy="18.858261"
        r="13.631113" />
@@ -540,7 +541,7 @@
     </g>
     <g
        id="g7"
-       transform="matrix(0.44942109,-0.02504477,0.02634439,0.43857523,-0.84464744,0.64123796)"
+       transform="matrix(0.45603178,-0.02541316,0.02673189,0.44502638,-0.8873694,0.64573489)"
        style="stroke-width:2.24866">
       <path
          id="path13238-1-2-5-8-1-8-0-3"
