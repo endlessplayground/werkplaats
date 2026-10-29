@@ -16,8 +16,9 @@ huishouden:
 boodschappen:
   - title: Super
     url: /01/01_groc-super/
-  - title: Diversen
+  - title: Di versen
     url: /01/01_groc-div/
+    up: true
 
 kalender:
   - title: Over zicht
@@ -57,8 +58,12 @@ ideeen:
     url: /03/03_ideas-overig/
 
 notities:
-  - title: Notities
-    url: /03/03_notes/
+  - title: Web site 
+    url: /03/03_notes-web/
+  - title: Di versen
+    url: /03/03_notes-div/
+  - title: Nog iets
+    url: /03/03_notes-nogiets/
 
 
 huis-beneden:

@@ -7,7 +7,7 @@
   up: true
 
 - title: Ka lender
-  url: /01/01_calendar-month/
+  url: /01/01_calendar-appointments/
   up: true
 
 
@@ -21,7 +21,7 @@
   dimmed: true
 
 - title: Notities
-  url: /03/03_notes/
+  url: /03/03_notes-web/
 
 
 - title: Be neden
