@@ -24,6 +24,7 @@ category: to-do
 <div id="item-list"></div>
 
 <script src="{{ '/assets/js/00_daily-tasks.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/00_admin-tasks.js' | relative_url }}"></script>
 
 <script>
 
@@ -33,9 +34,7 @@ window.itemListConfig = {
 
     categories: {
         "Basislijst": window.dailyTasks,
-        "Administratief": [
-            "Mail checken", "WhatsApp beantwoorden", "[Instantie*] bellen", "[Contract*] tekenen", "[Iets ingewikkelds*] uitzoeken", "Post openen"
-        ],
+        "Administratief": window.adminTasks,
         "Rest": [
             "Dinges", "Dat", "En nog iets..."
         ]
