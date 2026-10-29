@@ -3,7 +3,7 @@
     const STORAGE_KEY = "personal-appointments-v1";
     const FILTER_KEY = "personal-appointments-selected-categories-v1";
     const DISMISSED_KEY = "personal-appointments-notice-dismissed-date-v1";
-    const DEFAULT_CATEGORIES = ["Van der Valk", "HS Leiden", "HS Rotterdam", "Privé", "Zorg", "Overig"];
+    const DEFAULT_CATEGORIES = ["Van der Valk", "HS ?", "HS Leiden", "HS Rotterdam", "Privé", "Zorg", "Overig"];
 
     const todayKey = () => {
         const date = new Date();
