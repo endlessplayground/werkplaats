@@ -92,8 +92,13 @@
     background: #cea2f0;
 }
 
+.calendar-slot.beschikbaarheid {
+    background: #d7ff9e;
+    color: rgb(162, 161, 161);
+}
+
 .calendar-slot.university {
-    background: #b8d9bd;
+    background: #a6f786;
 }
 
 .calendar-slot.social {
