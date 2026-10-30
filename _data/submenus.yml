@@ -49,19 +49,19 @@ personal:
   - title: Mentaal
     url: /03/03_personal-mentaal/
   
-ideeen:
-  - title: Digitaal
-    url: /03/03_ideas-digi/
-  - title: POP
-    url: /03/03_ideas-pop/
-  - title: Overig
-    url: /03/03_ideas-overig/
+order:
+  - title: Ru brieken
+    url: /06/06_order/
+    up: true
+  - title: Vind lijsten
+    url: /06/06_find/
+    up: true
 
 notities:
   - title: Web site 
     url: /03/03_notes-web/
   - title: Idee ën
-    url: /03/03_notes-div/
+    url: /03/03_notes-ideeen/
   - title: Nog iets
     url: /03/03_notes-nogiets/
 

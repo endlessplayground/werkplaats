@@ -28,11 +28,12 @@
   url: /06/06_beneden/
 
 - title: Ru brieken
-  url: /00/00_dinges/
+  url: /06/06_order/
   up: true
 
-- title: Vind lijst
-  url: /00/00_dinges/
+- title: …
+  url: /06/06_find/
+  dimmed: true
   up: true
 
 
