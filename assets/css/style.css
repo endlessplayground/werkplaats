@@ -20,6 +20,8 @@
   --green: #18d25c;
   --purple: #c65ee9;
   --orange: #ffa220;
+  --red: #f65681;
+  --darkblue: #0b79ce;
 
   --main-color: var(--blue);
 
@@ -39,6 +41,14 @@ body.calendar {
 
 body.notes {
     --main-color: var(--orange);
+}
+
+body.house {
+    --main-color: var(--red);
+}
+
+body.order {
+    --main-color: var(--darkblue);
 }
 
 * { 
@@ -217,7 +227,7 @@ footer {
   max-width: var(--phone-width);
   height:25px;
   background-color: var(--grey-dark);
-  border-top: 4px solid var(--magenta);
+  border-top: 3px solid var(--magenta);
   z-index: 100;
 }
 
