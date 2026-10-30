@@ -115,19 +115,21 @@ function renderCalendar() {
         // Add a month heading above the week containing the 1st.
         const monthStart = weekDates.find(date => date.getDate() === 1);
 
-        if (i === 0 || monthStart) {
-            const month = document.createElement("div");
-            month.className = "calendar-month";
+if (i === 0 || monthStart) {
+    const month = document.createElement("div");
+    month.className = "calendar-month";
 
-            const labelDate = monthStart || weekDates[0];
+    const labelDate = monthStart || weekDates[0];
 
-            month.textContent = labelDate.toLocaleDateString("nl-NL", {
-                month: "long",
-                year: "numeric"
-            });
+    const monthName = labelDate.toLocaleDateString("nl-NL", {
+        month: "long",
+        year: "numeric"
+    });
 
-            week.appendChild(month);
-        }
+    month.textContent = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+
+    week.appendChild(month);
+}
 
         weekDates.forEach((date, j) => {
             const key = dateString(date);
