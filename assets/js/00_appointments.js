@@ -38,6 +38,7 @@
     const form = document.getElementById("appointment-form");
     const dateInput = document.getElementById("appointment-date");
     const timeInput = document.getElementById("appointment-time");
+    const endTimeInput = document.getElementById("appointment-end-time");
     const categoryInput = document.getElementById("appointment-category");
     const titleInput = document.getElementById("appointment-title");
     const detailsInput = document.getElementById("appointment-details");
@@ -177,70 +178,59 @@ edit.appendChild(editImg);
         });
     }
 
-    function renderAppointmentList() {
-        if (!list) return;
 
-        list.innerHTML = "";
-        const visible = visibleAppointments();
+function renderAppointmentList() {
+    if (!list) return;
 
-        if (!visible.length) {
-            const empty = document.createElement("p");
-            empty.className = "appointments-empty";
-            empty.textContent = "Geen komende afspraken in de geselecteerde categorieën.";
-            list.appendChild(empty);
-            return;
+    list.innerHTML = "";
+    const visible = visibleAppointments();
+
+    if (!visible.length) {
+        const empty = document.createElement("p");
+        empty.className = "appointments-empty";
+        empty.textContent = "Geen komende afspraken in de geselecteerde categorieën.";
+        list.appendChild(empty);
+        return;
+    }
+
+    visible.forEach(item => {
+        const appointmentFrame = document.createElement("section");
+        appointmentFrame.className = "appointment-day-frame";
+
+        if (item.date === todayKey()) {
+            appointmentFrame.classList.add("appointment-day-today");
         }
 
-        const grouped = new Map();
+        const header = document.createElement("div");
+        header.className = "appointment-day-header";
 
-        visible.forEach(item => {
-            if (!grouped.has(item.date)) grouped.set(item.date, []);
-            grouped.get(item.date).push(item);
-        });
+        const dayHeading = document.createElement("h4");
+        dayHeading.textContent = formatDay(item.date);
 
+if (item.time || item.endTime) {
+    const time = document.createElement("span");
+    time.className = "time";
 
-        grouped.forEach((items, dateKey) => {
-            const dayFrame = document.createElement("section");
-            dayFrame.className = "appointment-day-frame";
+    time.textContent = item.time && item.endTime
+        ? `${item.time} - ${item.endTime}`
+        : item.time || item.endTime;
 
-            if (dateKey === todayKey()) {
-                dayFrame.classList.add("appointment-day-today");
-            }
+    dayHeading.appendChild(time);
+}
 
-            const header = document.createElement("div");
-            header.className = "appointment-day-header";
+        header.appendChild(dayHeading);
 
-            const dayHeading = document.createElement("h4");
-            dayHeading.textContent = formatDay(dateKey);
+        if (page) {
+            header.appendChild(makeAppointmentControls(item));
+        }
 
-            const times = items.map(item => item.time).filter(Boolean);
-            if (times.length) {
-                const time = document.createElement("span");
-                time.className = "time";
-                time.textContent = times.join(", ");
-                dayHeading.appendChild(time);
-            }
+        appointmentFrame.appendChild(header);
+        makeAppointmentContent(appointmentFrame, item);
 
-            header.appendChild(dayHeading);
+        list.appendChild(appointmentFrame);
+    });
+}
 
-            if (page) {
-                const controls = document.createElement("div");
-                controls.className = "appointment-day-controls";
-
-                items.forEach(item => {
-                    controls.appendChild(makeAppointmentControls(item));
-                });
-
-                header.appendChild(controls);
-            }
-
-            dayFrame.appendChild(header);
-
-            items.forEach(item => makeAppointmentContent(dayFrame, item));
-
-            list.appendChild(dayFrame);
-        });
-    }
 
     function resetForm() {
         if (!form) return;
@@ -255,6 +245,7 @@ edit.appendChild(editImg);
         editingId = item.id;
         dateInput.value = item.date;
         timeInput.value = item.time || "";
+        endTimeInput.value = item.endTime || "";
         categoryInput.value = item.category || "Other";
         titleInput.value = item.title || "";
         detailsInput.value = item.details || "";
@@ -267,38 +258,39 @@ edit.appendChild(editImg);
         document.getElementById("appointment-title").focus();
     }
 
-    function handleSubmit(event) {
-        event.preventDefault();
+function handleSubmit(event) {
+    event.preventDefault();
 
-        const category = categoryInput.value.trim();
-        const title = titleInput.value.trim();
+    const category = categoryInput.value.trim();
+    const title = titleInput.value.trim();
 
-        if (!dateInput.value || !category || !title) return;
+    if (!dateInput.value || !category || !title) return;
 
-        const item = {
-            id: editingId || `appointment-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-            date: dateInput.value,
-            time: timeInput.value,
-            category,
-            title,
-            details: detailsInput.value.trim()
-        };
+    const item = {
+        id: editingId || `appointment-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        date: dateInput.value,
+        time: timeInput.value,
+        endTime: endTimeInput.value,
+        category,
+        title,
+        details: detailsInput.value.trim()
+    };
 
-        if (editingId) {
-            appointments = appointments.map(saved => saved.id === editingId ? item : saved);
-        } else {
-            appointments.push(item);
-        }
-
-        if (filterHasBeenSaved && !selectedCategories.includes(category)) {
-            selectedCategories.push(category);
-            localStorage.setItem(FILTER_KEY, JSON.stringify(selectedCategories));
-        }
-
-        saveAppointments();
-        resetForm();
-        renderAll();
+    if (editingId) {
+        appointments = appointments.map(saved => saved.id === editingId ? item : saved);
+    } else {
+        appointments.push(item);
     }
+
+    if (filterHasBeenSaved && !selectedCategories.includes(category)) {
+        selectedCategories.push(category);
+        localStorage.setItem(FILTER_KEY, JSON.stringify(selectedCategories));
+    }
+
+    saveAppointments();
+    resetForm();
+    renderAll();
+}
 
     function renderLandingNotice() {
         if (!noticeRoot) return;
