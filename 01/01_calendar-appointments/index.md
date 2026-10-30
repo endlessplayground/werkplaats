@@ -15,7 +15,6 @@ category: calendar
         overflow: hidden;
         clip-path: inset(50%);
         white-space: nowrap;
-        border: 0;
     }
 </style>
 
@@ -40,7 +39,9 @@ category: calendar
                 <input id="appointment-date" name="date" type="date" required>
 
   <label for="appointment-time">Tijd</label>
-                <input id="appointment-time" name="time" type="time">
+    <input id="appointment-time" name="time" type="time">
+  <label for="appointment-end-time">Eindtijd</label>
+    <input id="appointment-end-time" name="end-time" type="time">
 
   <label for="appointment-category">Categorie</label>
                 <select id="appointment-category" name="category" required>
