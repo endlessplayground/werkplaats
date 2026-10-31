@@ -42,7 +42,7 @@ textarea:focus {
 button {
     font: inherit;
     text-align: left;
-    line-height: 0.9; 
+    line-height: 1; 
     padding: 7px 9px 9px 9px; 
     margin: 0px 10px 10px 0px;
     background: var(--main-color);
