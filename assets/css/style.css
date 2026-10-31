@@ -58,7 +58,7 @@ body.order {
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
   font-optical-sizing: auto;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
 }
 
@@ -123,7 +123,6 @@ h5 {
 }
 
 h3, #calendar-form label {
-  font-size: 1rem;
   font-weight: 600;
   margin: 16px 0 4px 0;
 }
@@ -326,6 +325,14 @@ footer {
 .home-tile.up {
   padding-bottom: 10px;
 }
+
+.home-tile img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  visibility: visible;
+}
+
 
 
 
