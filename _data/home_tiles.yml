@@ -26,11 +26,11 @@
 
 
 - title: Huis
-  url: /06/06_beneden/
+  image: /assets/images//home-clean.svg
 
 - title: Ru brieken
   url: /06/06_order/
-  up: true
+  image: /assets/images//home-order.svg
 
 - title: …
   url: /06/06_find/
@@ -44,9 +44,9 @@
 
 - title: Werk VdV
   url: /10/10_bestellijst/
-  up: true
+  image: /assets/images//home-werk-vdv.svg
   
 - title: Werk HS
   url: /00/00_dinges/
-  up: true
+  image: /assets/images//home-werk-hs.svg
 
