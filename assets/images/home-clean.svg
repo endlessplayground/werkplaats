@@ -3,8 +3,8 @@
 
 <svg
    width="15mm"
-   height="15mm"
-   viewBox="0 0 14.999998 14.999998"
+   height="18mm"
+   viewBox="0 0 14.999998 17.999998"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
@@ -263,7 +263,7 @@
        x="-35.328999"
        y="2.7836087" /><g
        id="g21"
-       transform="translate(-0.37417734,0.32740517)"><g
+       transform="matrix(1.2488282,0,0,1.2485928,-1.7597997,-0.11052014)"><g
          id="g15-4"
          transform="matrix(0.80462993,0,0,0.80146562,11.363825,13.307375)"
          style="opacity:0.607706;fill:#1a1a1a;fill-opacity:1;filter:url(#filter18)"><g
