@@ -44,7 +44,7 @@ button {
     text-align: left;
     line-height: 0.8; 
     padding: 7px 9px 8px 9px; 
-    margin: 6px 12px 6px 0px;
+    margin: 0px 10px 10px 0px;
     background: var(--main-color);
     color: white;
     border: none;
