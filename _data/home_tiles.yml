@@ -1,14 +1,14 @@
 - title: To do
   url: /01/01_do-today/
-  up: true
+  image: /assets/images//home-todo.svg
 
-- title: Bood schap pen
+- title: 
   url: /01/01_groc-super/
-  up: true
+  image: /assets/images//home-shopping.svg
 
-- title: Ka lender
+- title: 
   url: /01/01_calendar-month/
-  up: true
+  image: /assets/images//home-calendar.svg
 
 
 - title: Per sonal
@@ -18,6 +18,7 @@
 
 - title: Notities
   url: /03/03_notes-web/
+  image: /assets/images//home-notes.svg
 
 - title: …
   url: /03/03_ideas-digi/
