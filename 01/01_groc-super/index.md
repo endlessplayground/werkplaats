@@ -33,14 +33,8 @@ window.itemListConfig = {
     customCategory: "Rest",
 
     categories: {
-    "Groenten & fruit 1": [
-        "Uien", "Knoflook", "Gember", "Peper", "Peen / wortel", "Aardappelen"
-    ],
-    "Groenten & fruit 2": [
-        "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen"
-    ],
-    "Groenten & fruit 3": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
+    "Groenten & fruit": [
+        "Uien", "Knoflook", "Gember", "Peper", "Peen / wortel", "Aardappelen", "---------", "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen", "---------", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
     ],
     "Vlees & eieren": [
         "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
@@ -52,7 +46,10 @@ window.itemListConfig = {
         "Pasta", "Lasagne vellen", "Rijst", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempit", "Pompoenpit", "Pijnboompit"
     ],
     "Zuivel & vriezer": [
-        "Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
+        "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
+    ],
+    "Overig": [
+        "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier", "Vuilniszakken"
     ],
     "EKOPLAZA": [
     "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood",  "Tandendstokers"
