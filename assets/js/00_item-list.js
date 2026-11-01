@@ -10,7 +10,8 @@
     const categories = config.categories;
     const categoryNames = Object.keys(categories);
     const storageKey = config.storageKey;
-    const customCategory = config.customCategory || categoryNames[0];
+    const customCategory = config.customCategory;
+    const textOnlyCategories = config.textOnlyCategories || [];
     const LOAD_ALL = "__LOAD_ENTIRE_LIST__";
 
     function findCategory(name) {
@@ -88,7 +89,7 @@
         saveItems();
         renderItems();
     }
-    
+
     // Build the category selectors.
     const categoryContainer =
         document.getElementById("item-categories");
@@ -102,8 +103,32 @@
             heading.textContent = category;
             section.appendChild(heading);
 
+            // Text-only categories get an input instead of a dropdown.
+            if (textOnlyCategories.includes(category)) {
+                const customForm = document.createElement("form");
+                customForm.className = "item-custom";
+
+                const customInput = document.createElement("input");
+                customInput.type = "text";
+                customInput.placeholder = "Voeg zelf toe …";
+                customInput.autocomplete = "off";
+
+                const customButton = document.createElement("button");
+                customButton.type = "submit";
+                customButton.textContent = "+";
+
+                customForm.append(customInput, customButton);
+
+                customForm.addEventListener("submit", event => {
+                    event.preventDefault();
+                    addItem(customInput.value, category);
+                    customInput.value = "";
+                });
+
+                section.appendChild(customForm);
+
             // No dropdown for Rest.
-            if (category !== "Rest") {
+            } else if (category !== "Rest") {
                 const select = document.createElement("select");
                 select.setAttribute("aria-label", category);
 
@@ -140,12 +165,12 @@
                 section.appendChild(select);
             }
 
-            // Custom input for each category.
-            
+            // Custom input for each category, when enabled.
             if (
                 config.customInputPerCategory === true &&
-                category !== "Elke dag"
-                ) {
+                category !== "Elke dag" &&
+                !textOnlyCategories.includes(category)
+            ) {
                 const customForm = document.createElement("form");
                 customForm.className = "item-custom";
 
@@ -173,79 +198,77 @@
         });
     }
 
-
     // Keep support for pages using one shared custom-input form.
-    const customForm = document.getElementById("item-custom-form");
+const customForm = document.getElementById("item-custom-form");
 
-    if (customForm) {
-        customForm.addEventListener("submit", event => {
-            event.preventDefault();
+if (customForm && customCategory) {
+    customForm.addEventListener("submit", event => {
+        event.preventDefault();
 
-            const input = document.getElementById("item-custom-input");
+        const input = document.getElementById("item-custom-input");
 
-            if (input) {
-                addItem(input.value, customCategory);
-                input.value = "";
-            }
-        });
-    }
-
-    // Display items grouped by category.
-
-function renderItems() {
-    const container = document.getElementById("item-list");
-    if (!container) return;
-
-    container.innerHTML = "";
-
-    categoryNames.forEach(category => {
-        const categoryItems = items.filter(
-            item => item.category === category
-        );
-
-        if (!categoryItems.length) return;
-
-        const group = document.createElement("section");
-        group.className = "item-group";
-
-        const heading = document.createElement("h3");
-        heading.textContent = category;
-
-        const buttons = document.createElement("div");
-        buttons.className = "item-buttons";
-
-        categoryItems.forEach(item => {
-            const button = document.createElement("button");
-            button.type = "button";
-            button.className = "item-button";
-            button.textContent = item.name;
-            button.title = "Tik tweemaal om te verwijderen";
-
-            let confirmRemoval = false;
-
-            button.addEventListener("click", () => {
-                if (!confirmRemoval) {
-                    confirmRemoval = true;
-                    button.classList.add("confirm-removal");
-                    return;
-                }
-
-                const index = items.indexOf(item);
-
-                if (index !== -1) {
-                    items.splice(index, 1);
-                    saveItems();
-                    renderItems();
-                }
-            });
-
-            buttons.appendChild(button);
-        });
-
-        group.append(heading, buttons);
-        container.appendChild(group);
+        if (input) {
+            addItem(input.value, customCategory);
+            input.value = "";
+        }
     });
 }
+
+    // Display items grouped by category.
+    function renderItems() {
+        const container = document.getElementById("item-list");
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        categoryNames.forEach(category => {
+            const categoryItems = items.filter(
+                item => item.category === category
+            );
+
+            if (!categoryItems.length) return;
+
+            const group = document.createElement("section");
+            group.className = "item-group";
+
+            const heading = document.createElement("h3");
+            heading.textContent = category;
+
+            const buttons = document.createElement("div");
+            buttons.className = "item-buttons";
+
+            categoryItems.forEach(item => {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "item-button";
+                button.textContent = item.name;
+                button.title = "Tik tweemaal om te verwijderen";
+
+                let confirmRemoval = false;
+
+                button.addEventListener("click", () => {
+                    if (!confirmRemoval) {
+                        confirmRemoval = true;
+                        button.classList.add("confirm-removal");
+                        return;
+                    }
+
+                    const index = items.indexOf(item);
+
+                    if (index !== -1) {
+                        items.splice(index, 1);
+                        saveItems();
+                        renderItems();
+                    }
+                });
+
+                buttons.appendChild(button);
+            });
+
+            group.append(heading, buttons);
+            container.appendChild(group);
+        });
+    }
 
     // Show/hide the input area.
     const toggleButton = document.getElementById("toggle-input");
