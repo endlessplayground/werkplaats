@@ -1,6 +1,6 @@
 
 const workdays = [0, 1, 3]; // Sunday, Monday, Wednesday
-const workDescription = "Hotel";
+const workDescription = "VdV";
 const workPeriod = "morning";
 const workCategory = "hotel";
 
