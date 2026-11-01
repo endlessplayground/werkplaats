@@ -10,7 +10,7 @@ huishouden:
   - title: Deze maand
     url: /01/01_do-monthly/
     up: true
-  - title: <img src="../../assets/images/devil.svg">
+  - title: '<img class="devil-icon" src="../../assets/images/devil.svg" alt="To-do list">'
     url: /01/01_devil/
 
 boodschappen:
