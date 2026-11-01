@@ -2,6 +2,7 @@
 layout: default
 title: Bestellijst
 submenu: bestellijst
+category: werk
 ---
 
 <style>

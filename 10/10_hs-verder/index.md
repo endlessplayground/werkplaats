@@ -1,0 +1,39 @@
+---
+layout: default
+title: Ordenen
+submenu: actiefwerkt
+category: hs
+---
+
+<style>
+.submenu {
+  gap: 30px;
+}
+</style>
+
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Inwerkperiode</h2>
+
+
+
+<div id="hidden" hidden>
+
+<div id="item-categories" class="item-grid"></div>
+
+</div>
+
+<div id="item-list"></div>
+
+<script>
+window.itemListConfig = {
+    storageKey: "hs-verder",
+    textOnlyCategories: ["Nu", "Later", "Nog later"],
+
+    categories: {
+        "Nu": [],
+        "Later": [],
+        "Nog later": []
+    }
+};
+</script>
+
+<script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
