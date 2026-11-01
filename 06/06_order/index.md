@@ -35,7 +35,7 @@ category: order
 <script>
 window.itemListConfig = {
     storageKey: "house-order",
-    textOnlyCategories: ["Nu", "Later", "Nog later"],
+    textOnlyCategories: ["Inventarisatie", "Ideeën", "Alvast doen"],
 
     categories: {
         "Inventarisatie": [],

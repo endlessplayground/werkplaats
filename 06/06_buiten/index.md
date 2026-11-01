@@ -30,7 +30,7 @@ category: house
 <script>
 window.itemListConfig = {
     storageKey: "house-buiten",
-    textOnlyCategories: ["Nu", "Later", "Nog later"],
+    textOnlyCategories: ["Inventarisatie", "Ideeën", "Alvast doen"],
 
     categories: {
         "Inventarisatie": [],

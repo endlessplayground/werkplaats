@@ -12,7 +12,7 @@ category: order
 </style>
 
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Benedenverdieping</h2>
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Zoek en vind… &#129488;</h2>
 
 
 
@@ -36,7 +36,7 @@ category: order
 <script>
 window.itemListConfig = {
     storageKey: "house-find",
-    textOnlyCategories: ["Nu", "Later", "Nog later"],
+    textOnlyCategories: ["Inventarisatie", "Ideeën", "Alvast doen"],
 
     categories: {
         "Inventarisatie": [],
