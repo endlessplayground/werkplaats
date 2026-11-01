@@ -22,6 +22,7 @@
   --orange: #ffa220;
   --red: #f65681;
   --darkblue: #0b79ce;
+  --cyan: rgb(45, 231, 212);
 
   --main-color: var(--blue);
 
@@ -56,7 +57,7 @@ body.vdv {
 }
 
 body.hs {
-    --main-color: var(--darkblue);
+    --main-color: var(--cyan);
 }
 
 * { 
