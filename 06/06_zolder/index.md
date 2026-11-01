@@ -29,41 +29,14 @@ category: house
 
 <script>
 window.itemListConfig = {
-    storageKey: "huis-zolder",
-    customCategory: "Rest",
+    storageKey: "house-zolder",
+    textOnlyCategories: ["Nu", "Later", "Nog later"],
 
     categories: {
-    "Kleding": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "Boeken": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "ʻMemoraliaʼ": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "Bed 1": [
-        "Uien", "Knoflook", "Gember", "Peper", "Peen / wortel", "Aardappelen"
-    ],
-    "Bed 2": [
-        "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen"
-    ],
-    "Tafel": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "Vloeroppervlakken": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "Luiken": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "Kasten": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "Rest": [
-        "Koffie", "Koekjes", "Kattenvoer", "Toiletpapier", "Vuilniszak", "Handzeep"
-    ]
-}
+        "Inventarisatie": [],
+        "Ideeën": [],
+        "Alvast doen": []
+    }
 };
 </script>
 

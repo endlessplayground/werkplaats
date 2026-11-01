@@ -29,32 +29,14 @@ category: house
 
 <script>
 window.itemListConfig = {
-    storageKey: "huis-beneden",
-    customCategory: "Rest",
+    storageKey: "house-beneden",
+    textOnlyCategories: ["Nu", "Later", "Nog later"],
 
     categories: {
-    "Kamer algemeen": [
-        "Uien", "Knoflook", "Gember", "Peper", "Peen / wortel", "Aardappelen"
-    ],
-    "Kamer en laatjes": [
-        "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen"
-    ],
-    "Keuken": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "Gang": [
-        "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
-    ],
-    "Gangkast": [
-        "Bliktomaten", "Tomatenpuree", "Pesto", "Jalapeño", "Sriracha", "Mosterd", "Mayonaise", "Artisjokken", "Bonen", "Balsamico", "Ketjap", "Sojasaus", "Oestersaus", "Pindakaas"
-    ],
-    "Trap": [
-        "Pasta", "Lasagne vellen", "Rijst", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempit", "Pompoenpit", "Pijnboompit"
-    ],
-    "Rest": [
-        "Koffie", "Koekjes", "Kattenvoer", "Toiletpapier", "Vuilniszak", "Handzeep"
-    ]
-}
+        "Inventarisatie": [],
+        "Ideeën": [],
+        "Alvast doen": []
+    }
 };
 </script>
 

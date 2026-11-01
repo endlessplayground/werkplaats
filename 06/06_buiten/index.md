@@ -29,23 +29,14 @@ category: house
 
 <script>
 window.itemListConfig = {
-    storageKey: "huis-buiten",
-    customCategory: "Rest",
+    storageKey: "house-buiten",
+    textOnlyCategories: ["Nu", "Later", "Nog later"],
 
     categories: {
-    "Schuurtje": [
-        "Uien", "Knoflook", "Gember", "Peper", "Peen / wortel", "Aardappelen"
-    ],
-    "Plantenpotten": [
-        "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen"
-    ],
-    "Tuinmeubilair en spullen": [
-        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "Rest": [
-        "Koffie", "Koekjes", "Kattenvoer", "Toiletpapier", "Vuilniszak", "Handzeep"
-    ]
-}
+        "Inventarisatie": [],
+        "Ideeën": [],
+        "Alvast doen": []
+    }
 };
 </script>
 
