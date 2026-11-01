@@ -44,7 +44,7 @@ window.itemListConfig = {
         "Bliktomaten", "Tomatenpuree", "Pesto", "Jalapeño", "Sriracha", "Mosterd", "Mayonaise", "Artisjokken", "Bonen", "Balsamico", "Ketjap", "Sojasaus", "Oestersaus", "Pindakaas"
     ],
     "Granen & noten": [
-        "Pasta", "Lasagne vellen", "Rijst", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempit", "Pompoenpit", "Pijnboompit"
+        "Pasta", "Lasagne vellen", "Rijst", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempitten", "Pompoenpitten", "Pijnboompitten"
     ],
     "Zuivel & vriezer": [
         "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
