@@ -51,6 +51,14 @@ body.order {
     --main-color: var(--darkblue);
 }
 
+body.vdv {
+    --main-color: var(--purple);
+}
+
+body.hs {
+    --main-color: var(--darkblue);
+}
+
 * { 
   margin: 0;
   padding: 0;
