@@ -59,9 +59,13 @@
         items = [];
     }
 
-    function saveItems() {
-        localStorage.setItem(storageKey, JSON.stringify(items));
-    }
+function saveItems() {
+    localStorage.setItem(storageKey, JSON.stringify(items));
+
+    window.dispatchEvent(new CustomEvent("item-list-updated", {
+        detail: { storageKey }
+    }));
+}
 
     function addItem(name, category) {
         name = name.trim();
