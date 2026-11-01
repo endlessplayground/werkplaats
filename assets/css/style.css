@@ -36,15 +36,15 @@ body.to-do {
 }
 
 body.calendar {
-    --main-color: var(--purple);
-}
-
-body.notes {
     --main-color: var(--orange);
 }
 
-body.house {
+body.notes {
     --main-color: var(--red);
+}
+
+body.house {
+    --main-color: var(--darkblue);
 }
 
 body.order {
@@ -327,8 +327,8 @@ footer {
 }
 
 .home-tile img {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
   visibility: visible;
 }
