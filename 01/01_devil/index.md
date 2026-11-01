@@ -26,7 +26,6 @@ category: to-do
 <script src="{{ '/assets/js/00_daily-tasks.js' | relative_url }}"></script>
 
 <script>
-
 window.itemListConfig = {
     storageKey: "to-do-devil",
     customCategory: "Rest",
@@ -43,3 +42,38 @@ window.itemListConfig = {
 </script>
 
 <script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
+
+  <script>
+(() => {
+    const icon = document.querySelector(".devil-icon");
+    if (!icon) return;
+
+    const storageKey = "to-do-devil";
+
+    function updateIcon() {
+        let items = [];
+
+        try {
+            items = JSON.parse(localStorage.getItem(storageKey)) || [];
+        } catch (error) {}
+
+        const hasTasks = Array.isArray(items) && items.some(item => {
+            const name = typeof item === "string" ? item : item?.name;
+            return typeof name === "string" && !name.startsWith("- -");
+        });
+
+        icon.src = icon.src.replace(
+            hasTasks ? "saint.svg" : "devil.svg",
+            hasTasks ? "devil.svg" : "saint.svg"
+        );
+
+        icon.alt = hasTasks ? "To-do list met taken" : "To-do lijst leeg";
+    }
+
+    updateIcon();
+
+    window.addEventListener("item-list-updated", updateIcon);
+    window.addEventListener("storage", updateIcon);
+})();
+</script>
+
