@@ -29,6 +29,7 @@ category: groceries
 window.itemListConfig = {
     storageKey: "groc-div",
     customCategory: "Rest",
+    textOnlyCategories: ["Bol.com", "Kringloop"],
 
     categories: {
     "Markt": [
@@ -43,12 +44,11 @@ window.itemListConfig = {
     "Drogist": [
         "Oordopjes", "Neusdruppels", "Pijnstillers", "Tandenstokers"
     ],
-    "Kringloop": [
-        "Borden", "Opscheplepel",
-    ],
-    "Bol.com": [
-        "…", "…", "…", "…"
-    ],
+    
+    "Kringloop": [],
+
+    "Bol.com": [],
+
         "Rest": [
         "…", "…", "…", "…"
     ]
