@@ -2,7 +2,7 @@
 const workdays = [0, 1, 3]; // Sunday, Monday, Wednesday
 const workCategory = "hotel";
 const workPeriod = "morning";
-const workDescription = "Hotel";
+const workDescription = "VdV";
 
 const eventsKey = "personal-calendar-events";
 const exceptionsKey = "personal-calendar-workday-exceptions";
