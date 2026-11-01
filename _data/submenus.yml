@@ -83,3 +83,11 @@ bestellijst:
 
   - title: Bestel lijst
     url: /10/10_bestellijst/
+
+actiefwerkt:
+  - title: Inwerk periode
+    url: /10/10_hs-inwerk/
+  - title: Uit werking
+    url: /10/10_hs-uitwerking/
+  - title: Verder nog
+    url: /10/10_hs-verder/
