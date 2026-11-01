@@ -50,10 +50,10 @@ personal:
     url: /03/03_personal-mentaal/
   
 order:
-  - title: Ru brie ken
+  - title: Ru brieken
     url: /06/06_order/
     up: true
-  - title: Vind lijs ten
+  - title: Vind lijsten
     url: /06/06_find/
     up: true
 
