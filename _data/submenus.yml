@@ -56,6 +56,9 @@ order:
   - title: Vind lijsten
     url: /06/06_find/
     up: true
+  - title: Puzzel test
+    url: /06/06_puzzle/
+    up: true
 
 notities:
   - title: Web site 
