@@ -58,7 +58,7 @@ category: order
 
 </style>
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Puzzel!</h2>
+<h2>Puzzel</h2>
 
 <div class="puzzle">
     <img id="piece-01" class="puzzle-piece orange" src="{{ '/assets/images/jigsaw_orange.svg' | relative_url }}">
