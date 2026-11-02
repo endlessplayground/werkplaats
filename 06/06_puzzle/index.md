@@ -58,8 +58,6 @@ category: order
 
 </style>
 
-<h2>Puzzel</h2>
-
 <div class="puzzle">
     <img id="piece-01" class="puzzle-piece orange" src="{{ '/assets/images/jigsaw_orange.svg' | relative_url }}">
     <img id="piece-02" class="puzzle-piece teal" src="{{ '/assets/images/jigsaw_teal.svg' | relative_url }}">
