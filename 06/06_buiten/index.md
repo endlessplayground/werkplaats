@@ -6,7 +6,7 @@ category: house
 ---
 
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>De tuin</h2>
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Tuin en schuur… &#128550;</h2>
 
 
 
