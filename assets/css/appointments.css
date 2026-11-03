@@ -108,24 +108,6 @@
 .appointments-empty { padding: 12px 0; }*/
 
 
-/* Landing-page notice. */
-.appointment-notice {
-    position: fixed;
-    z-index: 9999;
-    top: 5vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(88vw, 440px);
-    max-height: 82vh;
-    overflow-y: auto;
-    box-sizing: border-box;
-    padding: 18px;
-    border: 2px solid var(--green-dark, #47765e);
-    border-radius: 14px;
-    background: var(--yellow-light, #fff9dc);
-    color: var(--text-color, #222);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
-}
 
 .appointment-notice > h2 { margin: 0 32px 12px 0; }
 .appointment-notice-close {
@@ -155,3 +137,7 @@
 }
 .appointment-notice-day .appointment-entry { padding: 8px 0 0; }
 .appointment-notice .appointment-entry-controls { display: none; }
+
+.appointment-day-this-week {
+    border: 5px solid rgb(255, 213, 0);
+}
