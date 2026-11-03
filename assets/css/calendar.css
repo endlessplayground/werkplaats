@@ -57,10 +57,11 @@
 
 .calendar-date {
     text-align: center;
-    padding: 4px 0;
+    padding:  0;
     font-size: 1rem;
     font-weight: bold;
     line-height: 1.2;
+    background-color: rgb(253, 222, 159);
 }
 
 .calendar-date span {
@@ -219,16 +220,21 @@
     width: 70px;
     box-sizing: border-box;
 }
-
+.calendar-week
 .timeline-weekday {
     text-align: center;
-    padding: 4px 0;
-    font-size: 0.7rem;
-    font-weight: bold;
+    padding: 2px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
     text-transform: capitalize;
     background: var(--green-darker);
     color: white;
 }
+
+.calendar-week {
+    margin-bottom: 10px;
+}
+
 
 .timeline-page {
     width: 100vw;
