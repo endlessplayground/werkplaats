@@ -27,8 +27,9 @@ category: calendar
 </div>
 
   <section class="calendar-form-section">
-    <h3 id="calendar-form-title">Afspraak toevoegen</h3>
-
+<a href="#top">
+  <h3 id="calendar-form-title">Afspraak toevoegen</h3>
+</a>
 <form id="calendar-form">
 
       <input type="date" id="event-date" required>
