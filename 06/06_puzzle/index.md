@@ -19,7 +19,7 @@ category: order
     border-bottom: 2px solid rgba(154, 183, 174, 0.32);
     border-left: 2px solid  rgba(235, 244, 225, 0.9);
     border-top: 2px solid white;
-    transform: scale(0.8);
+    transform: scale(0.95);
 }
 
 .puzzle-piece {
