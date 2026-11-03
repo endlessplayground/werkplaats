@@ -4,8 +4,9 @@ huishouden:
     up: true
   - title: Later
     url: /01/01_do-later/
-  - title: '<img class="devil-icon" src="/assets/images/devil.svg">'
+  - title: ''
     url: /01/01_devil/
+    image: /assets/images/devil.svg
 
 
 tijdelijk-eruit:
