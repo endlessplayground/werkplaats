@@ -53,7 +53,7 @@ order:
   - title: Ru brieken
     url: /06/06_order/
     up: true
-  - title: Vind lijsten
+  - title: Zoek vind
     url: /06/06_find/
     up: true
   - title: Puzzel test
@@ -88,9 +88,9 @@ bestellijst:
     url: /10/10_bestellijst/
 
 actiefwerkt:
-  - title: Inwerk periode
+  - title: Inwerk . . .
     url: /10/10_hs-inwerk/
-  - title: Uit werking
+  - title: To do
     url: /10/10_hs-uitwerking/
   - title: Verder nog
     url: /10/10_hs-verder/
