@@ -61,8 +61,10 @@ order:
     up: true
 
 notities:
-  - title: Web site 
+  - title: Web nu 
     url: /03/03_notes-web/
+  - title: Web later 
+    url: /03/03_notes-web-later/
   - title: Idee ën
     url: /03/03_notes-ideeen/
   - title: Nog iets
