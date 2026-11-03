@@ -197,6 +197,13 @@ function renderAppointmentList() {
         const appointmentFrame = document.createElement("section");
         appointmentFrame.className = "appointment-day-frame";
 
+        const today = keyToDate(todayKey());
+        const appointmentDate = keyToDate(item.date);
+        const daysUntil = (appointmentDate - today) / (1000 * 60 * 60 * 24);
+
+        if (daysUntil >= 0 && daysUntil <= 6) {
+            appointmentFrame.classList.add("appointment-day-this-week");
+        }
         if (item.date === todayKey()) {
             appointmentFrame.classList.add("appointment-day-today");
         }
