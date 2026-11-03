@@ -1,7 +1,9 @@
 window.dailyTasks = [
-    "Check of het gelukt is!!!",
     "Afwassen",
     "Keuken schoonmaken",
+    "Koelkast opschonen",
+    "Vriezer opschonen",
+    "Koffiemachine reinigen",
     "Douchen",
     "Planten water",
     "Mail checken",
