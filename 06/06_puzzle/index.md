@@ -6,6 +6,10 @@ category: order
 ---
 
 <style>
+main {
+  flex: 1;
+  padding: 18px 0px 80px 0px;
+}
 
 .puzzle {
     display: grid;
@@ -57,8 +61,6 @@ category: order
 }
 
 </style>
-
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Puzzel!</h2>
 
 <div class="puzzle">
     <img id="piece-01" class="puzzle-piece orange" src="{{ '/assets/images/jigsaw_orange.svg' | relative_url }}">
