@@ -4,14 +4,17 @@ huishouden:
     up: true
   - title: Later
     url: /01/01_do-later/
+  - title: '<img class="devil-icon" src="/assets/images//devil.svg">'
+    url: /01/01_devil/
+
+
+tijdelijk-eruit:
   - title: Deze week
     url: /01/01_do-weekly/
     up: true
   - title: Deze maand
     url: /01/01_do-monthly/
     up: true
-  - title: '<img class="devil-icon" src="../../assets/images/devil.svg" alt="To-do list">'
-    url: /01/01_devil/
 
 boodschappen:
   - title: Super

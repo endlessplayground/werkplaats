@@ -11,10 +11,10 @@
   image: /assets/images//home-calendar.svg
 
 
-- title: 
-  url: /03/03_personal-voeding/
+- title: To do
+  url: /01/01_do-weekly/
+  image: /assets/images//home-todo.svg
   dimmed: true
-  up: true
 
 - title: Notities
   url: /03/03_notes-web/
