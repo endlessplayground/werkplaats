@@ -7,7 +7,17 @@ category: calendar
 
 <div class="calendar-page">
 
-  <h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>De komende weken  <button type="button" id="calendar-today"><img src="{{ '/assets/images/up.svg' | relative_url }}"></button></h2>
+  <h2>
+    <a href="#calendar-form-title">
+        <div class="pen">
+            <img src="{{ '/assets/images/pen.svg' | relative_url }}" alt="">
+        </div>
+    </a>
+    De komende weken
+    <button type="button" id="calendar-today">
+        <img src="{{ '/assets/images/up.svg' | relative_url }}">
+    </button>
+</h2>
 
 
 <div class="calendar-weekdays" id="calendar-weekdays"></div>
