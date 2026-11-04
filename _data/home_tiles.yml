@@ -21,8 +21,9 @@
   image: /assets/images//home-notes.svg
 
 - title: 
-  url: /03/03_ideas-digi/
+  url: /06/06_find/
   dimmed: true
+  up: true
 
 
 - title: Huis
@@ -33,10 +34,9 @@
   url: /06/06_order/
   image: /assets/images//home-order.svg
 
-- title: 
-  url: /06/06_find/
-  dimmed: true
-  up: true
+- title: Puzzel
+  url: /06/06_puzzle/
+  image: /assets/images//home-jigsaw.svg
 
 
 - title: 
