@@ -75,6 +75,10 @@ button img {
     width: 28px;
 }
 
+h2 {
+  margin: 0 20px 10px 0;
+}
+
 
 
 
