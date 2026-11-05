@@ -14,7 +14,7 @@ main {
 .puzzle {
     display: grid;
     width: 357px;
-    height: 465.6px;
+    height: 297.6px;
     grid-template-columns: repeat(7, 50.4px);
     gap: 0;
     margin: 0 auto;
@@ -22,7 +22,7 @@ main {
     border-right: 2px solid rgba(208, 224, 195, 0.6);
     border-bottom: 2px solid rgba(154, 183, 174, 0.32);
     border-left: 2px solid  rgba(235, 244, 225, 0.9);
-    border-top: 2px solid white;
+    border-top: 2px solid rgba(235, 244, 225, 0.9);
     transform: scale(0.95);
 }
 
@@ -38,6 +38,8 @@ main {
 /* Example: rotate a specific piece */
 
 </style>
+
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Zolder</h2>
 
 <!--1-->
 <div class="puzzle">
@@ -93,24 +95,6 @@ main {
     <img id="piece-40" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
     <img id="piece-41" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
     <img id="piece-42" class="puzzle-piece" src="{{ '/assets/images/jigsaw_r1.svg' | relative_url }}">
-
-<!--7-->
-<img id="piece-43" class="puzzle-piece" src="{{ '/assets/images/jigsaw_l2.svg' | relative_url }}">
-    <img id="piece-44" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
-    <img id="piece-45" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
-    <img id="piece-46" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
-    <img id="piece-47" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
-    <img id="piece-48" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
-    <img id="piece-49" class="puzzle-piece" src="{{ '/assets/images/jigsaw_r2.svg' | relative_url }}">
-
-<!--8-->
-<img id="piece-50" class="puzzle-piece" src="{{ '/assets/images/jigsaw_l1.svg' | relative_url }}">
-    <img id="piece-51" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
-    <img id="piece-52" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
-    <img id="piece-53" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
-    <img id="piece-54" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
-    <img id="piece-55" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
-    <img id="piece-56" class="puzzle-piece" src="{{ '/assets/images/jigsaw_r1.svg' | relative_url }}">
 
 <!--9-->
 <img id="piece-57" class="puzzle-piece" src="{{ '/assets/images/jigsaw_lo.svg' | relative_url }}">
