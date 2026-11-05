@@ -14,7 +14,7 @@ main {
 .puzzle {
     display: grid;
     width: 357px;
-    height: 297.6px;
+    height: 416px;
     grid-template-columns: repeat(7, 50.4px);
     gap: 0;
     margin: 0 auto;
@@ -24,6 +24,9 @@ main {
     border-left: 2px solid  rgba(235, 244, 225, 0.9);
     border-top: 2px solid rgba(235, 244, 225, 0.9);
     transform: scale(1.01);
+    background-image: url("{{ '/assets/images/interior.png' | relative_url }}");
+    background-size: cover;
+    background-position: center;
 }
 
 .puzzle-piece {
@@ -35,11 +38,51 @@ main {
     border: 0;
 }
 
+.puzzle-piece {
+    cursor: pointer;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.puzzle-piece.selected {
+    filter: hue-rotate(120deg);
+}
+
+.puzzle-piece.hidden {
+    opacity: 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    background: aqua;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    margin: 0 0 0 10px;
+    border-radius: 50%;
+    background: var(--green-darker);
+}
+
+button img {
+    width: 28px;
+}
+
+
+
+
 /* Example: rotate a specific piece */
 
 </style>
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Zolder</h2>
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Zolder<button id="reset-puzzle" type="button"><img src="{{ '/assets/images/reload.svg' | relative_url }}"></button></h2> 
 
 <!--1-->
 <div class="puzzle">
@@ -97,20 +140,80 @@ main {
     <img id="piece-42" class="puzzle-piece" src="{{ '/assets/images/jigsaw_r1.svg' | relative_url }}">
 
 <!--5-->
-<img id="piece-29" class="puzzle-piece" src="{{ '/assets/images/jigsaw_l2.svg' | relative_url }}">
-    <img id="piece-30" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
-    <img id="piece-31" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
-    <img id="piece-32" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
-    <img id="piece-33" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
-    <img id="piece-34" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
-    <img id="piece-35" class="puzzle-piece" src="{{ '/assets/images/jigsaw_r2.svg' | relative_url }}">
+<img id="piece-43" class="puzzle-piece" src="{{ '/assets/images/jigsaw_l2.svg' | relative_url }}">
+    <img id="piece-44" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
+    <img id="piece-45" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
+    <img id="piece-46" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
+    <img id="piece-47" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
+    <img id="piece-48" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
+    <img id="piece-49" class="puzzle-piece" src="{{ '/assets/images/jigsaw_r2.svg' | relative_url }}">
 
 <!--9-->
-<img id="piece-57" class="puzzle-piece" src="{{ '/assets/images/jigsaw_lo.svg' | relative_url }}">
-    <img id="piece-58" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
-    <img id="piece-60" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o2.svg' | relative_url }}">
-    <img id="piece-61" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
-    <img id="piece-62" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o2.svg' | relative_url }}">
-    <img id="piece-61" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
-    <img id="piece-63" class="puzzle-piece" src="{{ '/assets/images/jigsaw_ro.svg' | relative_url }}">
+<img id="piece-50" class="puzzle-piece" src="{{ '/assets/images/jigsaw_lo.svg' | relative_url }}">
+    <img id="piece-51" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
+    <img id="piece-52" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o2.svg' | relative_url }}">
+    <img id="piece-53" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
+    <img id="piece-54" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o2.svg' | relative_url }}">
+    <img id="piece-55" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
+    <img id="piece-56" class="puzzle-piece" src="{{ '/assets/images/jigsaw_ro.svg' | relative_url }}">
 </div>
+
+<script>
+const storageKey = "zolder-puzzle";
+const pieces = document.querySelectorAll(".puzzle-piece");
+
+function savePuzzle() {
+    const states = {};
+
+    pieces.forEach(piece => {
+        states[piece.id] = {
+            selected: piece.classList.contains("selected"),
+            hidden: piece.classList.contains("hidden")
+        };
+    });
+
+    localStorage.setItem(storageKey, JSON.stringify(states));
+}
+
+function loadPuzzle() {
+    let states = {};
+
+    try {
+        states = JSON.parse(localStorage.getItem(storageKey)) || {};
+    } catch (error) {}
+
+    pieces.forEach(piece => {
+        const state = states[piece.id] || {};
+
+        piece.classList.toggle("selected", !!state.selected);
+        piece.classList.toggle("hidden", !!state.hidden);
+    });
+}
+
+pieces.forEach(piece => {
+    piece.addEventListener("click", () => {
+        if (piece.classList.contains("hidden")) {
+            piece.classList.remove("hidden", "selected");
+        } else if (piece.classList.contains("selected")) {
+            piece.classList.remove("selected");
+            piece.classList.add("hidden");
+        } else {
+            piece.classList.add("selected");
+        }
+
+        savePuzzle();
+    });
+});
+
+document.getElementById("reset-puzzle").addEventListener("click", () => {
+    if (!confirm("Wil je de hele puzzel herstellen?")) return;
+
+    localStorage.removeItem(storageKey);
+
+    pieces.forEach(piece => {
+        piece.classList.remove("selected", "hidden");
+    });
+});
+
+loadPuzzle();
+</script>
