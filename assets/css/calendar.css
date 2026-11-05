@@ -184,7 +184,7 @@
     display: none;
 }
 
-#calendar-today {
+#calendar-today, .calendar-today {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -196,7 +196,11 @@
     border: none;
 }
 
-#calendar-today img {
+.calendar-today {
+    margin: 0 0 3px 6px;
+}
+
+#calendar-today img, .calendar-today img {
     width: 25px;
 }
 
