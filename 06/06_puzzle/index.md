@@ -96,12 +96,21 @@ main {
     <img id="piece-41" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
     <img id="piece-42" class="puzzle-piece" src="{{ '/assets/images/jigsaw_r1.svg' | relative_url }}">
 
+<!--5-->
+<img id="piece-29" class="puzzle-piece" src="{{ '/assets/images/jigsaw_l2.svg' | relative_url }}">
+    <img id="piece-30" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
+    <img id="piece-31" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
+    <img id="piece-32" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
+    <img id="piece-33" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m2.svg' | relative_url }}">
+    <img id="piece-34" class="puzzle-piece" src="{{ '/assets/images/jigsaw_m1.svg' | relative_url }}">
+    <img id="piece-35" class="puzzle-piece" src="{{ '/assets/images/jigsaw_r2.svg' | relative_url }}">
+
 <!--9-->
 <img id="piece-57" class="puzzle-piece" src="{{ '/assets/images/jigsaw_lo.svg' | relative_url }}">
-    <img id="piece-58" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o2.svg' | relative_url }}">
-    <img id="piece-59" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
+    <img id="piece-58" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
     <img id="piece-60" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o2.svg' | relative_url }}">
     <img id="piece-61" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
     <img id="piece-62" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o2.svg' | relative_url }}">
+    <img id="piece-61" class="puzzle-piece" src="{{ '/assets/images/jigsaw_o1.svg' | relative_url }}">
     <img id="piece-63" class="puzzle-piece" src="{{ '/assets/images/jigsaw_ro.svg' | relative_url }}">
 </div>
