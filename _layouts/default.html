@@ -47,12 +47,12 @@
     {% for item in submenu %}
       <a href="{{ item.url | relative_url }}"
         class="submenu-item{% if item.url == page.url %} active{% endif %}{% if item.dimmed %} dimmed{% endif %}{% if item.up %} up{% endif %}">
-        {% if item.image %}
+{% if item.image %}
   <img src="{{ item.image | relative_url }}" class="devil-icon" alt="Devil">
 {% else %}
   {{ item.title }}
 {% endif %}
-      </a>
+</a>
     {% endfor %}
   </nav>
 
