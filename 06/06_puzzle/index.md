@@ -23,7 +23,7 @@ main {
     border-bottom: 2px solid rgba(154, 183, 174, 0.32);
     border-left: 2px solid  rgba(235, 244, 225, 0.9);
     border-top: 2px solid rgba(235, 244, 225, 0.9);
-    transform: scale(1.01);
+    transform: scale(0.99);
     background-image: url("{{ '/assets/images/interior.png' | relative_url }}");
     background-size: cover;
     background-position: center;
