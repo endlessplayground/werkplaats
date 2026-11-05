@@ -23,7 +23,7 @@ main {
     border-bottom: 2px solid rgba(154, 183, 174, 0.32);
     border-left: 2px solid  rgba(235, 244, 225, 0.9);
     border-top: 2px solid rgba(235, 244, 225, 0.9);
-    transform: scale(0.95);
+    transform: scale(1.1);
 }
 
 .puzzle-piece {
