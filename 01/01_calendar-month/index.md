@@ -27,9 +27,13 @@ category: calendar
 </div>
 
   <section class="calendar-form-section">
-<a href="#top">
-  <h3 id="calendar-form-title">Afspraak toevoegen</h3>
+<a href="#top" style="display: flex; flex-direction:row; align-items:flex-end;">
+  <h3 id="calendar-form-title">Afspraak toevoegen</h3><button type="button" class="calendar-today">
+        <img src="{{ '/assets/images/up.svg' | relative_url }}" >
+    </button>
 </a>
+
+
 <form id="calendar-form">
 
       <input type="date" id="event-date" required>
