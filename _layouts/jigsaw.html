@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body class="{{ page.category | default: 'default' }}">
+
+<style>
+.puzzle {
+    background-image: url('{{ page.puzzle_background | prepend: "/assets/images/" | relative_url }}');
+}
+</style>
+
+  <div class="phone-screen">
+
+    <header>
+      <a href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/images/header.svg' | relative_url }}"
+             alt="{{ site.title }}">
+      </a>
+    </header>
+
+    <main class="home-main">
+      {{ content }}
+    </main>
+
+{% include footer.html %}
+
+
+  </div>
+</body>
+</html>

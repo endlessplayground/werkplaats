@@ -1,0 +1,62 @@
+- title: Kamer
+  url: /06/06_1-kamer/
+  image: /assets/images//jigsaw_tile-1.svg
+  class: tile-one
+  
+- title: 
+  url: 
+  image: /assets/images//jigsaw_tile-2.svg
+
+- title: Keuken
+  url: /06/06_2-keuken/
+  image: /assets/images//jigsaw_tile-1.svg
+  class: tile-one
+
+
+
+- title: 
+  url: 
+  image: /assets/images//jigsaw_tile-2.svg
+  class: tile-one
+
+- title: Gang
+  url: /06/06_3-gang/
+  image: /assets/images//jigsaw_tile-1.svg
+
+- title: 
+  url: 
+  image: /assets/images//jigsaw_tile-2.svg
+  class: tile-one
+
+
+
+- title: Boven
+  url: /06/06_4-boven/
+  image: /assets/images//jigsaw_tile-1.svg
+  class: tile-one
+
+- title: 
+  url: 
+  image: /assets/images//jigsaw_tile-2.svg
+
+- title: Zolder
+  url: /06/06_5-zolder/
+  image: /assets/images//jigsaw_tile-1.svg
+  class: tile-one
+
+
+
+- title: 
+  url: 
+  image: /assets/images//jigsaw_tile-2.svg
+
+- title: Buiten
+  url: /06/06_6-buiten/
+  image: /assets/images//jigsaw_tile-1.svg
+  class: tile-one
+
+- title: 
+  url: 
+  image: /assets/images//jigsaw_tile-2.svg
+
+

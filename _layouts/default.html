@@ -1,33 +1,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-<!--  <link rel="stylesheet" href="{{ '/assets/css/checklists.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/groc-super.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/lists-new.css' | relative_url }}">
--->
-  <link rel="stylesheet" href="{{ '/assets/css/bestellijst.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/forms.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/calendar.css' | relative_url }}">
-  
-
-
-  <link rel="icon" type="image/svg+xml"
-      href="{{ '/assets/images/favicon.svg' | relative_url }}">
-</head>
+{% include head.html %}
 
 <body class="{{ page.category | default: 'default' }}" id="top">
 
@@ -42,6 +17,7 @@
 
     {% assign submenu = site.data.submenus[page.submenu] %}
     
+    <!-- DEBUG: page.submenu={{ page.submenu | jsonify }} | submenu={{ submenu | jsonify }} -->
 
   <nav class="submenu" aria-label="Page navigation">
     {% for item in submenu %}
@@ -60,28 +36,9 @@
       {{ content }}
     </main>
 
-<footer>
-<!--<img src="{{ '/assets/images/home.svg' | relative_url }}">-->
-
-  <nav class="footer-menu" aria-label="Quick links">
-      <a href="{{ '/06/06_puzzle/' | relative_url }}" class="footer-tile" style="background-color: var(--darkblue);"><img src="{{ '/assets/images/jigsaw-footer.svg' | relative_url }}"></a>
-
-      <a href="{{ '/01/01_do-today/' | relative_url }}" class="footer-tile"><img src="{{ '/assets/images/check.svg' | relative_url }}"></a>
-      
-      <a href="{{ '/01/01_groc-super/' | relative_url }}" class="footer-tile" style="background-color: var(--green);"><img src="{{ '/assets/images/cart.svg' | relative_url }}"></a>
-      
-      <a href="{{ '/01/01_calendar-month/' | relative_url }}" class="footer-tile" style="background-color: var(--orange)"><img src="{{ '/assets/images/calendar.svg' | relative_url }}"></a>
-      
-      <a href="{{ '/03/03_notes-web/' | relative_url }}" class="footer-tile" style="background-color: var(--red)"><img src="{{ '/assets/images/pencil.svg' | relative_url }}"></a>
-      <div class="footer-menu-bigger">
-        
-      <a href="{{ '/' | relative_url }}" class="footer-tile" style="background-color: var(--grey-light);"><img src="{{ '/assets/images/home.svg' | relative_url }}"></a>
-    </div>
-  </nav>
-</footer>
+{% include footer.html %}
 
   </div>
-  <!--<script src="{{ '/assets/js/00_devil-saint.js' | relative_url }}"></script>-->
 
 </body>
 </html>

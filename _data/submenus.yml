@@ -60,8 +60,19 @@ order:
   - title: Zoek vind
     url: /06/06_find/
     up: true
-  - title: Puzzel test
-    url: /06/06_puzzle/
+  - title: Puzzels
+    url: /06/06_jigsaw-start/
+    up: true
+
+jigsaw:
+  - title: Ru brieken
+    url: /06/06_order/
+    up: true
+  - title: Zoek vind
+    url: /06/06_find/
+    up: true
+  - title: Puzzels
+    url: /06/06_jigsaw-start/
     up: true
 
 notities:
