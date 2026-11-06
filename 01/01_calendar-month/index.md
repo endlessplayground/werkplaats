@@ -3,6 +3,7 @@ layout: default
 title: Overzicht
 submenu: kalender
 category: calendar
+custom_css: calendar
 ---
 
 <div class="calendar-page">

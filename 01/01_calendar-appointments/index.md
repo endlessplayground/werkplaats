@@ -3,6 +3,7 @@ layout: default
 title: Afspraken
 submenu: kalender
 category: calendar
+custom_css: calendar
 ---
 
 <style>

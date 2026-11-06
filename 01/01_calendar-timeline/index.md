@@ -3,6 +3,7 @@ layout: default
 title: Tijdlijn
 submenu: kalender
 category: calendar
+custom_css: calendar
 ---
 
 <h2 style="margin: 0 0 12px 0;">&#8592; Overzicht &#8594;</h2>
