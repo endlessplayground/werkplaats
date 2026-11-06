@@ -6,12 +6,6 @@
 
 <body class="{{ page.category | default: 'default' }}">
 
-<style>
-.puzzle {
-    background-image: url('{{ page.puzzle_background | prepend: "/assets/images/" | relative_url }}');
-}
-</style>
-
   <div class="phone-screen">
 
     <header>
@@ -21,7 +15,7 @@
       </a>
     </header>
 
-    <main class="home-main">
+    <main class="jigsaw-main">
       {{ content }}
     </main>
 
