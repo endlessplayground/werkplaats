@@ -43,15 +43,20 @@
                     if (typeof item === "string") {
                         return {
                             name: item,
-                            category: findCategory(item)
+                            category: findCategory(item),
+                            colourState: 0
                         };
                     }
 
                     return {
+                        ...item,
                         name: item.name,
                         category: categoryNames.includes(item.category)
                             ? item.category
-                            : findCategory(item.name)
+                            : findCategory(item.name),
+                        colourState: [0, 1, 2, 3].includes(item.colourState)
+                            ? item.colourState
+                            : 0
                     };
                 });
         }
@@ -59,13 +64,15 @@
         items = [];
     }
 
-function saveItems() {
-    localStorage.setItem(storageKey, JSON.stringify(items));
 
-    window.dispatchEvent(new CustomEvent("item-list-updated", {
-        detail: { storageKey }
-    }));
-}
+    function saveItems() {
+        localStorage.setItem(storageKey, JSON.stringify(items));
+
+        window.dispatchEvent(new CustomEvent("item-list-updated", {
+            detail: { storageKey }
+        }));
+    }
+
 
     function addItem(name, category) {
         name = name.trim();
@@ -76,23 +83,25 @@ function saveItems() {
             item.name === name && item.category === category
         )) return;
 
-        items.push({ name, category });
+        items.push({ name, category, colourState: 0 });
         saveItems();
         renderItems();
     }
+
 
     function addEntireList(category) {
         categories[category].forEach(name => {
             if (!items.some(item =>
                 item.name === name && item.category === category
             )) {
-                items.push({ name, category });
+                items.push({ name, category, colourState: 0 });
             }
         });
 
         saveItems();
         renderItems();
     }
+
 
     // Build the category selectors.
     const categoryContainer =
@@ -202,21 +211,23 @@ function saveItems() {
         });
     }
 
+
     // Keep support for pages using one shared custom-input form.
-const customForm = document.getElementById("item-custom-form");
+    const customForm = document.getElementById("item-custom-form");
 
-if (customForm && customCategory) {
-    customForm.addEventListener("submit", event => {
-        event.preventDefault();
+    if (customForm && customCategory) {
+        customForm.addEventListener("submit", event => {
+            event.preventDefault();
 
-        const input = document.getElementById("item-custom-input");
+            const input = document.getElementById("item-custom-input");
 
-        if (input) {
-            addItem(input.value, customCategory);
-            input.value = "";
-        }
-    });
-}
+            if (input) {
+                addItem(input.value, customCategory);
+                input.value = "";
+            }
+        });
+    }
+
 
     // Display items grouped by category.
     function renderItems() {
@@ -252,6 +263,13 @@ if (customForm && customCategory) {
                 button.textContent = item.name;
                 button.title = "Tik tweemaal om te verwijderen";
 
+                // Restore the saved colour.
+                if (item.colourState > 0) {
+                    button.classList.add(
+                        `item-colour-${item.colourState}`
+                    );
+                }
+
                 let confirmRemoval = false;
 
                 button.addEventListener("click", event => {
@@ -285,181 +303,255 @@ if (customForm && customCategory) {
     }
 
 
-// Drag-and-drop reordering (mouse and touch).
-let draggedRow = null;
-let pendingRow = null;
-let startX = 0;
-let startY = 0;
-let dragTimer = null;
-let touchDragging = false;
-let suppressNextClick = false;
+    // Drag-and-drop and long-press colour changes.
+    let draggedRow = null;
+    let pendingRow = null;
+    let startX = 0;
+    let startY = 0;
+    let dragTimer = null;
+    let touchDragging = false;
+    let touchLongPressReady = false;
+    let touchStartTime = 0;
+    let suppressNextClick = false;
 
-const listContainer = document.getElementById("item-list");
+    const listContainer = document.getElementById("item-list");
 
-function moveDraggedRow(x, y) {
-    if (!draggedRow) return;
 
-    const target = document.elementFromPoint(x, y);
-    const targetRow = target?.closest(".item-row");
+    function moveDraggedRow(x, y) {
+        if (!draggedRow) return;
 
-    if (
-        !targetRow ||
-        targetRow === draggedRow ||
-        targetRow.parentElement !== draggedRow.parentElement
-    ) return;
+        const target = document.elementFromPoint(x, y);
+        const targetRow = target?.closest(".item-row");
 
-    const rect = targetRow.getBoundingClientRect();
-    const after = y > rect.top + rect.height / 2;
-    const buttons = draggedRow.parentElement;
+        if (
+            !targetRow ||
+            targetRow === draggedRow ||
+            targetRow.parentElement !== draggedRow.parentElement
+        ) return;
 
-    buttons.insertBefore(
-        draggedRow,
-        after ? targetRow.nextSibling : targetRow
-    );
-}
+        const rect = targetRow.getBoundingClientRect();
+        const after = y > rect.top + rect.height / 2;
+        const buttons = draggedRow.parentElement;
 
-function finishDrag() {
-    if (!draggedRow) return;
+        buttons.insertBefore(
+            draggedRow,
+            after ? targetRow.nextSibling : targetRow
+        );
+    }
 
-    const group = draggedRow.parentElement;
-    const reordered = [...group.children].map(row => row._item);
-    const category = reordered[0]?.category;
 
-    const positions = [];
+    function finishDrag() {
+        if (!draggedRow) return;
 
-    items.forEach((item, index) => {
-        if (item.category === category) positions.push(index);
-    });
+        const group = draggedRow.parentElement;
+        const reordered = [...group.children].map(row => row._item);
+        const category = reordered[0]?.category;
 
-    positions.forEach((position, index) => {
-        items[position] = reordered[index];
-    });
+        const positions = [];
 
-    draggedRow.classList.remove("dragging");
-    draggedRow = null;
-    pendingRow = null;
-    touchDragging = false;
+        items.forEach((item, index) => {
+            if (item.category === category) positions.push(index);
+        });
 
-    suppressNextClick = true;
+        positions.forEach((position, index) => {
+            items[position] = reordered[index];
+        });
 
-    saveItems();
-    renderItems();
-
-    // Ignore the click generated when the finger/mouse is released.
-    setTimeout(() => {
-        suppressNextClick = false;
-    }, 500);
-}
-
-function cancelPendingDrag() {
-    clearTimeout(dragTimer);
-    pendingRow = null;
-}
-
-if (listContainer) {
-
-    // Mouse dragging.
-    listContainer.addEventListener("pointerdown", event => {
-        if (event.pointerType === "touch") return;
-
-        pendingRow = event.target.closest(".item-row");
-        if (!pendingRow) return;
-
-        startX = event.clientX;
-        startY = event.clientY;
-    });
-
-    document.addEventListener("pointermove", event => {
-        if (!pendingRow && !draggedRow) return;
-
-        if (!draggedRow) {
-            if (Math.hypot(
-                event.clientX - startX,
-                event.clientY - startY
-            ) < 6) return;
-
-            draggedRow = pendingRow;
-            pendingRow = null;
-            draggedRow.classList.add("dragging");
-        }
-
-        moveDraggedRow(event.clientX, event.clientY);
-    });
-
-    document.addEventListener("pointerup", event => {
-        if (event.pointerType === "touch") return;
-
-        pendingRow = null;
-        finishDrag();
-    });
-
-    // Touch: a stationary long press activates dragging.
-    listContainer.addEventListener("touchstart", event => {
-        const row = event.target.closest(".item-row");
-        if (!row) return;
-
-        const touch = event.touches[0];
-
-        startX = touch.clientX;
-        startY = touch.clientY;
-
-        clearTimeout(dragTimer);
-        pendingRow = row;
-
-        dragTimer = setTimeout(() => {
-            if (pendingRow !== row) return;
-
-            draggedRow = row;
-            touchDragging = true;
-            row.classList.add("dragging");
-        }, 500);
-
-    }, { passive: true });
-
-    document.addEventListener("touchmove", event => {
-        if (!event.touches.length) return;
-
-        const touch = event.touches[0];
-
-        if (!touchDragging) {
-            if (Math.hypot(
-                touch.clientX - startX,
-                touch.clientY - startY
-            ) > 10) {
-                cancelPendingDrag();
-            }
-            return;
-        }
-
-        event.preventDefault();
-        moveDraggedRow(touch.clientX, touch.clientY);
-
-    }, { passive: false });
-
-    document.addEventListener("touchend", () => {
-        clearTimeout(dragTimer);
-
-        if (touchDragging) {
-            finishDrag();
-        } else {
-            pendingRow = null;
-        }
-
-    });
-
-    document.addEventListener("touchcancel", () => {
-        clearTimeout(dragTimer);
-
-        if (draggedRow) {
-            draggedRow.classList.remove("dragging");
-            draggedRow = null;
-        }
-
+        draggedRow.classList.remove("dragging");
+        draggedRow = null;
         pendingRow = null;
         touchDragging = false;
-    });
-}
-    
+        touchLongPressReady = false;
+
+        suppressNextClick = true;
+
+        saveItems();
+        renderItems();
+
+        setTimeout(() => {
+            suppressNextClick = false;
+        }, 500);
+    }
+
+
+    function cancelPendingDrag() {
+        clearTimeout(dragTimer);
+        pendingRow = null;
+        touchLongPressReady = false;
+    }
+
+
+    // Change colour according to how long the finger was held.
+    function changeItemColour(row, duration) {
+        if (!row || !row._item) return;
+
+        let newState;
+
+        if (duration >= 3500) {
+            newState = 0;
+        } else if (duration >= 2500) {
+            newState = 3;
+        } else if (duration >= 1500) {
+            newState = 2;
+        } else {
+            newState = 1;
+        }
+
+        row._item.colourState = newState;
+
+        suppressNextClick = true;
+
+        saveItems();
+        renderItems();
+
+        setTimeout(() => {
+            suppressNextClick = false;
+        }, 500);
+    }
+
+
+    if (listContainer) {
+
+        // Mouse dragging.
+        listContainer.addEventListener("pointerdown", event => {
+            if (event.pointerType === "touch") return;
+
+            pendingRow = event.target.closest(".item-row");
+            if (!pendingRow) return;
+
+            startX = event.clientX;
+            startY = event.clientY;
+        });
+
+
+        document.addEventListener("pointermove", event => {
+            if (!pendingRow && !draggedRow) return;
+
+            if (!draggedRow) {
+                if (Math.hypot(
+                    event.clientX - startX,
+                    event.clientY - startY
+                ) < 6) return;
+
+                draggedRow = pendingRow;
+                pendingRow = null;
+                draggedRow.classList.add("dragging");
+            }
+
+            moveDraggedRow(event.clientX, event.clientY);
+        });
+
+
+        document.addEventListener("pointerup", event => {
+            if (event.pointerType === "touch") return;
+
+            pendingRow = null;
+            finishDrag();
+        });
+
+
+        // Touch: stationary long press changes colour.
+        // Holding and then moving starts dragging.
+        listContainer.addEventListener("touchstart", event => {
+            if (event.touches.length !== 1) return;
+
+            const row = event.target.closest(".item-row");
+            if (!row) return;
+
+            const touch = event.touches[0];
+
+            startX = touch.clientX;
+            startY = touch.clientY;
+            touchStartTime = Date.now();
+
+            touchLongPressReady = false;
+
+            clearTimeout(dragTimer);
+            pendingRow = row;
+
+            // After 500 ms, movement can initiate dragging.
+            dragTimer = setTimeout(() => {
+                if (pendingRow !== row) return;
+                touchLongPressReady = true;
+            }, 500);
+
+        }, { passive: true });
+
+
+        document.addEventListener("touchmove", event => {
+            if (!event.touches.length) return;
+
+            const touch = event.touches[0];
+
+            if (!pendingRow && !draggedRow) return;
+
+            if (!touchLongPressReady && !touchDragging) {
+                if (Math.hypot(
+                    touch.clientX - startX,
+                    touch.clientY - startY
+                ) > 10) {
+                    cancelPendingDrag();
+                }
+
+                return;
+            }
+
+            // After the long press, movement starts dragging.
+            if (touchLongPressReady && pendingRow && !touchDragging) {
+                if (Math.hypot(
+                    touch.clientX - startX,
+                    touch.clientY - startY
+                ) > 10) {
+                    draggedRow = pendingRow;
+                    pendingRow = null;
+                    touchDragging = true;
+                    draggedRow.classList.add("dragging");
+                }
+            }
+
+            if (!touchDragging) return;
+
+            event.preventDefault();
+            moveDraggedRow(touch.clientX, touch.clientY);
+
+        }, { passive: false });
+
+
+        document.addEventListener("touchend", () => {
+            clearTimeout(dragTimer);
+
+            if (touchDragging) {
+                finishDrag();
+
+            } else if (pendingRow) {
+                const duration = Date.now() - touchStartTime;
+
+                if (duration >= 600) {
+                    changeItemColour(pendingRow, duration);
+                } else {
+                    pendingRow = null;
+                }
+            }
+
+            touchLongPressReady = false;
+        });
+
+
+        document.addEventListener("touchcancel", () => {
+            clearTimeout(dragTimer);
+
+            if (draggedRow) {
+                draggedRow.classList.remove("dragging");
+                draggedRow = null;
+            }
+
+            pendingRow = null;
+            touchDragging = false;
+            touchLongPressReady = false;
+        });
+    }
+
+
     // Show/hide the input area.
     const toggleButton = document.getElementById("toggle-input");
     const inputSection = document.getElementById("hidden");
@@ -470,5 +562,7 @@ if (listContainer) {
         });
     }
 
+
     renderItems();
+
 })();
