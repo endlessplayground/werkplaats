@@ -1,9 +1,6 @@
-
 (() => {
     const STORAGE_KEY = "personal-appointments-v1";
-    const FILTER_KEY = "personal-appointments-selected-categories-v1";
     const DISMISSED_KEY = "personal-appointments-notice-dismissed-date-v1";
-    const DEFAULT_CATEGORIES = ["Van der Valk", "HS ?", "HS Leiden", "HS Rotterdam", "Privé", "Zorg", "Overig"];
 
     const todayKey = () => {
         const date = new Date();
@@ -30,8 +27,6 @@
     }
 
     let appointments = readArray(STORAGE_KEY);
-    let selectedCategories = readArray(FILTER_KEY);
-    let filterHasBeenSaved = localStorage.getItem(FILTER_KEY) !== null;
     let editingId = null;
 
     const page = document.getElementById("appointments-page");
@@ -39,35 +34,24 @@
     const dateInput = document.getElementById("appointment-date");
     const timeInput = document.getElementById("appointment-time");
     const endTimeInput = document.getElementById("appointment-end-time");
-    const categoryInput = document.getElementById("appointment-category");
     const titleInput = document.getElementById("appointment-title");
     const detailsInput = document.getElementById("appointment-details");
     const saveButton = document.getElementById("appointment-save");
     const cancelButton = document.getElementById("appointment-cancel");
     const list = document.getElementById("appointment-list");
-    const filters = document.getElementById("appointment-category-filters");
     const noticeRoot = document.getElementById("appointment-notice-root");
+
 
     function saveAppointments() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(appointments));
     }
 
-function allCategories() {
-    return [...new Set([
-        ...DEFAULT_CATEGORIES,
-        ...appointments.map(item => item.category).filter(Boolean)
-    ])];
-}
-
-    function isCategorySelected(category) {
-        return !filterHasBeenSaved || selectedCategories.includes(category);
-    }
 
     function visibleAppointments() {
         const today = todayKey();
 
         return appointments
-            .filter(item => item.date >= today && isCategorySelected(item.category))
+            .filter(item => item.date >= today)
             .sort((a, b) =>
                 a.date.localeCompare(b.date) ||
                 (a.time || "99:99").localeCompare(b.time || "99:99") ||
@@ -75,11 +59,13 @@ function allCategories() {
             );
     }
 
+
     function formatDay(dateKey) {
         if (dateKey === todayKey()) return "Vandaag";
 
         const tomorrow = keyToDate(todayKey());
         tomorrow.setDate(tomorrow.getDate() + 1);
+
         if (dateKey === dateToKey(tomorrow)) return "Morgen";
 
         const date = keyToDate(dateKey);
@@ -91,152 +77,119 @@ function allCategories() {
     }
 
 
-function makeAppointmentContent(container, item) {
-    const entry = document.createElement("article");
-    entry.className = "appointment-entry";
+    function makeAppointmentContent(container, item) {
+        const entry = document.createElement("article");
+        entry.className = "appointment-entry";
 
-    const title = document.createElement("h5");
-    title.textContent = item.title;
-    entry.appendChild(title);
+        const title = document.createElement("h5");
+        title.textContent = item.title;
+        entry.appendChild(title);
 
-    if (item.details) {
-        const details = document.createElement("p");
-        details.textContent = item.details;
-        entry.appendChild(details);
+        if (item.details) {
+            const details = document.createElement("p");
+            details.textContent = item.details;
+            entry.appendChild(details);
+        }
+
+        container.appendChild(entry);
     }
 
-    container.appendChild(entry);
-}
 
-function makeAppointmentControls(item) {
-    const controls = document.createElement("div");
-    controls.className = "appointment-entry-controls";
+    function makeAppointmentControls(item) {
+        const controls = document.createElement("div");
+        controls.className = "appointment-entry-controls";
 
-    const edit = document.createElement("button");
-    edit.type = "button";
+        const edit = document.createElement("button");
+        edit.type = "button";
 
-    edit.textContent = "";
-    const editImg = document.createElement("img");
-    editImg.src = document.getElementById("appointments-page").dataset.editIcon;
-    editImg.alt = "";
+        const editImg = document.createElement("img");
+        editImg.src = page.dataset.editIcon;
+        editImg.alt = "";
 
-edit.appendChild(editImg);
-    edit.setAttribute("aria-label", `Wijzig: ${item.title}`);
-    edit.addEventListener("click", () => startEditing(item));
+        edit.appendChild(editImg);
+        edit.setAttribute("aria-label", `Wijzig: ${item.title}`);
+        edit.addEventListener("click", () => startEditing(item));
 
-    const remove = document.createElement("button");
-    remove.type = "button";
+        const remove = document.createElement("button");
+        remove.type = "button";
 
-    remove.textContent = "";
-    const removeImg = document.createElement("img");
-    removeImg.src = document.getElementById("appointments-page").dataset.deleteIcon;
-    removeImg.alt = "";
-    remove.appendChild(removeImg);
+        const removeImg = document.createElement("img");
+        removeImg.src = page.dataset.deleteIcon;
+        removeImg.alt = "";
 
-    remove.setAttribute("aria-label", `Verwijder: ${item.title}`);
-    remove.addEventListener("click", () => {
-        appointments = appointments.filter(saved => saved.id !== item.id);
-        saveAppointments();
-        renderAll();
-    });
+        remove.appendChild(removeImg);
+        remove.setAttribute("aria-label", `Verwijder: ${item.title}`);
 
-    controls.append(edit, remove);
-    return controls;
-}
+        remove.addEventListener("click", () => {
+            appointments = appointments.filter(saved => saved.id !== item.id);
+            saveAppointments();
+            renderAll();
+        });
 
-    function renderFilters() {
-        if (!filters) return;
+        controls.append(edit, remove);
+        return controls;
+    }
 
-        filters.innerHTML = "";
 
-        allCategories().forEach(category => {
-            const label = document.createElement("label");
-            label.className = "appointment-filter-option";
+    function renderAppointmentList() {
+        if (!list) return;
 
-            const checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.checked = isCategorySelected(category);
+        list.innerHTML = "";
+        const visible = visibleAppointments();
 
-            checkbox.addEventListener("change", () => {
-                if (!filterHasBeenSaved) {
-                    selectedCategories = allCategories();
-                    filterHasBeenSaved = true;
-                }
+        if (!visible.length) {
+            const empty = document.createElement("p");
+            empty.className = "appointments-empty";
+            empty.textContent = "Geen komende afspraken.";
+            list.appendChild(empty);
+            return;
+        }
 
-                if (checkbox.checked && !selectedCategories.includes(category)) {
-                    selectedCategories.push(category);
-                } else if (!checkbox.checked) {
-                    selectedCategories = selectedCategories.filter(value => value !== category);
-                }
+        visible.forEach(item => {
+            const appointmentFrame = document.createElement("section");
+            appointmentFrame.className = "appointment-day-frame";
 
-                localStorage.setItem(FILTER_KEY, JSON.stringify(selectedCategories));
-                renderAll();
-            });
+            const today = keyToDate(todayKey());
+            const appointmentDate = keyToDate(item.date);
+            const daysUntil = (appointmentDate - today) / (1000 * 60 * 60 * 24);
 
-            label.append(checkbox, document.createTextNode(` ${category}`));
-            filters.appendChild(label);
+            if (daysUntil >= 0 && daysUntil <= 6) {
+                appointmentFrame.classList.add("appointment-day-this-week");
+            }
+
+            if (item.date === todayKey()) {
+                appointmentFrame.classList.add("appointment-day-today");
+            }
+
+            const header = document.createElement("div");
+            header.className = "appointment-day-header";
+
+            const dayHeading = document.createElement("h4");
+            dayHeading.textContent = formatDay(item.date);
+
+            if (item.time || item.endTime) {
+                const time = document.createElement("span");
+                time.className = "time";
+
+                time.textContent = item.time && item.endTime
+                    ? `${item.time} - ${item.endTime}`
+                    : item.time || item.endTime;
+
+                dayHeading.appendChild(time);
+            }
+
+            header.appendChild(dayHeading);
+
+            if (page) {
+                header.appendChild(makeAppointmentControls(item));
+            }
+
+            appointmentFrame.appendChild(header);
+            makeAppointmentContent(appointmentFrame, item);
+
+            list.appendChild(appointmentFrame);
         });
     }
-
-
-function renderAppointmentList() {
-    if (!list) return;
-
-    list.innerHTML = "";
-    const visible = visibleAppointments();
-
-    if (!visible.length) {
-        const empty = document.createElement("p");
-        empty.className = "appointments-empty";
-        empty.textContent = "Geen komende afspraken in de geselecteerde categorieën.";
-        list.appendChild(empty);
-        return;
-    }
-
-    visible.forEach(item => {
-        const appointmentFrame = document.createElement("section");
-        appointmentFrame.className = "appointment-day-frame";
-
-        const today = keyToDate(todayKey());
-        const appointmentDate = keyToDate(item.date);
-        const daysUntil = (appointmentDate - today) / (1000 * 60 * 60 * 24);
-
-        if (daysUntil >= 0 && daysUntil <= 6) {
-            appointmentFrame.classList.add("appointment-day-this-week");
-        }
-        if (item.date === todayKey()) {
-            appointmentFrame.classList.add("appointment-day-today");
-        }
-
-        const header = document.createElement("div");
-        header.className = "appointment-day-header";
-
-        const dayHeading = document.createElement("h4");
-        dayHeading.textContent = formatDay(item.date);
-
-if (item.time || item.endTime) {
-    const time = document.createElement("span");
-    time.className = "time";
-
-    time.textContent = item.time && item.endTime
-        ? `${item.time} - ${item.endTime}`
-        : item.time || item.endTime;
-
-    dayHeading.appendChild(time);
-}
-
-        header.appendChild(dayHeading);
-
-        if (page) {
-            header.appendChild(makeAppointmentControls(item));
-        }
-
-        appointmentFrame.appendChild(header);
-        makeAppointmentContent(appointmentFrame, item);
-
-        list.appendChild(appointmentFrame);
-    });
-}
 
 
     function resetForm() {
@@ -248,14 +201,15 @@ if (item.time || item.endTime) {
         cancelButton.hidden = true;
     }
 
+
     function startEditing(item) {
         editingId = item.id;
         dateInput.value = item.date;
         timeInput.value = item.time || "";
         endTimeInput.value = item.endTime || "";
-        categoryInput.value = item.category || "Other";
         titleInput.value = item.title || "";
         detailsInput.value = item.details || "";
+
         saveButton.textContent = "Opslaan";
         cancelButton.hidden = false;
 
@@ -265,39 +219,36 @@ if (item.time || item.endTime) {
         document.getElementById("appointment-title").focus();
     }
 
-function handleSubmit(event) {
-    event.preventDefault();
 
-    const category = categoryInput.value.trim();
-    const title = titleInput.value.trim();
+    function handleSubmit(event) {
+        event.preventDefault();
 
-    if (!dateInput.value || !category || !title) return;
+const title = titleInput.value.trim();
 
-    const item = {
-        id: editingId || `appointment-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-        date: dateInput.value,
-        time: timeInput.value,
-        endTime: endTimeInput.value,
-        category,
-        title,
-        details: detailsInput.value.trim()
-    };
+if (!dateInput.value || !title) return;
 
-    if (editingId) {
-        appointments = appointments.map(saved => saved.id === editingId ? item : saved);
-    } else {
-        appointments.push(item);
+        const item = {
+            id: editingId || `appointment-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+            date: dateInput.value,
+            time: timeInput.value,
+            endTime: endTimeInput.value,
+            title,
+            details: detailsInput.value.trim()
+        };
+
+        if (editingId) {
+            appointments = appointments.map(saved =>
+                saved.id === editingId ? item : saved
+            );
+        } else {
+            appointments.push(item);
+        }
+
+        saveAppointments();
+        resetForm();
+        renderAll();
     }
 
-    if (filterHasBeenSaved && !selectedCategories.includes(category)) {
-        selectedCategories.push(category);
-        localStorage.setItem(FILTER_KEY, JSON.stringify(selectedCategories));
-    }
-
-    saveAppointments();
-    resetForm();
-    renderAll();
-}
 
     function renderLandingNotice() {
         if (!noticeRoot) return;
@@ -310,7 +261,10 @@ function handleSubmit(event) {
         const lastDay = keyToDate(today);
         lastDay.setDate(lastDay.getDate() + 6);
 
-        const upcoming = visibleAppointments().filter(item => item.date <= dateToKey(lastDay));
+        const upcoming = visibleAppointments().filter(
+            item => item.date <= dateToKey(lastDay)
+        );
+
         if (!upcoming.length) return;
 
         const outer = document.createElement("section");
@@ -337,7 +291,10 @@ function handleSubmit(event) {
         const grouped = new Map();
 
         upcoming.forEach(item => {
-            if (!grouped.has(item.date)) grouped.set(item.date, []);
+            if (!grouped.has(item.date)) {
+                grouped.set(item.date, []);
+            }
+
             grouped.get(item.date).push(item);
         });
 
@@ -349,36 +306,40 @@ function handleSubmit(event) {
                 dayFrame.classList.add("appointment-notice-today");
             }
 
-const dayHeading = document.createElement("h4");
-dayHeading.textContent = formatDay(dateKey);
+            const dayHeading = document.createElement("h4");
+            dayHeading.textContent = formatDay(dateKey);
 
-const times = items.map(item => item.time).filter(Boolean);
-if (times.length) {
-    const time = document.createElement("span");
-    time.className = "time";
-    time.textContent = times.join(", ");
-    dayHeading.appendChild(time);
-}
+            const times = items.map(item => item.time).filter(Boolean);
 
-dayFrame.appendChild(dayHeading);
+            if (times.length) {
+                const time = document.createElement("span");
+                time.className = "time";
+                time.textContent = times.join(", ");
+                dayHeading.appendChild(time);
+            }
+
+            dayFrame.appendChild(dayHeading);
 
             items.forEach(item => makeAppointmentContent(dayFrame, item));
+
             outer.appendChild(dayFrame);
         });
 
         noticeRoot.appendChild(outer);
     }
 
+
     function renderAll() {
-        renderFilters();
         renderAppointmentList();
         renderLandingNotice();
     }
+
 
     if (form) form.addEventListener("submit", handleSubmit);
     if (cancelButton) cancelButton.addEventListener("click", resetForm);
 
     let lastRenderedDate = todayKey();
+
     renderAll();
 
     window.setInterval(() => {
@@ -389,4 +350,5 @@ dayFrame.appendChild(dayHeading);
             renderAll();
         }
     }, 60_000);
+
 })();
