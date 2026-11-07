@@ -224,7 +224,7 @@
     }
 
 
-    // Apply the saved colour to an item button.
+    // Apply a colour to an item button.
     function applyItemColour(button, state) {
         button.classList.remove(
             "item-colour-1",
@@ -240,6 +240,15 @@
 
     // Display items grouped by category.
     let suppressNextClick = false;
+
+    function suppressClickBriefly() {
+        suppressNextClick = true;
+
+        setTimeout(() => {
+            suppressNextClick = false;
+        }, 500);
+    }
+
 
     function renderItems() {
         const container = document.getElementById("item-list");
@@ -268,7 +277,6 @@
                 row.className = "item-row";
                 row._item = item;
 
-                // The item itself.
                 const button = document.createElement("button");
                 button.type = "button";
                 button.className = "item-button";
@@ -300,29 +308,7 @@
                     }
                 });
 
-                // Separate colour control.
-                const colourButton = document.createElement("button");
-                colourButton.type = "button";
-                colourButton.className =
-                    `item-colour-toggle colour-state-${item.colourState}`;
-                colourButton.textContent = "●";
-                colourButton.title = "Verander de kleur";
-                colourButton.setAttribute(
-                    "aria-label",
-                    "Verander de kleur van " + item.name
-                );
-
-                colourButton.addEventListener("click", event => {
-                    event.preventDefault();
-                    event.stopPropagation();
-
-                    item.colourState = (item.colourState + 1) % 4;
-
-                    saveItems();
-                    renderItems();
-                });
-
-                row.append(button, colourButton);
+                row.appendChild(button);
                 buttons.appendChild(row);
             });
 
@@ -332,15 +318,111 @@
     }
 
 
-    // Drag-and-drop: movement starts dragging immediately.
+    // Gesture handling: drag, scroll and colour selection.
+    let gestureMode = null;
     let pendingRow = null;
     let draggedRow = null;
+    let activeButton = null;
+    let activePointerId = null;
+
     let startX = 0;
     let startY = 0;
-    let activePointerId = null;
-    let dragHasMoved = false;
+    let lastY = 0;
+
+    let originalColourState = 0;
+    let previewColourState = 0;
+
+    let longPressTimer = null;
+    let colourTimers = [];
+
+    let scrollTarget = null;
 
     const listContainer = document.getElementById("item-list");
+
+
+    function clearGestureTimers() {
+        clearTimeout(longPressTimer);
+        longPressTimer = null;
+
+        colourTimers.forEach(timer => clearTimeout(timer));
+        colourTimers = [];
+    }
+
+
+    function resetGesture() {
+        clearGestureTimers();
+
+        gestureMode = null;
+        pendingRow = null;
+        draggedRow = null;
+        activeButton = null;
+        activePointerId = null;
+        scrollTarget = null;
+    }
+
+
+    function startColourPreview() {
+        if (gestureMode !== "pending") return;
+
+        gestureMode = "colour";
+        previewColourState = 1;
+
+        applyItemColour(activeButton, previewColourState);
+
+        colourTimers.push(setTimeout(() => {
+            if (gestureMode !== "colour") return;
+
+            previewColourState = 2;
+            applyItemColour(activeButton, previewColourState);
+        }, 900));
+
+        colourTimers.push(setTimeout(() => {
+            if (gestureMode !== "colour") return;
+
+            previewColourState = 3;
+            applyItemColour(activeButton, previewColourState);
+        }, 1900));
+
+        colourTimers.push(setTimeout(() => {
+            if (gestureMode !== "colour") return;
+
+            previewColourState = 0;
+            applyItemColour(activeButton, previewColourState);
+        }, 2900));
+    }
+
+
+    // Find the page or nearest scrollable container.
+    function findScrollTarget(element) {
+        let parent = element.parentElement;
+
+        while (
+            parent &&
+            parent !== document.body &&
+            parent !== document.documentElement
+        ) {
+            const style = window.getComputedStyle(parent);
+
+            if (
+                /(auto|scroll)/.test(style.overflowY) &&
+                parent.scrollHeight > parent.clientHeight
+            ) {
+                return parent;
+            }
+
+            parent = parent.parentElement;
+        }
+
+        return document.scrollingElement || document.documentElement;
+    }
+
+
+    function scrollPage(currentY) {
+        if (!scrollTarget) return;
+
+        scrollTarget.scrollTop += lastY - currentY;
+        lastY = currentY;
+    }
 
 
     function moveDraggedRow(x, y) {
@@ -387,95 +469,151 @@
 
         draggedRow.classList.remove("dragging");
 
-        draggedRow = null;
-        pendingRow = null;
-        activePointerId = null;
-        dragHasMoved = false;
-
-        suppressNextClick = true;
-
         saveItems();
         renderItems();
-
-        setTimeout(() => {
-            suppressNextClick = false;
-        }, 500);
     }
 
 
     if (listContainer) {
 
         listContainer.addEventListener("pointerdown", event => {
-            // Only use the primary mouse button or a single touch.
             if (event.button !== 0) return;
+            if (gestureMode !== null) return;
 
-            // The colour control must never start a drag.
-            if (event.target.closest(".item-colour-toggle")) return;
+            const button = event.target.closest(".item-button");
+            if (!button) return;
 
-            const row = event.target.closest(".item-row");
+            const row = button.closest(".item-row");
             if (!row) return;
 
+            gestureMode = "pending";
             pendingRow = row;
-            draggedRow = null;
+            activeButton = button;
             activePointerId = event.pointerId;
-            dragHasMoved = false;
 
             startX = event.clientX;
             startY = event.clientY;
+            lastY = event.clientY;
+
+            originalColourState = row._item.colourState;
+            previewColourState = originalColourState;
+
+            longPressTimer = setTimeout(startColourPreview, 600);
         });
 
 
         document.addEventListener("pointermove", event => {
             if (event.pointerId !== activePointerId) return;
-            if (!pendingRow && !draggedRow) return;
+            if (!gestureMode) return;
 
-            const distance = Math.hypot(
-                event.clientX - startX,
-                event.clientY - startY
-            );
+            const dx = event.clientX - startX;
+            const dy = event.clientY - startY;
 
-            // A tiny movement threshold prevents accidental drags on taps.
-            if (!draggedRow && distance >= 5) {
-                draggedRow = pendingRow;
-                pendingRow = null;
-                dragHasMoved = true;
+            const absX = Math.abs(dx);
+            const absY = Math.abs(dy);
+            const distance = Math.hypot(dx, dy);
 
-                draggedRow.classList.add("dragging");
+            // A little movement cancels the long-press timer.
+            if (gestureMode === "pending" && distance > 8) {
+                clearTimeout(longPressTimer);
+                longPressTimer = null;
             }
 
-            if (!draggedRow) return;
+            // Colour selection is cancelled if the finger moves.
+            if (gestureMode === "colour" && distance > 8) {
+                clearGestureTimers();
+                applyItemColour(activeButton, originalColourState);
+                gestureMode = "cancelled";
+                return;
+            }
 
-            event.preventDefault();
-            moveDraggedRow(event.clientX, event.clientY);
+            if (gestureMode === "pending") {
+
+                if (event.pointerType === "touch") {
+
+                    // Horizontal movement first: start dragging.
+                    if (absX >= 12 && absX > absY * 1.2) {
+                        gestureMode = "drag";
+                        draggedRow = pendingRow;
+                        pendingRow = null;
+
+                        draggedRow.classList.add("dragging");
+                        moveDraggedRow(event.clientX, event.clientY);
+                        return;
+                    }
+
+                    // Vertical movement first: scroll the page.
+                    if (absY >= 10 && absY > absX * 1.1) {
+                        gestureMode = "scroll";
+                        scrollTarget = findScrollTarget(activeButton);
+                        scrollPage(event.clientY);
+                        return;
+                    }
+
+                } else if (distance >= 5) {
+                    // Normal mouse dragging.
+                    gestureMode = "drag";
+                    draggedRow = pendingRow;
+                    pendingRow = null;
+
+                    draggedRow.classList.add("dragging");
+                    moveDraggedRow(event.clientX, event.clientY);
+                    return;
+                }
+            }
+
+            if (gestureMode === "drag") {
+                event.preventDefault();
+                moveDraggedRow(event.clientX, event.clientY);
+            }
+
+            if (gestureMode === "scroll") {
+                event.preventDefault();
+                scrollPage(event.clientY);
+            }
         });
 
 
         document.addEventListener("pointerup", event => {
             if (event.pointerId !== activePointerId) return;
 
-            if (draggedRow && dragHasMoved) {
+            const finishedMode = gestureMode;
+
+            if (finishedMode === "drag") {
                 finishDrag();
-            } else {
-                pendingRow = null;
-                draggedRow = null;
-                activePointerId = null;
-                dragHasMoved = false;
+                suppressClickBriefly();
+
+            } else if (finishedMode === "colour") {
+                pendingRow._item.colourState = previewColourState;
+                saveItems();
+                suppressClickBriefly();
+                renderItems();
+
+            } else if (
+                finishedMode === "scroll" ||
+                finishedMode === "cancelled"
+            ) {
+                suppressClickBriefly();
             }
+
+            resetGesture();
         });
 
 
         document.addEventListener("pointercancel", event => {
             if (event.pointerId !== activePointerId) return;
 
-            if (draggedRow) {
-                draggedRow.classList.remove("dragging");
+            const cancelledMode = gestureMode;
+
+            if (cancelledMode === "colour") {
+                applyItemColour(activeButton, originalColourState);
+            }
+
+            if (cancelledMode === "drag") {
                 renderItems();
             }
 
-            pendingRow = null;
-            draggedRow = null;
-            activePointerId = null;
-            dragHasMoved = false;
+            resetGesture();
         });
     }
 
