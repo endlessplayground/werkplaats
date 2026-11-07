@@ -219,8 +219,6 @@ if (customForm && customCategory) {
 }
 
     // Display items grouped by category.
-
-    // Display items grouped by category.
     function renderItems() {
         const container = document.getElementById("item-list");
         if (!container) return;
@@ -248,13 +246,6 @@ if (customForm && customCategory) {
                 row.className = "item-row";
                 row._item = item;
 
-                const handle = document.createElement("button");
-                handle.type = "button";
-                handle.className = "item-drag-handle";
-                handle.textContent = "⠿";
-                handle.title = "Sleep om te verplaatsen";
-                handle.setAttribute("aria-label", "Verplaats item");
-
                 const button = document.createElement("button");
                 button.type = "button";
                 button.className = "item-button";
@@ -263,7 +254,13 @@ if (customForm && customCategory) {
 
                 let confirmRemoval = false;
 
-                button.addEventListener("click", () => {
+                button.addEventListener("click", event => {
+                    if (suppressNextClick) {
+                        suppressNextClick = false;
+                        event.preventDefault();
+                        return;
+                    }
+
                     if (!confirmRemoval) {
                         confirmRemoval = true;
                         button.classList.add("confirm-removal");
@@ -279,7 +276,7 @@ if (customForm && customCategory) {
                     }
                 });
 
-                row.append(handle, button);
+                row.appendChild(button);
                 buttons.appendChild(row);
             });
 
@@ -288,24 +285,44 @@ if (customForm && customCategory) {
         });
     }
 
-
     // Drag-and-drop reordering (mouse and touch).
     let draggedRow = null;
+    let pendingRow = null;
+    let startX = 0;
+    let startY = 0;
+    let suppressNextClick = false;
+    let dragStarted = false;
 
     const listContainer = document.getElementById("item-list");
 
     if (listContainer) {
-        listContainer.addEventListener("pointerdown", event => {
-            const handle = event.target.closest(".item-drag-handle");
-            if (!handle) return;
 
-            event.preventDefault();
-            draggedRow = handle.closest(".item-row");
-            draggedRow.classList.add("dragging");
+        listContainer.addEventListener("pointerdown", event => {
+            const row = event.target.closest(".item-row");
+            if (!row) return;
+
+            pendingRow = row;
+            startX = event.clientX;
+            startY = event.clientY;
+            dragStarted = false;
         });
 
         document.addEventListener("pointermove", event => {
-            if (!draggedRow) return;
+            if (!pendingRow && !draggedRow) return;
+
+            if (!draggedRow) {
+                const distance = Math.hypot(
+                    event.clientX - startX,
+                    event.clientY - startY
+                );
+
+                if (distance < 6) return;
+
+                draggedRow = pendingRow;
+                pendingRow = null;
+                dragStarted = true;
+                draggedRow.classList.add("dragging");
+            }
 
             const target = document.elementFromPoint(
                 event.clientX,
@@ -332,8 +349,11 @@ if (customForm && customCategory) {
             }
         });
 
-        document.addEventListener("pointerup", () => {
-            if (!draggedRow) return;
+        function finishDrag() {
+            if (!draggedRow) {
+                pendingRow = null;
+                return;
+            }
 
             const group = draggedRow.parentElement;
             const reordered = [...group.children].map(row => row._item);
@@ -353,12 +373,20 @@ if (customForm && customCategory) {
 
             draggedRow.classList.remove("dragging");
             draggedRow = null;
+            pendingRow = null;
+
+            suppressNextClick = true;
+            setTimeout(() => {
+                suppressNextClick = false;
+            }, 400);
 
             saveItems();
             renderItems();
-        });
-    }
+        }
 
+        document.addEventListener("pointerup", finishDrag);
+        document.addEventListener("pointercancel", finishDrag);
+    }
 
     // Show/hide the input area.
     const toggleButton = document.getElementById("toggle-input");
