@@ -40,13 +40,14 @@ custom_css: calendar
       <input type="date" id="event-date" required>
 
   <select id="event-category" required>
-      <option value="" selected disabled>Categorie</option>
-      <option value="hotel">Van der Valk</option>
-      <option value="beschikbaarheid">HS?</option>
-      <option value="university">HS R'dam</option>
-      <option value="university">HS Leiden</option>
-      <option value="social">Sociaal</option>
-  </select>
+    <option value="" selected disabled>Categorie</option>
+    <option value="vandervalk">Van der Valk</option>
+    <option value="beschikbaar-hs">HS?</option>
+    <option value="hogeschool-rotterdam">HS R'dam</option>
+    <option value="hogeschool-leiden">HS Leiden</option>
+    <option value="sociaal">Sociaal</option>
+    <option value="rest">Rest</option>
+</select>
 
   <select id="event-period" required>
       <option value="" selected disabled>Dagdeel</option>

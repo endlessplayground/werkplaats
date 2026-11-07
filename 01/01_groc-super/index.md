@@ -50,14 +50,12 @@ window.itemListConfig = {
         "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
     ],
     "Overig": [
-        "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier", "Vuilniszakken"
+        "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Tandpasta", "Vuilniszakken", "Baking soda"
     ],
     "EKOPLAZA": [
     "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood",  "Tandendstokers"
     ],
-    "Rest": [
-        "Koffie", "Koekjes", "Kattenvoer", "Toiletpapier", "Vuilniszak", "Handzeep"
-    ]
+    "Rest": []
 }
 };
 </script>

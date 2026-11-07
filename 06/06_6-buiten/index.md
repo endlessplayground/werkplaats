@@ -5,7 +5,7 @@ submenu: order
 category: order
 custom_css: jigsaw
 puzzle_title: Buiten
-puzzle_background: keuken.png
+puzzle_background: buiten.png
 ---
 
 {% include jigsaw-puzzle.html %}
