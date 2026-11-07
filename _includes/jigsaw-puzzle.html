@@ -2,20 +2,31 @@
 .puzzle {
     background-image: url('{{ "/assets/images/" | append: page.puzzle_background | relative_url }}');
 }
+#toggle-pieces {
+    background-image: url('{{ "/assets/images/jig-hide.svg" | relative_url }}');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+}
+
+.puzzle.pieces-hidden .puzzle-piece {
+    visibility: hidden;
+}
+
+#toggle-pieces.pieces-hidden {
+    background-image: url('{{ "/assets/images/jig-view.svg" | relative_url }}');
+}
 </style>
 
 <h2>
-    <div id="toggle-input" class="show-hide">
-        <div class="pen">
-            <img src="{{ '/assets/images/pen.svg' | relative_url }}">
-        </div>
-    </div>
 
     {{ page.puzzle_title }}
 
     <button id="reset-puzzle" type="button">
         <img src="{{ '/assets/images/reload.svg' | relative_url }}">
     </button>
+    <button id="toggle-pieces" type="button">
+</button>
 </h2> 
 
 <!--1-->
