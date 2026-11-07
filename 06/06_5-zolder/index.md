@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Puzzel
-submenu: order
+submenu: jigsaw
 category: order
 custom_css: jigsaw
 puzzle_title: Zolder

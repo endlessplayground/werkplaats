@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Maandelijks
-submenu: huishouden
+submenu: tijdelijk-eruit
 category: to-do
 ---
 

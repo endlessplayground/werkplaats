@@ -25,7 +25,7 @@ category: hs
 
 <script>
 window.itemListConfig = {
-    storageKey: "hs-inwerk",
+    storageKey: "hs-uitwerking",
     textOnlyCategories: ["Nu", "Later", "Nog later"],
 
     categories: {

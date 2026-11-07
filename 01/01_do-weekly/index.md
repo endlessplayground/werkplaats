@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Wekelijks
-submenu: huishouden
+submenu: tijdelijk-eruit
 category: to-do
 ---
 
@@ -46,6 +46,5 @@ window.itemListConfig = {
 </script>
 
 <script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/00_devil-saint.js' | relative_url }}"></script>
 
 <script src="{{ '/assets/js/00_period-date.js' | relative_url }}"></script>
