@@ -1,4 +1,3 @@
-
 (() => {
     const config = window.itemListConfig;
 
@@ -78,7 +77,6 @@
         name = name.trim();
         if (!name) return;
 
-        // Prevent duplicates within the same category.
         if (items.some(item =>
             item.name === name && item.category === category
         )) return;
@@ -116,7 +114,6 @@
             heading.textContent = category;
             section.appendChild(heading);
 
-            // Text-only categories get an input instead of a dropdown.
             if (textOnlyCategories.includes(category)) {
                 const customForm = document.createElement("form");
                 customForm.className = "item-custom";
@@ -140,7 +137,6 @@
 
                 section.appendChild(customForm);
 
-            // No dropdown for Rest.
             } else if (category !== "Rest") {
                 const select = document.createElement("select");
                 select.setAttribute("aria-label", category);
@@ -178,7 +174,6 @@
                 section.appendChild(select);
             }
 
-            // Custom input for each category, when enabled.
             if (
                 config.customInputPerCategory === true &&
                 category !== "Elke dag" &&
@@ -212,7 +207,7 @@
     }
 
 
-    // Keep support for pages using one shared custom-input form.
+    // Support pages using one shared custom-input form.
     const customForm = document.getElementById("item-custom-form");
 
     if (customForm && customCategory) {
@@ -229,7 +224,23 @@
     }
 
 
+    // Apply the saved colour to an item button.
+    function applyItemColour(button, state) {
+        button.classList.remove(
+            "item-colour-1",
+            "item-colour-2",
+            "item-colour-3"
+        );
+
+        if (state > 0) {
+            button.classList.add(`item-colour-${state}`);
+        }
+    }
+
+
     // Display items grouped by category.
+    let suppressNextClick = false;
+
     function renderItems() {
         const container = document.getElementById("item-list");
         if (!container) return;
@@ -257,18 +268,14 @@
                 row.className = "item-row";
                 row._item = item;
 
+                // The item itself.
                 const button = document.createElement("button");
                 button.type = "button";
                 button.className = "item-button";
                 button.textContent = item.name;
                 button.title = "Tik tweemaal om te verwijderen";
 
-                // Restore the saved colour.
-                if (item.colourState > 0) {
-                    button.classList.add(
-                        `item-colour-${item.colourState}`
-                    );
-                }
+                applyItemColour(button, item.colourState);
 
                 let confirmRemoval = false;
 
@@ -293,7 +300,29 @@
                     }
                 });
 
-                row.appendChild(button);
+                // Separate colour control.
+                const colourButton = document.createElement("button");
+                colourButton.type = "button";
+                colourButton.className =
+                    `item-colour-toggle colour-state-${item.colourState}`;
+                colourButton.textContent = "●";
+                colourButton.title = "Verander de kleur";
+                colourButton.setAttribute(
+                    "aria-label",
+                    "Verander de kleur van " + item.name
+                );
+
+                colourButton.addEventListener("click", event => {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    item.colourState = (item.colourState + 1) % 4;
+
+                    saveItems();
+                    renderItems();
+                });
+
+                row.append(button, colourButton);
                 buttons.appendChild(row);
             });
 
@@ -303,17 +332,13 @@
     }
 
 
-    // Drag-and-drop and long-press colour changes.
-    let draggedRow = null;
+    // Drag-and-drop: movement starts dragging immediately.
     let pendingRow = null;
+    let draggedRow = null;
     let startX = 0;
     let startY = 0;
-    let dragTimer = null;
-    let colourPreviewTimers = [];
-    let touchDragging = false;
-    let touchLongPressReady = false;
-    let touchStartTime = 0;
-    let suppressNextClick = false;
+    let activePointerId = null;
+    let dragHasMoved = false;
 
     const listContainer = document.getElementById("item-list");
 
@@ -351,7 +376,9 @@
         const positions = [];
 
         items.forEach((item, index) => {
-            if (item.category === category) positions.push(index);
+            if (item.category === category) {
+                positions.push(index);
+            }
         });
 
         positions.forEach((position, index) => {
@@ -359,85 +386,11 @@
         });
 
         draggedRow.classList.remove("dragging");
+
         draggedRow = null;
         pendingRow = null;
-        touchDragging = false;
-        touchLongPressReady = false;
-
-        suppressNextClick = true;
-
-        saveItems();
-        renderItems();
-
-        setTimeout(() => {
-            suppressNextClick = false;
-        }, 500);
-    }
-
-
-    function cancelPendingDrag() {
-        clearTimeout(dragTimer);
-        clearColourPreviewTimers();
-        pendingRow = null;
-        touchLongPressReady = false;
-    }
-
-
-    // Live colour preview while the finger is held down.
-    function getColourState(duration) {
-        if (duration >= 3500) return 0;
-        if (duration >= 2500) return 3;
-        if (duration >= 1500) return 2;
-        if (duration >= 600) return 1;
-        return 0;
-    }
-
-    function clearColourPreviewTimers() {
-        colourPreviewTimers.forEach(timer => clearTimeout(timer));
-        colourPreviewTimers = [];
-    }
-
-    function showPreviewColour(row, state) {
-        if (!row) return;
-
-        const button = row.querySelector(".item-button");
-        if (!button) return;
-
-        button.classList.remove(
-            "item-colour-1",
-            "item-colour-2",
-            "item-colour-3"
-        );
-
-        if (state > 0) {
-            button.classList.add(`item-colour-${state}`);
-        }
-    }
-
-    function startColourPreview(row) {
-        clearColourPreviewTimers();
-
-        const previewSteps = [
-            { time: 600, state: 1 },
-            { time: 1500, state: 2 },
-            { time: 2500, state: 3 },
-            { time: 3500, state: 0 }
-        ];
-
-        previewSteps.forEach(step => {
-            const timer = setTimeout(() => {
-                if (pendingRow !== row || touchDragging) return;
-                showPreviewColour(row, step.state);
-            }, step.time);
-
-            colourPreviewTimers.push(timer);
-        });
-    }
-
-    function changeItemColour(row, duration) {
-        if (!row || !row._item) return;
-
-        row._item.colourState = getColourState(duration);
+        activePointerId = null;
+        dragHasMoved = false;
 
         suppressNextClick = true;
 
@@ -452,12 +405,20 @@
 
     if (listContainer) {
 
-        // Mouse dragging.
         listContainer.addEventListener("pointerdown", event => {
-            if (event.pointerType === "touch") return;
+            // Only use the primary mouse button or a single touch.
+            if (event.button !== 0) return;
 
-            pendingRow = event.target.closest(".item-row");
-            if (!pendingRow) return;
+            // The colour control must never start a drag.
+            if (event.target.closest(".item-colour-toggle")) return;
+
+            const row = event.target.closest(".item-row");
+            if (!row) return;
+
+            pendingRow = row;
+            draggedRow = null;
+            activePointerId = event.pointerId;
+            dragHasMoved = false;
 
             startX = event.clientX;
             startY = event.clientY;
@@ -465,145 +426,56 @@
 
 
         document.addEventListener("pointermove", event => {
+            if (event.pointerId !== activePointerId) return;
             if (!pendingRow && !draggedRow) return;
 
-            if (!draggedRow) {
-                if (Math.hypot(
-                    event.clientX - startX,
-                    event.clientY - startY
-                ) < 6) return;
+            const distance = Math.hypot(
+                event.clientX - startX,
+                event.clientY - startY
+            );
 
+            // A tiny movement threshold prevents accidental drags on taps.
+            if (!draggedRow && distance >= 5) {
                 draggedRow = pendingRow;
                 pendingRow = null;
+                dragHasMoved = true;
+
                 draggedRow.classList.add("dragging");
             }
 
+            if (!draggedRow) return;
+
+            event.preventDefault();
             moveDraggedRow(event.clientX, event.clientY);
         });
 
 
         document.addEventListener("pointerup", event => {
-            if (event.pointerType === "touch") return;
+            if (event.pointerId !== activePointerId) return;
 
-            pendingRow = null;
-            finishDrag();
-        });
-
-
-        // Touch: stationary long press changes colour.
-        // Holding and then moving starts dragging.
-        listContainer.addEventListener("touchstart", event => {
-            if (event.touches.length !== 1) return;
-
-            const row = event.target.closest(".item-row");
-            if (!row) return;
-
-            const touch = event.touches[0];
-
-            startX = touch.clientX;
-            startY = touch.clientY;
-            touchStartTime = Date.now();
-
-            touchLongPressReady = false;
-
-            clearTimeout(dragTimer);
-            clearColourPreviewTimers();
-            pendingRow = row;
-            startColourPreview(row);
-
-            // After 500 ms, movement can initiate dragging.
-            dragTimer = setTimeout(() => {
-                if (pendingRow !== row) return;
-                touchLongPressReady = true;
-            }, 500);
-
-        }, { passive: true });
-
-
-        document.addEventListener("touchmove", event => {
-            if (!event.touches.length) return;
-
-            const touch = event.touches[0];
-
-            if (!pendingRow && !draggedRow) return;
-
-            if (!touchLongPressReady && !touchDragging) {
-                if (Math.hypot(
-                    touch.clientX - startX,
-                    touch.clientY - startY
-                ) > 10) {
-                    cancelPendingDrag();
-                }
-
-                return;
-            }
-
-            // After the long press, movement starts dragging.
-            if (touchLongPressReady && pendingRow && !touchDragging) {
-                if (Math.hypot(
-                    touch.clientX - startX,
-                    touch.clientY - startY
-                ) > 10) {
-                    draggedRow = pendingRow;
-                    pendingRow = null;
-                    touchDragging = true;
-                    draggedRow.classList.add("dragging");
-                }
-            }
-
-            if (!touchDragging) return;
-
-            event.preventDefault();
-            moveDraggedRow(touch.clientX, touch.clientY);
-
-        }, { passive: false });
-
-
-        document.addEventListener("touchend", () => {
-            clearTimeout(dragTimer);
-            clearColourPreviewTimers();
-
-            if (touchDragging) {
+            if (draggedRow && dragHasMoved) {
                 finishDrag();
-
-            } else if (pendingRow) {
-                const duration = Date.now() - touchStartTime;
-
-                if (duration >= 600) {
-                    changeItemColour(pendingRow, duration);
-                } else {
-                    // A short tap keeps the normal delete-confirmation behaviour.
-                    showPreviewColour(
-                        pendingRow,
-                        pendingRow._item.colourState || 0
-                    );
-                    pendingRow = null;
-                }
+            } else {
+                pendingRow = null;
+                draggedRow = null;
+                activePointerId = null;
+                dragHasMoved = false;
             }
-
-            touchLongPressReady = false;
         });
 
 
-        document.addEventListener("touchcancel", () => {
-            clearTimeout(dragTimer);
-            clearColourPreviewTimers();
-
-            if (pendingRow && !touchDragging) {
-                showPreviewColour(
-                    pendingRow,
-                    pendingRow._item.colourState || 0
-                );
-            }
+        document.addEventListener("pointercancel", event => {
+            if (event.pointerId !== activePointerId) return;
 
             if (draggedRow) {
                 draggedRow.classList.remove("dragging");
-                draggedRow = null;
+                renderItems();
             }
 
             pendingRow = null;
-            touchDragging = false;
-            touchLongPressReady = false;
+            draggedRow = null;
+            activePointerId = null;
+            dragHasMoved = false;
         });
     }
 
