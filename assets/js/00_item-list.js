@@ -309,6 +309,7 @@
     let startX = 0;
     let startY = 0;
     let dragTimer = null;
+    let colourPreviewTimers = [];
     let touchDragging = false;
     let touchLongPressReady = false;
     let touchStartTime = 0;
@@ -376,28 +377,67 @@
 
     function cancelPendingDrag() {
         clearTimeout(dragTimer);
+        clearColourPreviewTimers();
         pendingRow = null;
         touchLongPressReady = false;
     }
 
 
-    // Change colour according to how long the finger was held.
+    // Live colour preview while the finger is held down.
+    function getColourState(duration) {
+        if (duration >= 3500) return 0;
+        if (duration >= 2500) return 3;
+        if (duration >= 1500) return 2;
+        if (duration >= 600) return 1;
+        return 0;
+    }
+
+    function clearColourPreviewTimers() {
+        colourPreviewTimers.forEach(timer => clearTimeout(timer));
+        colourPreviewTimers = [];
+    }
+
+    function showPreviewColour(row, state) {
+        if (!row) return;
+
+        const button = row.querySelector(".item-button");
+        if (!button) return;
+
+        button.classList.remove(
+            "item-colour-1",
+            "item-colour-2",
+            "item-colour-3"
+        );
+
+        if (state > 0) {
+            button.classList.add(`item-colour-${state}`);
+        }
+    }
+
+    function startColourPreview(row) {
+        clearColourPreviewTimers();
+
+        const previewSteps = [
+            { time: 600, state: 1 },
+            { time: 1500, state: 2 },
+            { time: 2500, state: 3 },
+            { time: 3500, state: 0 }
+        ];
+
+        previewSteps.forEach(step => {
+            const timer = setTimeout(() => {
+                if (pendingRow !== row || touchDragging) return;
+                showPreviewColour(row, step.state);
+            }, step.time);
+
+            colourPreviewTimers.push(timer);
+        });
+    }
+
     function changeItemColour(row, duration) {
         if (!row || !row._item) return;
 
-        let newState;
-
-        if (duration >= 3500) {
-            newState = 0;
-        } else if (duration >= 2500) {
-            newState = 3;
-        } else if (duration >= 1500) {
-            newState = 2;
-        } else {
-            newState = 1;
-        }
-
-        row._item.colourState = newState;
+        row._item.colourState = getColourState(duration);
 
         suppressNextClick = true;
 
@@ -467,7 +507,9 @@
             touchLongPressReady = false;
 
             clearTimeout(dragTimer);
+            clearColourPreviewTimers();
             pendingRow = row;
+            startColourPreview(row);
 
             // After 500 ms, movement can initiate dragging.
             dragTimer = setTimeout(() => {
@@ -519,6 +561,7 @@
 
         document.addEventListener("touchend", () => {
             clearTimeout(dragTimer);
+            clearColourPreviewTimers();
 
             if (touchDragging) {
                 finishDrag();
@@ -529,6 +572,11 @@
                 if (duration >= 600) {
                     changeItemColour(pendingRow, duration);
                 } else {
+                    // A short tap keeps the normal delete-confirmation behaviour.
+                    showPreviewColour(
+                        pendingRow,
+                        pendingRow._item.colourState || 0
+                    );
                     pendingRow = null;
                 }
             }
@@ -539,6 +587,14 @@
 
         document.addEventListener("touchcancel", () => {
             clearTimeout(dragTimer);
+            clearColourPreviewTimers();
+
+            if (pendingRow && !touchDragging) {
+                showPreviewColour(
+                    pendingRow,
+                    pendingRow._item.colourState || 0
+                );
+            }
 
             if (draggedRow) {
                 draggedRow.classList.remove("dragging");
