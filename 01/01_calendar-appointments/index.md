@@ -44,17 +44,6 @@ custom_css: calendar
   <label for="appointment-end-time">Eindtijd</label>
     <input id="appointment-end-time" name="end-time" type="time">
 
-  <label for="appointment-category">Categorie</label>
-                <select id="appointment-category" name="category" required>
-                    <option value="" selected disabled>Kies een categorie</option>
-                    <option value="Social">Sociaal</option>
-                    <option value="Health">Gezondheid</option>
-                    <option value="University">Opleiding</option>
-                    <option value="Hotel">Hotel</option>
-                    <option value="Personal">Persoonlijk</option>
-                    <option value="Other">Overig</option>
-                </select>
-
   <label for="appointment-title">Afspraak</label>
                 <input id="appointment-title" name="title" type="text"
                        placeholder="Afspraak met / bij" required>
@@ -68,11 +57,6 @@ custom_css: calendar
                     <button type="button" id="appointment-cancel" hidden>Annuleren</button>
                 </div>
             </form>
-        </section>
-
-  <section class="appointment-filters" aria-labelledby="appointment-filter-heading">
-            <h4 id="appointment-filter-heading">Toon categorieën</h4>
-            <div id="appointment-category-filters"></div>
         </section>
 
   </div>
