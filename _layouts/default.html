@@ -8,17 +8,10 @@
 
   <div class="phone-screen">
 
-    <header>
-      <a href="{{ '/' | relative_url }}">
-        <img src="{{ '/assets/images/header.svg' | relative_url }}"
-             alt="{{ site.title }}">
-      </a>
-    </header>
+{% include header.html %}
 
-    {% assign submenu = site.data.submenus[page.submenu] %}
+{% assign submenu = site.data.submenus[page.submenu] %}
     
-    <!-- DEBUG: page.submenu={{ page.submenu | jsonify }} | submenu={{ submenu | jsonify }} -->
-
   <nav class="submenu" aria-label="Page navigation">
     {% for item in submenu %}
       <a href="{{ item.url | relative_url }}"

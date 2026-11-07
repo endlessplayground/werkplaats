@@ -8,12 +8,7 @@
 
   <div class="phone-screen">
 
-    <header>
-      <a href="{{ '/' | relative_url }}">
-        <img src="{{ '/assets/images/header.svg' | relative_url }}"
-             alt="{{ site.title }}">
-      </a>
-    </header>
+{% include header.html %}
 
     <main class="jigsaw-main">
       {{ content }}
