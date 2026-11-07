@@ -413,3 +413,41 @@ footer {
     background-color: #e9bfd0;
     color: #333;
 }
+
+.item-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.item-colour-toggle {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #ddd;
+    color: #666;
+    font-size: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.item-colour-toggle.colour-state-1 {
+    background: #f5e6a8;
+    color: #8b7420;
+}
+
+.item-colour-toggle.colour-state-2 {
+    background: #b9dce8;
+    color: #397b91;
+}
+
+.item-colour-toggle.colour-state-3 {
+    background: #e9bfd0;
+    color: #a34c70;
+}
+
+.item-row.dragging {
+    opacity: 0.5;
+}
