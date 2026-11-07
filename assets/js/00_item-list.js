@@ -256,7 +256,6 @@ if (customForm && customCategory) {
 
                 button.addEventListener("click", event => {
                     if (suppressNextClick) {
-                        suppressNextClick = false;
                         event.preventDefault();
                         return;
                     }
@@ -286,176 +285,180 @@ if (customForm && customCategory) {
     }
 
 
-    // Drag-and-drop reordering (mouse and touch).
-    let draggedRow = null;
-    let pendingRow = null;
-    let startX = 0;
-    let startY = 0;
-    let dragTimer = null;
-    let touchDragging = false;
-    let suppressNextClick = false;
+// Drag-and-drop reordering (mouse and touch).
+let draggedRow = null;
+let pendingRow = null;
+let startX = 0;
+let startY = 0;
+let dragTimer = null;
+let touchDragging = false;
+let suppressNextClick = false;
 
-    const listContainer = document.getElementById("item-list");
+const listContainer = document.getElementById("item-list");
 
-    function moveDraggedRow(x, y) {
-        if (!draggedRow) return;
+function moveDraggedRow(x, y) {
+    if (!draggedRow) return;
 
-        const target = document.elementFromPoint(x, y);
-        const targetRow = target?.closest(".item-row");
+    const target = document.elementFromPoint(x, y);
+    const targetRow = target?.closest(".item-row");
 
-        if (
-            !targetRow ||
-            targetRow === draggedRow ||
-            targetRow.parentElement !== draggedRow.parentElement
-        ) return;
+    if (
+        !targetRow ||
+        targetRow === draggedRow ||
+        targetRow.parentElement !== draggedRow.parentElement
+    ) return;
 
-        const rect = targetRow.getBoundingClientRect();
-        const after = y > rect.top + rect.height / 2;
-        const buttons = draggedRow.parentElement;
+    const rect = targetRow.getBoundingClientRect();
+    const after = y > rect.top + rect.height / 2;
+    const buttons = draggedRow.parentElement;
 
-        if (after) {
-            buttons.insertBefore(draggedRow, targetRow.nextSibling);
-        } else {
-            buttons.insertBefore(draggedRow, targetRow);
-        }
-    }
+    buttons.insertBefore(
+        draggedRow,
+        after ? targetRow.nextSibling : targetRow
+    );
+}
 
-    function finishDrag() {
+function finishDrag() {
+    if (!draggedRow) return;
+
+    const group = draggedRow.parentElement;
+    const reordered = [...group.children].map(row => row._item);
+    const category = reordered[0]?.category;
+
+    const positions = [];
+
+    items.forEach((item, index) => {
+        if (item.category === category) positions.push(index);
+    });
+
+    positions.forEach((position, index) => {
+        items[position] = reordered[index];
+    });
+
+    draggedRow.classList.remove("dragging");
+    draggedRow = null;
+    pendingRow = null;
+    touchDragging = false;
+
+    suppressNextClick = true;
+
+    saveItems();
+    renderItems();
+
+    // Ignore the click generated when the finger/mouse is released.
+    setTimeout(() => {
+        suppressNextClick = false;
+    }, 500);
+}
+
+function cancelPendingDrag() {
+    clearTimeout(dragTimer);
+    pendingRow = null;
+}
+
+if (listContainer) {
+
+    // Mouse dragging.
+    listContainer.addEventListener("pointerdown", event => {
+        if (event.pointerType === "touch") return;
+
+        pendingRow = event.target.closest(".item-row");
+        if (!pendingRow) return;
+
+        startX = event.clientX;
+        startY = event.clientY;
+    });
+
+    document.addEventListener("pointermove", event => {
+        if (!pendingRow && !draggedRow) return;
+
         if (!draggedRow) {
+            if (Math.hypot(
+                event.clientX - startX,
+                event.clientY - startY
+            ) < 6) return;
+
+            draggedRow = pendingRow;
             pendingRow = null;
+            draggedRow.classList.add("dragging");
+        }
+
+        moveDraggedRow(event.clientX, event.clientY);
+    });
+
+    document.addEventListener("pointerup", event => {
+        if (event.pointerType === "touch") return;
+
+        pendingRow = null;
+        finishDrag();
+    });
+
+    // Touch: a stationary long press activates dragging.
+    listContainer.addEventListener("touchstart", event => {
+        const row = event.target.closest(".item-row");
+        if (!row) return;
+
+        const touch = event.touches[0];
+
+        startX = touch.clientX;
+        startY = touch.clientY;
+
+        clearTimeout(dragTimer);
+        pendingRow = row;
+
+        dragTimer = setTimeout(() => {
+            if (pendingRow !== row) return;
+
+            draggedRow = row;
+            touchDragging = true;
+            row.classList.add("dragging");
+        }, 500);
+
+    }, { passive: true });
+
+    document.addEventListener("touchmove", event => {
+        if (!event.touches.length) return;
+
+        const touch = event.touches[0];
+
+        if (!touchDragging) {
+            if (Math.hypot(
+                touch.clientX - startX,
+                touch.clientY - startY
+            ) > 10) {
+                cancelPendingDrag();
+            }
             return;
         }
 
-        const group = draggedRow.parentElement;
-        const reordered = [...group.children].map(row => row._item);
-        const category = reordered[0]?.category;
+        event.preventDefault();
+        moveDraggedRow(touch.clientX, touch.clientY);
 
-        const positions = [];
+    }, { passive: false });
 
-        items.forEach((item, index) => {
-            if (item.category === category) {
-                positions.push(index);
-            }
-        });
+    document.addEventListener("touchend", () => {
+        clearTimeout(dragTimer);
 
-        positions.forEach((position, index) => {
-            items[position] = reordered[index];
-        });
-
-        draggedRow.classList.remove("dragging");
-        draggedRow = null;
-        pendingRow = null;
-
-        suppressNextClick = true;
-        setTimeout(() => {
-            suppressNextClick = false;
-        }, 400);
-
-        saveItems();
-        renderItems();
-    }
-
-    if (listContainer) {
-
-        // Mouse dragging.
-        listContainer.addEventListener("pointerdown", event => {
-            if (event.pointerType === "touch") return;
-
-            pendingRow = event.target.closest(".item-row");
-            if (!pendingRow) return;
-
-            startX = event.clientX;
-            startY = event.clientY;
-        });
-
-        document.addEventListener("pointermove", event => {
-            if (!pendingRow && !draggedRow) return;
-
-            if (!draggedRow) {
-                const distance = Math.hypot(
-                    event.clientX - startX,
-                    event.clientY - startY
-                );
-
-                if (distance < 6) return;
-
-                draggedRow = pendingRow;
-                pendingRow = null;
-                draggedRow.classList.add("dragging");
-            }
-
-            moveDraggedRow(event.clientX, event.clientY);
-        });
-
-        document.addEventListener("pointerup", event => {
-            if (event.pointerType === "touch") return;
-            pendingRow = null;
+        if (touchDragging) {
             finishDrag();
-        });
+        } else {
+            pendingRow = null;
+        }
 
-        // Touch: hold for 500 ms to activate dragging.
-        listContainer.addEventListener("touchstart", event => {
-            const row = event.target.closest(".item-row");
-            if (!row) return;
+    });
 
-            const touch = event.touches[0];
-            startX = touch.clientX;
-            startY = touch.clientY;
+    document.addEventListener("touchcancel", () => {
+        clearTimeout(dragTimer);
 
-            clearTimeout(dragTimer);
+        if (draggedRow) {
+            draggedRow.classList.remove("dragging");
+            draggedRow = null;
+        }
 
-            dragTimer = setTimeout(() => {
-                draggedRow = row;
-                touchDragging = true;
-                row.classList.add("dragging");
-            }, 500);
-
-        }, { passive: true });
-
-        document.addEventListener("touchmove", event => {
-            if (!event.touches.length) return;
-
-            const touch = event.touches[0];
-
-            if (!touchDragging) {
-                const distance = Math.hypot(
-                    touch.clientX - startX,
-                    touch.clientY - startY
-                );
-
-                if (distance > 10) {
-                    clearTimeout(dragTimer);
-                }
-
-                return;
-            }
-
-            event.preventDefault();
-            moveDraggedRow(touch.clientX, touch.clientY);
-
-        }, { passive: false });
-
-        document.addEventListener("touchend", () => {
-            clearTimeout(dragTimer);
-
-            if (touchDragging) {
-                finishDrag();
-            }
-
-            touchDragging = false;
-        });
-
-        document.addEventListener("touchcancel", () => {
-            clearTimeout(dragTimer);
-
-            if (draggedRow) {
-                draggedRow.classList.remove("dragging");
-                draggedRow = null;
-            }
-
-            touchDragging = false;
-        });
-    }
+        pendingRow = null;
+        touchDragging = false;
+    });
+}
     
     // Show/hide the input area.
     const toggleButton = document.getElementById("toggle-input");
