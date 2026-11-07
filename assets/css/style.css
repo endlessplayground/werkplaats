@@ -396,3 +396,20 @@ footer {
     filter: hue-rotate(-90deg);
     opacity: 0.7;
 }
+
+/*------------- color change buttons --------------*/
+
+.item-button.item-colour-1 {
+    background-color: #f5e6a8;
+    color: #333;
+}
+
+.item-button.item-colour-2 {
+    background-color: #b9dce8;
+    color: #333;
+}
+
+.item-button.item-colour-3 {
+    background-color: #e9bfd0;
+    color: #333;
+}
