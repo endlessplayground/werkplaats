@@ -382,22 +382,15 @@ footer {
 
 .item-row {
     display: inline-flex;
-    align-items: center;
-    gap: 3px;
 }
 
-.item-drag-handle {
-    cursor: grab;
-    border: none;
-    background: transparent;
-    padding: 0px;
-    margin-right: -20px;
+.item-row .item-button {
     touch-action: none;
-    font-size: 1.2em;
-    z-index: 10;
-    color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: grab;
 }
 
 .item-row.dragging {
-    opacity: 0.3;
+    opacity: 0.4;
 }
