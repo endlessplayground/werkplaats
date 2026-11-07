@@ -54,25 +54,25 @@ personal:
     url: /03/03_personal-mentaal/
   
 order:
-  - title: Ru brieken
+  - title: Puzzels
+    url: /06/06_jigsaw-start/
+    up: true
+  - title: Rubri ceren
     url: /06/06_order/
     up: true
   - title: Zoek vind
     url: /06/06_find/
-    up: true
-  - title: Puzzels
-    url: /06/06_jigsaw-start/
     up: true
 
 jigsaw:
-  - title: Ru brieken
+  - title: Puzzels
+    url: /06/06_jigsaw-start/
+    up: true
+  - title: Rubri ceren
     url: /06/06_order/
     up: true
   - title: Zoek vind
     url: /06/06_find/
-    up: true
-  - title: Puzzels
-    url: /06/06_jigsaw-start/
     up: true
 
 notities:
