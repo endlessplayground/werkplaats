@@ -55,3 +55,14 @@ document.getElementById("reset-puzzle").addEventListener("click", () => {
 });
 
 loadPuzzle();
+
+// Temporarily hide/show all puzzle pieces.
+const togglePiecesButton = document.getElementById("toggle-pieces");
+const puzzle = document.querySelector(".puzzle");
+
+if (togglePiecesButton && puzzle) {
+    togglePiecesButton.addEventListener("click", () => {
+        puzzle.classList.toggle("pieces-hidden");
+        togglePiecesButton.classList.toggle("pieces-hidden");
+    });
+}
