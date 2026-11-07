@@ -321,7 +321,10 @@ if (customForm && customCategory) {
     }
 
     function finishDrag() {
-        if (!draggedRow) return;
+        if (!draggedRow) {
+            pendingRow = null;
+            return;
+        }
 
         const group = draggedRow.parentElement;
         const reordered = [...group.children].map(row => row._item);
@@ -341,6 +344,7 @@ if (customForm && customCategory) {
 
         draggedRow.classList.remove("dragging");
         draggedRow = null;
+        pendingRow = null;
 
         suppressNextClick = true;
         setTimeout(() => {
@@ -383,12 +387,13 @@ if (customForm && customCategory) {
             moveDraggedRow(event.clientX, event.clientY);
         });
 
-        document.addEventListener("pointerup", () => {
+        document.addEventListener("pointerup", event => {
+            if (event.pointerType === "touch") return;
             pendingRow = null;
             finishDrag();
         });
 
-        // Touch dragging: long press to activate.
+        // Touch: hold for 500 ms to activate dragging.
         listContainer.addEventListener("touchstart", event => {
             const row = event.target.closest(".item-row");
             if (!row) return;
@@ -421,6 +426,7 @@ if (customForm && customCategory) {
                 if (distance > 10) {
                     clearTimeout(dragTimer);
                 }
+
                 return;
             }
 
@@ -450,7 +456,7 @@ if (customForm && customCategory) {
             touchDragging = false;
         });
     }
-
+    
     // Show/hide the input area.
     const toggleButton = document.getElementById("toggle-input");
     const inputSection = document.getElementById("hidden");

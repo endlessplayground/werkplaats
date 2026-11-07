@@ -118,7 +118,7 @@ h2 {
   margin: 0 20px 10px 0;
 }
 
-.submenu-item:last-child {
+.submenu-item:first-child {
     transform: scale(1.2);
     background: var(--main-color);
     font-weight: bold;
