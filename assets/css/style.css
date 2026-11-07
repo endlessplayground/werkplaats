@@ -209,6 +209,7 @@ header img {
   gap: 17px;
   padding: 10px 10px 0 10px;
   background: transparent;
+  z-index: 100;
 }
 
 .submenu-item {
