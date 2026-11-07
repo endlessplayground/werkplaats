@@ -22,7 +22,7 @@ const categorieen = {
         "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
     ],
     "Rest": [
-        "Koffie", "Koekjes", "Kattenvoer", "Toiletpapier", "Vuilniszak", "Handzeep"
+        "Koffie", "Suiker", "Koekjes", "Kattenvoer", "Toiletpapier", "Vuilniszak", "Handzeep", "Baking soda"
     ]
 };
 

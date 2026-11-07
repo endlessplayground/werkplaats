@@ -285,26 +285,83 @@ if (customForm && customCategory) {
         });
     }
 
+
     // Drag-and-drop reordering (mouse and touch).
     let draggedRow = null;
     let pendingRow = null;
     let startX = 0;
     let startY = 0;
+    let dragTimer = null;
+    let touchDragging = false;
     let suppressNextClick = false;
-    let dragStarted = false;
 
     const listContainer = document.getElementById("item-list");
 
+    function moveDraggedRow(x, y) {
+        if (!draggedRow) return;
+
+        const target = document.elementFromPoint(x, y);
+        const targetRow = target?.closest(".item-row");
+
+        if (
+            !targetRow ||
+            targetRow === draggedRow ||
+            targetRow.parentElement !== draggedRow.parentElement
+        ) return;
+
+        const rect = targetRow.getBoundingClientRect();
+        const after = y > rect.top + rect.height / 2;
+        const buttons = draggedRow.parentElement;
+
+        if (after) {
+            buttons.insertBefore(draggedRow, targetRow.nextSibling);
+        } else {
+            buttons.insertBefore(draggedRow, targetRow);
+        }
+    }
+
+    function finishDrag() {
+        if (!draggedRow) return;
+
+        const group = draggedRow.parentElement;
+        const reordered = [...group.children].map(row => row._item);
+        const category = reordered[0]?.category;
+
+        const positions = [];
+
+        items.forEach((item, index) => {
+            if (item.category === category) {
+                positions.push(index);
+            }
+        });
+
+        positions.forEach((position, index) => {
+            items[position] = reordered[index];
+        });
+
+        draggedRow.classList.remove("dragging");
+        draggedRow = null;
+
+        suppressNextClick = true;
+        setTimeout(() => {
+            suppressNextClick = false;
+        }, 400);
+
+        saveItems();
+        renderItems();
+    }
+
     if (listContainer) {
 
+        // Mouse dragging.
         listContainer.addEventListener("pointerdown", event => {
-            const row = event.target.closest(".item-row");
-            if (!row) return;
+            if (event.pointerType === "touch") return;
 
-            pendingRow = row;
+            pendingRow = event.target.closest(".item-row");
+            if (!pendingRow) return;
+
             startX = event.clientX;
             startY = event.clientY;
-            dragStarted = false;
         });
 
         document.addEventListener("pointermove", event => {
@@ -320,72 +377,78 @@ if (customForm && customCategory) {
 
                 draggedRow = pendingRow;
                 pendingRow = null;
-                dragStarted = true;
                 draggedRow.classList.add("dragging");
             }
 
-            const target = document.elementFromPoint(
-                event.clientX,
-                event.clientY
-            );
-
-            const targetRow = target?.closest(".item-row");
-
-            if (
-                !targetRow ||
-                targetRow === draggedRow ||
-                targetRow.parentElement !== draggedRow.parentElement
-            ) return;
-
-            const rect = targetRow.getBoundingClientRect();
-            const after = event.clientY > rect.top + rect.height / 2;
-
-            const buttons = draggedRow.parentElement;
-
-            if (after) {
-                buttons.insertBefore(draggedRow, targetRow.nextSibling);
-            } else {
-                buttons.insertBefore(draggedRow, targetRow);
-            }
+            moveDraggedRow(event.clientX, event.clientY);
         });
 
-        function finishDrag() {
-            if (!draggedRow) {
-                pendingRow = null;
+        document.addEventListener("pointerup", () => {
+            pendingRow = null;
+            finishDrag();
+        });
+
+        // Touch dragging: long press to activate.
+        listContainer.addEventListener("touchstart", event => {
+            const row = event.target.closest(".item-row");
+            if (!row) return;
+
+            const touch = event.touches[0];
+            startX = touch.clientX;
+            startY = touch.clientY;
+
+            clearTimeout(dragTimer);
+
+            dragTimer = setTimeout(() => {
+                draggedRow = row;
+                touchDragging = true;
+                row.classList.add("dragging");
+            }, 500);
+
+        }, { passive: true });
+
+        document.addEventListener("touchmove", event => {
+            if (!event.touches.length) return;
+
+            const touch = event.touches[0];
+
+            if (!touchDragging) {
+                const distance = Math.hypot(
+                    touch.clientX - startX,
+                    touch.clientY - startY
+                );
+
+                if (distance > 10) {
+                    clearTimeout(dragTimer);
+                }
                 return;
             }
 
-            const group = draggedRow.parentElement;
-            const reordered = [...group.children].map(row => row._item);
-            const category = reordered[0]?.category;
+            event.preventDefault();
+            moveDraggedRow(touch.clientX, touch.clientY);
 
-            const positions = [];
+        }, { passive: false });
 
-            items.forEach((item, index) => {
-                if (item.category === category) {
-                    positions.push(index);
-                }
-            });
+        document.addEventListener("touchend", () => {
+            clearTimeout(dragTimer);
 
-            positions.forEach((position, index) => {
-                items[position] = reordered[index];
-            });
+            if (touchDragging) {
+                finishDrag();
+            }
 
-            draggedRow.classList.remove("dragging");
-            draggedRow = null;
-            pendingRow = null;
+            touchDragging = false;
+        });
 
-            suppressNextClick = true;
-            setTimeout(() => {
-                suppressNextClick = false;
-            }, 400);
+        document.addEventListener("touchcancel", () => {
+            clearTimeout(dragTimer);
 
-            saveItems();
-            renderItems();
-        }
+            if (draggedRow) {
+                draggedRow.classList.remove("dragging");
+                draggedRow = null;
+            }
 
-        document.addEventListener("pointerup", finishDrag);
-        document.addEventListener("pointercancel", finishDrag);
+            touchDragging = false;
+        });
     }
 
     // Show/hide the input area.
