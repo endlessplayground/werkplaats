@@ -385,7 +385,7 @@ footer {
 }
 
 .item-row .item-button {
-    touch-action: none;
+    touch-action: auto;
     -webkit-user-select: none;
     user-select: none;
     cursor: grab;
