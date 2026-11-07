@@ -75,9 +75,6 @@ main {
     margin: -16.8px;
     padding: 0;
     border: 0;
-}
-
-.puzzle-piece {
     cursor: pointer;
     transition: filter 0.2s ease, opacity 0.2s ease;
 }

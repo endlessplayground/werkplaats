@@ -2,7 +2,7 @@
 const workdays = [0, 1, 3]; // Sunday, Monday, Wednesday
 const workDescription = "VdV";
 const workPeriod = "morning";
-const workCategory = "hotel";
+const workCategory = "vandervalk";
 
 const eventsKey = "personal-calendar-events";
 const exceptionsKey = "personal-calendar-workday-exceptions";
@@ -24,28 +24,83 @@ let exceptions = JSON.parse(localStorage.getItem(exceptionsKey) || "[]");
 let editingId = null;
 let editingRecurringDate = null;
 
+
+// Default descriptions for each category.
+const categoryDescriptions = {
+    "vandervalk": "VdV",
+    "beschikbaar-hs": "HS?",
+    "hogeschool-rotterdam": "R'dam",
+    "hogeschool-leiden": "Leiden",
+    "sociaal": "",
+    "rest": ""
+};
+
+
+// Keep the existing calendar colours.
+// Both Hogeschool categories use the same CSS class.
+function getCategoryClass(category) {
+    const classes = {
+        "vandervalk": "hotel",
+        "hotel": "hotel",
+
+        "beschikbaar-hs": "beschikbaarheid",
+        "beschikbaarheid": "beschikbaarheid",
+
+        "hogeschool-rotterdam": "hogeschool",
+        "hogeschool-leiden": "hogeschool",
+        "hogeschool": "hogeschool",
+
+        "sociaal": "social",
+        "social": "social",
+
+        "rest": "rest"
+    };
+
+    return classes[category] || category;
+}
+
+
+// Convert older category values when editing existing appointments.
+function getEditableCategory(category) {
+    const oldValues = {
+        "hotel": "vandervalk",
+        "beschikbaarheid": "beschikbaar-hs",
+        "social": "sociaal"
+    };
+
+    return oldValues[category] || category;
+}
+
+
 function saveEvents() {
     localStorage.setItem(eventsKey, JSON.stringify(events));
 }
+
 
 function saveExceptions() {
     localStorage.setItem(exceptionsKey, JSON.stringify(exceptions));
 }
 
+
 function dateString(date) {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
+
     return `${year}-${month}-${day}`;
 }
+
 
 function getStartOfCurrentWeek() {
     const date = new Date();
     date.setHours(0, 0, 0, 0);
+
     const dayOfWeek = (date.getDay() + 6) % 7;
     date.setDate(date.getDate() - dayOfWeek);
+
     return date;
 }
+
 
 function getRecurringEvents(startDate) {
     const recurring = [];
@@ -74,6 +129,7 @@ function getRecurringEvents(startDate) {
     return recurring;
 }
 
+
 function renderCalendar() {
     grid.innerHTML = "";
 
@@ -96,6 +152,7 @@ function renderCalendar() {
         weekdayContainer.appendChild(heading);
     });
 
+
     // Build the calendar one complete week at a time.
     for (let i = 0; i < calendarDays; i += 7) {
         const weekStart = new Date(startDate);
@@ -112,24 +169,27 @@ function renderCalendar() {
             weekDates.push(date);
         }
 
+
         // Add a month heading above the week containing the 1st.
         const monthStart = weekDates.find(date => date.getDate() === 1);
 
-if (i === 0 || monthStart) {
-    const month = document.createElement("div");
-    month.className = "calendar-month";
+        if (i === 0 || monthStart) {
+            const month = document.createElement("div");
+            month.className = "calendar-month";
 
-    const labelDate = monthStart || weekDates[0];
+            const labelDate = monthStart || weekDates[0];
 
-    const monthName = labelDate.toLocaleDateString("nl-NL", {
-        month: "long",
-        year: "numeric"
-    });
+            const monthName = labelDate.toLocaleDateString("nl-NL", {
+                month: "long",
+                year: "numeric"
+            });
 
-    month.textContent = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+            month.textContent =
+                monthName.charAt(0).toUpperCase() + monthName.slice(1);
 
-    week.appendChild(month);
-}
+            week.appendChild(month);
+        }
+
 
         weekDates.forEach((date, j) => {
             const key = dateString(date);
@@ -156,6 +216,7 @@ if (i === 0 || monthStart) {
             dateLabel.appendChild(monthLabel);
             day.appendChild(dateLabel);
 
+
             ["morning", "afternoon", "evening"].forEach(period => {
                 const slot = document.createElement("div");
                 slot.className = "calendar-slot";
@@ -165,7 +226,7 @@ if (i === 0 || monthStart) {
                 );
 
                 const categories = [...new Set(
-                    slotEvents.map(event => event.category)
+                    slotEvents.map(event => getCategoryClass(event.category))
                 )];
 
                 if (categories.length === 1) {
@@ -196,16 +257,36 @@ if (i === 0 || monthStart) {
         grid.appendChild(week);
     }
 
+
     // Start at the current week whenever the calendar is rendered.
     scrollContainer.scrollTop = 0;
 }
+
 
 function editEvent(event) {
     editingId = event.recurring ? null : event.id;
     editingRecurringDate = event.recurring ? event.date : null;
 
     dateInput.value = event.date;
-    categoryInput.value = event.category;
+
+    let category = getEditableCategory(event.category);
+
+    // Keep old Hogeschool appointments editable without guessing
+    // whether they were in Rotterdam or Leiden.
+    if (category === "hogeschool") {
+        let oldOption = [...categoryInput.options].find(
+            option => option.value === "hogeschool"
+        );
+
+        if (!oldOption) {
+            oldOption = document.createElement("option");
+            oldOption.value = "hogeschool";
+            oldOption.textContent = "Hogeschool (bestaande afspraak)";
+            categoryInput.appendChild(oldOption);
+        }
+    }
+
+    categoryInput.value = category;
     periodInput.value = event.period;
     descriptionInput.value = event.description;
 
@@ -234,8 +315,10 @@ function editEvent(event) {
     form.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+
 function resetForm() {
     form.reset();
+
     editingId = null;
     editingRecurringDate = null;
 
@@ -243,8 +326,21 @@ function resetForm() {
     saveButton.textContent = "Toevoegen";
 
     const deleteButton = document.getElementById("calendar-delete");
-    if (deleteButton) deleteButton.hidden = true;
+
+    if (deleteButton) {
+        deleteButton.hidden = true;
+    }
+
+    // Remove the temporary option used for older appointments.
+    const oldOption = [...categoryInput.options].find(
+        option => option.value === "hogeschool"
+    );
+
+    if (oldOption) {
+        oldOption.remove();
+    }
 }
+
 
 function deleteCurrentEvent() {
     if (editingRecurringDate) {
@@ -260,6 +356,14 @@ function deleteCurrentEvent() {
     resetForm();
     renderCalendar();
 }
+
+
+// Autofill the description whenever the category changes.
+categoryInput.addEventListener("change", () => {
+    descriptionInput.value =
+        categoryDescriptions[categoryInput.value] ?? "";
+});
+
 
 form.addEventListener("submit", event => {
     event.preventDefault();
@@ -281,10 +385,12 @@ form.addEventListener("submit", event => {
         }
 
         events.push(appointment);
+
     } else if (editingId !== null) {
         events = events.map(event =>
             event.id === editingId ? appointment : event
         );
+
     } else {
         events.push(appointment);
     }
@@ -294,6 +400,7 @@ form.addEventListener("submit", event => {
     renderCalendar();
 });
 
+
 if (todayButton) {
     todayButton.addEventListener("click", () => {
         scrollContainer.scrollTo({
@@ -302,5 +409,6 @@ if (todayButton) {
         });
     });
 }
+
 
 renderCalendar();
