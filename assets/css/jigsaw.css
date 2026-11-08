@@ -205,4 +205,5 @@ h2.puzzle-heading .puzzle-select-arrow {
     right: 0;
     background: url("/assets/images/dropdown-triangle.svg") center / contain no-repeat;
     font-size: 0;
+    background: url("../images/dropdown-triangle.svg") center / contain no-repeat;
 }
