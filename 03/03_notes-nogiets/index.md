@@ -20,10 +20,14 @@ category: notes
     .kleurcirkel img {
     width: 340px;
     height: 340px;
-    }
+}
+
+h2 {
+  margin: 0 0 22px 0;
+}
 </style>
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Nog meer notities</h2>
+<h2><!--<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>-->Kleurcirkel</h2>
 
 <div class="kleurcirkel"><img src="{{ '/assets/images/colorwheel-spikes.svg' | relative_url }}"></div>
 
