@@ -7,8 +7,8 @@ category: notes
 
 <style>
 .kleurcirkel {
-    width: 360px;
-    height: 360px;
+    width: 340px;
+    height: 340px;
     border-radius: 50%;
     margin: 0 auto;
     background-image: url("{{ '/assets/images/colorwheel.png' | relative_url }}");
@@ -18,8 +18,8 @@ category: notes
     align-self: center;
 }
     .kleurcirkel img {
-    width: 360px;
-    height: 360px;
+    width: 340px;
+    height: 340px;
     }
 </style>
 
