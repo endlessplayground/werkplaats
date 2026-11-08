@@ -7,15 +7,19 @@ category: notes
 
 <style>
 .kleurcirkel {
-    width: 395px;
-    height: 395px;
+    width: 360px;
+    height: 360px;
     border-radius: 50%;
-    background-image: url("/assets/images/colorwheel.png");
+    margin: 0 auto;
+    background-image: url("{{ '/assets/images/colorwheel.png' | relative_url }}");
     background-size: contain;
     background-repeat: no-repeat;
     overflow: hidden;
+    align-self: center;
 }
     .kleurcirkel img {
+    width: 360px;
+    height: 360px;
     }
 </style>
 
