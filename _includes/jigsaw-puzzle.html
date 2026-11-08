@@ -181,7 +181,8 @@ h2.puzzle-heading .puzzle-select-arrow {
 
 </style>
 
-<h2 class="puzzle-heading">
+<h2 class="puzzle-heading"><span style="color:red;">TEST</span><span style="color:blue;">{{ page.puzzle_title }}</span>{% assign test_pages = site.pages | where: "category", page.category %}
+<span style="color:green;">Found: {{ test_pages.size }}</span>
 
     <span class="puzzle-select-wrap">
         <select class="puzzle-page-select"
@@ -199,6 +200,8 @@ h2.puzzle-heading .puzzle-select-arrow {
                     {{ puzzle.puzzle_title }}
                 </option>
             {% endfor %}
+
+            <p>Number of puzzles: {{ puzzle_pages.size }}</p>
 
         </select>
         <span class="puzzle-select-arrow">▾</span>
