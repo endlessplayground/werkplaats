@@ -201,15 +201,17 @@ h2.puzzle-heading .puzzle-select-arrow {
 
 {% assign puzzle_pages = site.pages
     | where: "category", page.category
-    | where_exp: "puzzle", "puzzle.puzzle_title != nil and puzzle.puzzle_title != ''"
     | sort: "puzzle_title"
 %}
-            {% for puzzle in puzzle_pages %}
-                <option value="{{ puzzle.url | relative_url }}"
-                    {% if puzzle.url == page.url %}selected{% endif %}>
-                    {{ puzzle.puzzle_title }}
-                </option>
-            {% endfor %}
+
+{% for puzzle in puzzle_pages %}
+    {% if puzzle.puzzle_title and puzzle.puzzle_title != "" %}
+        <option value="{{ puzzle.url | relative_url }}"
+            {% if puzzle.url == page.url %}selected{% endif %}>
+            {{ puzzle.puzzle_title }}
+        </option>
+    {% endif %}
+{% endfor %}
 
 
         </select>
