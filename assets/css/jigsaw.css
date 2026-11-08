@@ -111,8 +111,17 @@ button img {
     width: 28px;
 }
 
+/*--------------- dropdown ---------------*/
+
+
 h2 {
-  margin: 0 20px 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px 22px 0;
+  font-size: 1.3rem;
+  font-weight: 800;
 }
 
 .submenu-item:first-child {
@@ -121,4 +130,79 @@ h2 {
     font-weight: bold;
     color: white;
     text-shadow: 0px 0.3px 2px rgba(29, 27, 44, 0.95);
+}
+
+.puzzle-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px 22px 0;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.puzzle-select-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 6px;
+}
+
+.puzzle-page-select {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    max-width: 250px;
+    background-color: aqua;
+    text-align: right !important;
+    direction: rtl;
+}
+
+.puzzle-select-arrow {
+    position: absolute;
+    right: 2px;
+    pointer-events: none;
+    font-size: 0.65em;
+    color: inherit;
+}
+
+h2.puzzle-heading select.puzzle-page-select {
+    all: unset !important;
+
+    display: inline-block !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    font-family: inherit !important;
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    line-height: normal !important;
+    color: inherit !important;
+
+    cursor: pointer !important;
+    padding: 0 26px 0 0 !important;
+    margin: 0 !important;
+    max-width: 250px !important;
+}
+
+h2.puzzle-heading .puzzle-select-wrap {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+h2.puzzle-heading .puzzle-select-arrow {
+    width: 18px;
+    height: 18px;
+    right: 0;
+    background: url("/assets/images/dropdown-triangle.svg") center / contain no-repeat;
+    font-size: 0;
 }
