@@ -19,16 +19,38 @@
 }
 </style>
 
-<h2>
+<h2 class="puzzle-heading">
 
-    {{ page.puzzle_title }}
+    <span class="puzzle-select-wrap">
+        <select class="puzzle-page-select"
+                aria-label="Kies een puzzel"
+                onchange="if(this.value) window.location.href=this.value;">
+
+{% assign puzzle_pages = site.pages
+    | where: "category", page.category
+    | where_exp: "puzzle", "puzzle.puzzle_title != nil and puzzle.puzzle_title != ''"
+    | sort: "puzzle_title"
+%}
+            {% for puzzle in puzzle_pages %}
+                <option value="{{ puzzle.url | relative_url }}"
+                    {% if puzzle.url == page.url %}selected{% endif %}>
+                    {{ puzzle.puzzle_title }}
+                </option>
+            {% endfor %}
+
+        </select>
+        <span class="puzzle-select-arrow">▾</span>
+    </span>
 
     <button id="reset-puzzle" type="button">
         <img src="{{ '/assets/images/reload.svg' | relative_url }}">
     </button>
+
     <button id="toggle-pieces" type="button">
-</button>
-</h2> 
+        <!-- Keep your existing button content here -->
+    </button>
+
+</h2>
 
 <!--1-->
 <div class="puzzle">
