@@ -5,9 +5,25 @@ submenu: notities
 category: notes
 ---
 
+<style>
+.kleurcirkel {
+    width: 395px;
+    height: 395px;
+    border-radius: 50%;
+    background-image: url("/assets/images/colorwheel.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+    .kleurcirkel img {
+    }
+</style>
+
 <h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Nog meer notities</h2>
 
-<div id="hidden" hidden>
+<div class="kleurcirkel"><img src="{{ '/assets/images/colorwheel-spikes.svg' | relative_url }}"></div>
+
+<!--<div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>
 
 </div>
@@ -28,4 +44,4 @@ window.itemListConfig = {
 };
 </script>
 
-<script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>-->
