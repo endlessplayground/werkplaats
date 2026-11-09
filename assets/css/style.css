@@ -390,7 +390,7 @@ footer {
 
 .item-button.item-colour-1 {
     background: transparent;
-    color: var(--green-dark);
+    color: rgb(158, 233, 150);
     font-size: 0.8rem;
 }
 
