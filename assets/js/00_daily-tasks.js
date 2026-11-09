@@ -9,6 +9,7 @@ window.dailyTasks = [
     "Planten",
     "Mail",
     "Badkamer",
+    "Was doen",
     "Was ophangen",
     "Was afhalen",
     "Was opruimen",
