@@ -47,13 +47,13 @@ window.itemListConfig = {
         "Pasta", "Lasagne vellen", "Rijst", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempitten", "Pompoenpitten", "Pijnboompitten"
     ],
     "Zuivel & vriezer": [
-        "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
+        "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Crème fraiche", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
     ],
     "Overig": [
         "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Tandpasta", "Vuilniszakken", "Baking soda"
     ],
     "EKOPLAZA": [
-    "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood",  "Tandendstokers"
+    "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Stamppotgroenten", "Appels", "Tomaten", "Paprika", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood",  "Tandendstokers"
     ],
     "Rest": []
 }
