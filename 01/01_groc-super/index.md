@@ -32,10 +32,11 @@ category: groceries
 window.itemListConfig = {
     storageKey: "groc-super",
     customCategory: "Rest",
+    
 
     categories: {
     "Groenten & fruit": [
-        "🔴", "Uien", "Knoflook", "Gember", "Peper", "Peen / wortel", "Aardappelen", "🟠", "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen", "🟡", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons", "🟣"
+        "🔴 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●", "Uien", "Knoflook", "Gember", "Peper", "Peen / wortel", "Aardappelen", "🟡 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●", "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen", "🟢 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons", "🔵 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●"
     ],
     "Vlees & eieren": [
         "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
