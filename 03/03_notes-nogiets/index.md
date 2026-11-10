@@ -34,18 +34,25 @@ h2 {
 }
 </style>
 
-<h2><!--<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>-->Kleurcirkel</h2>
+<h2><!--<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>-->Dingetjes</h2>
 
-<div class="kleurcirkel"><img src="{{ '/assets/images/colorwheel-spikes.svg' | relative_url }}"></div>
-
-<div class="emojis">🥲😊🙂🙃😇😌🫢😬😞😕👊<br>
+<div class="emojis">
+🔴 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
+🟠 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
+🟡 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
+🟢 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
+🔵 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
+🟣 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
+🥲😊🙂🙃😇😌🫢😬😞😕👊<br>
 🎒🐔🐥🐌🍀🌷✨☀️
 🍏🍎🍋‍🟩🍒🥝🥦🥬🫑🌽🥕🥐🍞🧀🥚🍰<br>
 🏆🏅🎧🎲🎯🧩🚗🚎🚂🚆🚊🚉✈️🏡<br>
-📱☎️📞⏱️⏲️⏰🕰️🔌💡🕯️💰🪙🪏🧬🦠🧪🌡️🧹🧺🧻🚿🪥🧽🪣🔑🚪🪑✉️📩📊📈📉🗒️🗓️📆🗑️📒📚🧷🧮📌📍✂️🖊️✏️🔎 🩷❤️🧡💛💚🩵💙💜 ❗❓▶️🔽◀️🔼➡️⬅️⬆️⬇️↗️↘️↖️🔄 🔴🟠🟡🟢🔵🟣🔺🔻🕒🕓🕘🕣🕝<br>
-〰️〰️〰️〰️〰️〰️➰➰➰➰➰➿➿➿➿<br>
-•••••••• • • • • • • • • ●●●●●● ● ● ● ● ● ● 
+📱☎️📞⏱️⏲️⏰🕰️🔌💡🕯️💰🪙🪏🧬🦠🧪🌡️🧹🧺🧻🚿🪥🧽🪣🔑🚪🪑✉️📩📊📈📉🗒️🗓️📆🗑️📒📚🧷🧮📌📍✂️🖊️✏️🔎 🩷❤️🧡💛💚🩵💙💜 ❗❓▶️🔽◀️🔼➡️⬅️⬆️⬇️↗️↘️↖️🔄 🔴🟠🟡🟢🔵🟣🔺🔻🕒🕓🕘🕣🕝
 </div>
+
+<div class="kleurcirkel"><img src="{{ '/assets/images/colorwheel-spikes.svg' | relative_url }}"></div>
+
+
 
 <!--<div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>
