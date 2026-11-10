@@ -1,31 +1,4 @@
 
-const categorieen = {
-    "Groenten & fruit 1": [
-        "Uien", "Knoflook", "Gember", "Peper"
-    ],
-    "Groenten & fruit 2": [
-        "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen"
-    ],
-    "Groenten & fruit 3": [
-        "Aardappelen", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons"
-    ],
-    "Vlees & eieren": [
-        "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
-    ],
-    "Blik & pot": [
-        "Bliktomaten", "Tomatenpuree", "Pesto", "Jalapeño", "Artisjokken", "Bonen", "Mosterd",
-    ],
-    "Granen & noten": [
-        "Pasta", "Rijst", "Wraps", "Walnoten", "Cashew", "Pistache", "Zonnebloempit", "Pompoenpit", "Pijnoompit"
-    ],
-    "Zuivel & vriezer": [
-        "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
-    ],
-    "Rest": [
-        "Koffie", "Suiker", "Koekjes", "Kattenvoer", "Toiletpapier", "Vuilniszak", "Handzeep", "Baking soda"
-    ]
-};
-
 const todoKey = "groc-super";
 const namenCategorieen = Object.keys(categorieen);
 
