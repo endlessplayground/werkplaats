@@ -23,7 +23,7 @@ window.itemListConfig = {
 
     categories: {
 
-        "": window.dailyTasks,
+        "Vandaag": window.dailyTasks
 /*        "Optioneel": window.dailyTasks,
         "Administratief": window.adminTasks,
         "Rest": [
