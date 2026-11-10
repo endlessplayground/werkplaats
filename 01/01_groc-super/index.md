@@ -36,7 +36,7 @@ window.itemListConfig = {
 
     categories: {
     "Groenten & fruit": [
-        "🔴 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●", "Uien", "Knoflook", "Gember", "Peper", "Peen / wortel", "Aardappelen", "🟡 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●", "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "Pompoen", "🟢 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons", "🔵 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●"
+        "🟠", "Uien", "Knoflook", "Gember", "Peper", "🟡", "Peen / wortel", "Pompoen", "Aardappelen", "🟢", "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "🔵", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons", "🟣"
     ],
     "Vlees & eieren": [
         "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
@@ -48,15 +48,15 @@ window.itemListConfig = {
         "Pasta", "Lasagne vellen", "Rijst", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempitten", "Pompoenpitten", "Pijnboompitten"
     ],
     "Zuivel & vriezer": [
-        "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Crème fraiche", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
+        "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Crème fraiche", "🟢", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
     ],
     "Overig": [
-        "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Tandpasta", "Vuilniszakken", "Baking soda"
+        "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Tandpasta","Handschoenen", "Vuilniszakken", "Baking soda"
     ],
+    "Rest": [],
     "EKOPLAZA": [
     "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Stamppotgroenten", "Appels", "Tomaten", "Paprika", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood",  "Tandendstokers"
-    ],
-    "Rest": []
+    ]
 }
 };
 </script>
