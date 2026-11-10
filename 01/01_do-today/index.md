@@ -23,11 +23,12 @@ window.itemListConfig = {
 
     categories: {
 
-        "Urgent": window.dailyTasks,
-        "Optioneel": window.dailyTasks,
+        "": window.dailyTasks,
+/*        "Optioneel": window.dailyTasks,
         "Administratief": window.adminTasks,
         "Rest": [
         ]
+*/
 
     }
 };
