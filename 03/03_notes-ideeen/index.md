@@ -5,7 +5,7 @@ submenu: notities
 category: notes
 ---
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Notities website</h2>
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Ideeën</h2>
 
 <div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>
