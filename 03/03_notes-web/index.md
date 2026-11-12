@@ -9,21 +9,20 @@ category: notes
 
 <div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>
-
 </div>
 
 <div id="item-list"></div>
 
+<script src="{{ '/assets/js/00_daily-tasks.js' | relative_url }}"></script>
 
 <script>
 window.itemListConfig = {
     storageKey: "notes-web",
-    textOnlyCategories: ["Nu", "Later", "Nog later"],
+    customInputPerCategory: true,
+    textOnlyCategories: [],
 
     categories: {
-        "Nu": [],
-        "Later": [],
-        "Nog later": []
+        "": [], 
     }
 };
 </script>
