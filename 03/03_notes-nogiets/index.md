@@ -10,7 +10,7 @@ category: notes
     width: 340px;
     height: 340px;
     border-radius: 50%;
-    margin: 0 auto;
+    margin: 30px auto;
     background-image: url("{{ '/assets/images/colorwheel.png' | relative_url }}");
     background-size: contain;
     background-repeat: no-repeat;
@@ -29,7 +29,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px auto;
+    margin: 15px auto;
     text-align: center;
 }
 </style>
@@ -37,17 +37,12 @@ h2 {
 <h2><!--<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>-->Dingetjes</h2>
 
 <div class="emojis">
-🟠 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
-🟡 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
-🟢 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
-🔵 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
-🟣 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
-🔴 ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●<br>
+
 🥲😊🙂🙃😇😌🫢😬😞😕👊<br>
 🎒🐔🐥🐌🍀🌷✨☀️
 🍏🍎🍋‍🟩🍒🥝🥦🥬🫑🌽🥕🥐🍞🧀🥚🍰<br>
 🏆🏅🎧🎲🎯🧩🚗🚎🚂🚆🚊🚉✈️🏡<br>
-📱☎️📞⏱️⏲️⏰🕰️🔌💡🕯️💰🪙🪏🧬🦠🧪🌡️🧹🧺🧻🚿🪥🧽🪣🔑🚪🪑✉️📩📊📈📉🗒️🗓️📆🗑️📒📚🧷🧮📌📍✂️🖊️✏️🔎 🩷❤️🧡💛💚🩵💙💜 ❗❓▶️🔽◀️🔼➡️⬅️⬆️⬇️↗️↘️↖️🔄 🔴🟠🟡🟢🔵🟣🔺🔻🕒🕓🕘🕣🕝
+📱☎️📞⏱️⏲️⏰🕰️🔌💡🕯️💰🪙🪏🧬🦠🧪🌡️🧹🧺🧻🚿🪥🧽🪣🔑🚪🪑✉️📩📊📈📉🗒️🗓️📆🗑️📒📚🧷🧮📌📍✂️🖊️✏️🔎 🩷❤️🧡💛💚🩵💙💜 ❗❓▶️🔽◀️🔼➡️⬅️⬆️⬇️↗️↘️↖️🔄 1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟 🔴🟠🟡🟢🔵🟣🔺🔻🕒🕓🕘🕣🕝
 </div>
 
 <div class="kleurcirkel"><img src="{{ '/assets/images/colorwheel-spikes.svg' | relative_url }}"></div>
