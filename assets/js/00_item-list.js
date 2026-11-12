@@ -162,7 +162,7 @@
 
                 const dividerOption = document.createElement("option");
                 dividerOption.value = "__ADD_DIVIDER__";
-                dividerOption.textContent = "──────── Scheidingslijn ────────";
+                dividerOption.textContent = "────── Lijntje ──────";
                 select.appendChild(dividerOption);
 
             categories[category].forEach(name => {
