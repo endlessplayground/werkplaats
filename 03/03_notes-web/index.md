@@ -15,7 +15,7 @@ category: notes
 
 <script src="{{ '/assets/js/00_daily-tasks.js' | relative_url }}"></script>
 
-<!--<script>
+<script>
 window.itemListConfig = {
     storageKey: "notes-web",
     customInputPerCategory: true,
@@ -25,19 +25,7 @@ window.itemListConfig = {
         "": [], 
     }
 };
-</script>-->
-
-<script>
-window.itemListConfig = {
-    storageKey: "notes-web",
-    textOnlyCategories: ["Nu", "Later", "Nog later"],
-
-    categories: {
-        "Nu": [],
-        "Later": [],
-        "Nog later": []
-    }
-};
 </script>
+
 
 <script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
