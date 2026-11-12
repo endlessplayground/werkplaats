@@ -2,8 +2,8 @@ huishouden:
   - title: Van daag
     url: /01/01_do-today/
     up: true
-  - title: Later
-    url: /01/01_do-later/
+  - title: Plan ning
+    url: /01/01_do-planning/
   - title: ''
     url: /01/01_devil/
     image: /assets/images/devil.svg
@@ -76,10 +76,8 @@ jigsaw:
     up: true
 
 notities:
-  - title: Web nu 
+  - title: Web edit 
     url: /03/03_notes-web/
-  - title: Web later 
-    url: /03/03_notes-web-later/
   - title: Idee ën
     url: /03/03_notes-ideeen/
   - title: Nog iets
