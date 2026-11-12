@@ -86,6 +86,17 @@
         renderItems();
     }
 
+    function addDivider(category) {
+    items.push({
+        name: "",
+        category,
+        type: "divider",
+        colourState: 0
+    });
+
+    saveItems();
+    renderItems();
+}
 
     function addEntireList(category) {
         categories[category].forEach(name => {
@@ -149,28 +160,34 @@
                 placeholder.hidden = true;
                 select.appendChild(placeholder);
 
-                categories[category].forEach(name => {
-                    const option = document.createElement("option");
-                    option.value = name;
-                    option.textContent = name;
-                    select.appendChild(option);
-                });
+                const dividerOption = document.createElement("option");
+                dividerOption.value = "__ADD_DIVIDER__";
+                dividerOption.textContent = "──────── Scheidingslijn ────────";
+                select.appendChild(dividerOption);
+
+            categories[category].forEach(name => {
+                const option = document.createElement("option");
+                option.value = name;
+                option.textContent = name;
+                select.appendChild(option);
+            });
 
                 const loadAllOption = document.createElement("option");
                 loadAllOption.value = LOAD_ALL;
                 loadAllOption.textContent = "📋 Laad de hele lijst";
                 select.appendChild(loadAllOption);
 
-                select.addEventListener("change", () => {
-                    if (select.value === LOAD_ALL) {
-                        addEntireList(category);
-                    } else if (select.value) {
-                        addItem(select.value, category);
-                    }
+            select.addEventListener("change", () => {
+                if (select.value === LOAD_ALL) {
+                    addEntireList(category);
+                } else if (select.value === "__ADD_DIVIDER__") {
+                    addDivider(category);
+                } else if (select.value) {
+                    addItem(select.value, category);
+                }
 
-                    select.selectedIndex = 0;
-                });
-
+                select.selectedIndex = 0;
+            });
                 section.appendChild(select);
             }
 
@@ -280,10 +297,17 @@
                 const button = document.createElement("button");
                 button.type = "button";
                 button.className = "item-button";
-                button.textContent = item.name;
                 button.title = "Tik tweemaal om te verwijderen";
 
-                applyItemColour(button, item.colourState);
+                if (item.type === "divider") {
+                    button.classList.add("item-divider-button");
+
+                    const line = document.createElement("hr");
+                    button.appendChild(line);
+                } else {
+                    button.textContent = item.name;
+                    applyItemColour(button, item.colourState);
+                }
 
                 let confirmRemoval = false;
 
