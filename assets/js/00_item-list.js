@@ -12,6 +12,7 @@
     const customCategory = config.customCategory;
     const textOnlyCategories = config.textOnlyCategories || [];
     const LOAD_ALL = "__LOAD_ENTIRE_LIST__";
+    const DIVIDER = "__DIVIDER__";
 
     function findCategory(name) {
         return categoryNames.find(category =>
@@ -86,30 +87,54 @@
         renderItems();
     }
 
-    function addDivider(category) {
-    items.push({
+    function addDivider(category, dividerIndex = null) {
+    const divider = {
         name: "",
         category,
         type: "divider",
         colourState: 0
-    });
+    };
 
+    if (dividerIndex !== null) {
+        divider.dividerIndex = dividerIndex;
+    }
+
+    items.push(divider);
     saveItems();
     renderItems();
 }
 
     function addEntireList(category) {
-        categories[category].forEach(name => {
-            if (!items.some(item =>
-                item.name === name && item.category === category
-            )) {
-                items.push({ name, category, colourState: 0 });
-            }
-        });
+    categories[category].forEach((name, index) => {
 
-        saveItems();
-        renderItems();
-    }
+        if (name === DIVIDER) {
+            if (!items.some(item =>
+                item.category === category &&
+                item.type === "divider" &&
+                item.dividerIndex === index
+            )) {
+                items.push({
+                    name: "",
+                    category,
+                    type: "divider",
+                    dividerIndex: index,
+                    colourState: 0
+                });
+            }
+
+            return;
+        }
+
+        if (!items.some(item =>
+            item.name === name && item.category === category
+        )) {
+            items.push({ name, category, colourState: 0 });
+        }
+    });
+
+    saveItems();
+    renderItems();
+}
 
 
     // Build the category selectors.
@@ -165,10 +190,17 @@
                 dividerOption.textContent = "────── Lijntje ──────";
                 select.appendChild(dividerOption);
 
-            categories[category].forEach(name => {
+            categories[category].forEach((name, index) => {
                 const option = document.createElement("option");
-                option.value = name;
-                option.textContent = name;
+
+                if (name === DIVIDER) {
+                    option.value = `${DIVIDER}:${index}`;
+                    option.textContent = "────────";
+                } else {
+                    option.value = name;
+                    option.textContent = name;
+                }
+
                 select.appendChild(option);
             });
 
@@ -182,12 +214,16 @@
                     addEntireList(category);
                 } else if (select.value === "__ADD_DIVIDER__") {
                     addDivider(category);
+                } else if (select.value.startsWith(`${DIVIDER}:`)) {
+                    const index = Number(select.value.split(":")[1]);
+                    addDivider(category, index);
                 } else if (select.value) {
                     addItem(select.value, category);
                 }
 
                 select.selectedIndex = 0;
             });
+
                 section.appendChild(select);
             }
 
