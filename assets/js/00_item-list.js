@@ -87,54 +87,56 @@
         renderItems();
     }
 
-    function addDivider(category, dividerIndex = null) {
-    const divider = {
-        name: "",
-        category,
-        type: "divider",
-        colourState: 0
-    };
 
-    if (dividerIndex !== null) {
-        divider.dividerIndex = dividerIndex;
+    function addDivider(category, dividerIndex = null) {
+        const divider = {
+            name: "",
+            category,
+            type: "divider",
+            colourState: 0
+        };
+
+        if (dividerIndex !== null) {
+            divider.dividerIndex = dividerIndex;
+        }
+
+        items.push(divider);
+        saveItems();
+        renderItems();
     }
 
-    items.push(divider);
-    saveItems();
-    renderItems();
-}
 
     function addEntireList(category) {
-    categories[category].forEach((name, index) => {
+        categories[category].forEach((name, index) => {
 
-        if (name === DIVIDER) {
-            if (!items.some(item =>
-                item.category === category &&
-                item.type === "divider" &&
-                item.dividerIndex === index
-            )) {
-                items.push({
-                    name: "",
-                    category,
-                    type: "divider",
-                    dividerIndex: index,
-                    colourState: 0
-                });
+            if (name === DIVIDER) {
+                if (!items.some(item =>
+                    item.category === category &&
+                    item.type === "divider" &&
+                    item.dividerIndex === index
+                )) {
+                    items.push({
+                        name: "",
+                        category,
+                        type: "divider",
+                        dividerIndex: index,
+                        colourState: 0
+                    });
+                }
+
+                return;
             }
 
-            return;
-        }
+            if (!items.some(item =>
+                item.name === name && item.category === category
+            )) {
+                items.push({ name, category, colourState: 0 });
+            }
+        });
 
-        if (!items.some(item =>
-            item.name === name && item.category === category
-        )) {
-            items.push({ name, category, colourState: 0 });
-        }
-    });
-
-    saveItems();
-    renderItems();
-}
+        saveItems();
+        renderItems();
+    }
 
 
     // Build the category selectors.
@@ -190,39 +192,39 @@
                 dividerOption.textContent = "────── Lijntje ──────";
                 select.appendChild(dividerOption);
 
-            categories[category].forEach((name, index) => {
-                const option = document.createElement("option");
+                categories[category].forEach((name, index) => {
+                    const option = document.createElement("option");
 
-                if (name === DIVIDER) {
-                    option.value = `${DIVIDER}:${index}`;
-                    option.textContent = "────────";
-                } else {
-                    option.value = name;
-                    option.textContent = name;
-                }
+                    if (name === DIVIDER) {
+                        option.value = `${DIVIDER}:${index}`;
+                        option.textContent = "────────";
+                    } else {
+                        option.value = name;
+                        option.textContent = name;
+                    }
 
-                select.appendChild(option);
-            });
+                    select.appendChild(option);
+                });
 
                 const loadAllOption = document.createElement("option");
                 loadAllOption.value = LOAD_ALL;
                 loadAllOption.textContent = "📋 Laad de hele lijst";
                 select.appendChild(loadAllOption);
 
-            select.addEventListener("change", () => {
-                if (select.value === LOAD_ALL) {
-                    addEntireList(category);
-                } else if (select.value === "__ADD_DIVIDER__") {
-                    addDivider(category);
-                } else if (select.value.startsWith(`${DIVIDER}:`)) {
-                    const index = Number(select.value.split(":")[1]);
-                    addDivider(category, index);
-                } else if (select.value) {
-                    addItem(select.value, category);
-                }
+                select.addEventListener("change", () => {
+                    if (select.value === LOAD_ALL) {
+                        addEntireList(category);
+                    } else if (select.value === "__ADD_DIVIDER__") {
+                        addDivider(category);
+                    } else if (select.value.startsWith(`${DIVIDER}:`)) {
+                        const index = Number(select.value.split(":")[1]);
+                        addDivider(category, index);
+                    } else if (select.value) {
+                        addItem(select.value, category);
+                    }
 
-                select.selectedIndex = 0;
-            });
+                    select.selectedIndex = 0;
+                });
 
                 section.appendChild(select);
             }
@@ -257,6 +259,63 @@
 
             categoryContainer.appendChild(section);
         });
+    }
+
+
+    // Optional buttons to clear the list or start a new period.
+    if (categoryContainer && config.clearListButton === true) {
+        const clearButton = document.createElement("button");
+        clearButton.type = "button";
+        clearButton.className = "item-clear-list-button";
+        clearButton.textContent = "Maak de hele lijst leeg";
+
+        clearButton.addEventListener("click", () => {
+            if (!items.length) return;
+
+            if (!confirm("Weet je zeker dat je de hele lijst wilt leegmaken?")) {
+                return;
+            }
+
+            items = [];
+            saveItems();
+            renderItems();
+        });
+
+        categoryContainer.appendChild(clearButton);
+
+        // Add a period-reset button beside the clear-list button.
+        const periodDate = document.getElementById("period-date");
+        const period = periodDate?.dataset.period;
+
+        if (period === "weekly" || period === "monthly") {
+            const newPeriodButton = document.createElement("button");
+            newPeriodButton.type = "button";
+            newPeriodButton.className = "item-clear-list-button";
+            newPeriodButton.textContent = period === "weekly"
+                ? "Start nieuwe week"
+                : "Start nieuwe maand";
+
+            newPeriodButton.addEventListener("click", () => {
+                const message = period === "weekly"
+                    ? "Een nieuwe week starten? De huidige lijst wordt leeggemaakt en de startdatum wordt vandaag."
+                    : "Een nieuwe maand starten? De huidige lijst wordt leeggemaakt en de startdatum wordt vandaag.";
+
+                if (!confirm(message)) return;
+
+                const today = new Date();
+                const date = [
+                    today.getFullYear(),
+                    String(today.getMonth() + 1).padStart(2, "0"),
+                    String(today.getDate()).padStart(2, "0")
+                ].join("-");
+
+                localStorage.setItem(`period-start-${period}`, date);
+                document.dispatchEvent(new Event("start-new-period"));
+                document.dispatchEvent(new Event("period-date-updated"));
+            });
+
+            categoryContainer.appendChild(newPeriodButton);
+        }
     }
 
 
@@ -376,6 +435,14 @@
             container.appendChild(group);
         });
     }
+
+
+    // Empty the list when a new period is started.
+    document.addEventListener("start-new-period", () => {
+        items = [];
+        saveItems();
+        renderItems();
+    });
 
 
     // Gesture handling: drag, scroll and colour selection.
