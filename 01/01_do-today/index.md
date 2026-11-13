@@ -22,7 +22,17 @@ window.itemListConfig = {
 
     categories: {
 
-        "": window.dailyTasks
+        "": [
+    "Ochtend",
+    "__DIVIDER__",
+    "Middag",
+    "__DIVIDER__",
+    "Avond",
+    "__DIVIDER__",
+    "Morgen",
+    "__DIVIDER__",
+    "Later"
+]
 
     }
 };
