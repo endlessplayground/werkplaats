@@ -31,9 +31,9 @@ h2 {
     align-items: center;
     margin: 15px auto;
     text-align: center;
-    letter-spacing: 6px;
+    letter-spacing: 10px;
     font-size: 1.4em;
-    line-height: 1.5;
+    line-height: 1.7;
 }
 </style>
 
@@ -42,7 +42,7 @@ h2 {
 <div class="emojis">
 
 🥲😊🙂🙃😇😌<br>
-🫢😬😞😕👊<br>
+🫢😑😐😬😞😕👊👍<br>
 🎒🐔🐥🐌🍀🌷✨☀️<br>
 🍏🍎🍋‍🟩🍒🥝🥦🥬🫑<br>
 🌽🥕🥐🍞🧀🥚🍰<br>
