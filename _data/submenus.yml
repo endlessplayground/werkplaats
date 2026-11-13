@@ -2,20 +2,15 @@ huishouden:
   - title: Van daag
     url: /01/01_do-today/
     up: true
-  - title: Plan ning
-    url: /01/01_do-planning/
-  - title: ''
-    url: /01/01_devil/
-    image: /assets/images/devil.svg
-
-
-tijdelijk-eruit:
   - title: Deze week
     url: /01/01_do-weekly/
     up: true
   - title: Deze maand
     url: /01/01_do-monthly/
     up: true
+  - title: ''
+    url: /01/01_devil/
+    image: /assets/images/devil.svg
 
 boodschappen:
   - title: Super
