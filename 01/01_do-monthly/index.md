@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Maandelijks
-submenu: tijdelijk-eruit
+submenu: huishouden
 category: to-do
 ---
 
@@ -11,16 +11,6 @@ category: to-do
 
 <div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>
-
-    <form id="item-custom-form" class="item-custom">
-        <input
-            type="text"
-            id="item-custom-input"
-            placeholder="Voeg zelf toe …"
-            autocomplete="off"
-        >
-        <button type="submit">+</button>
-    </form>
 </div>
 
 <div id="item-list"></div>
@@ -28,30 +18,25 @@ category: to-do
 <script src="{{ '/assets/js/00_monthly-tasks.js' | relative_url }}"></script>
 
 <script>
-
 window.itemListConfig = {
-    storageKey: "to-do-monthly",
-    customCategory: "Rest",
+    storageKey: "monthly-tasks",
+    customInputPerCategory: true,
+    clearListButton: true,
 
     categories: {
-"Week 1": window.monthlyTasks,
-        "Week 2": [
-            "Dinges", "Dat", "En nog iets..."
-        ],
-        "Week 3": [
-            "Dinges", "Dat", "En nog iets..."
-        ],
-        "Week 4": [
-            "Dinges", "Dat", "En nog iets..."
-        ],
-        "Rest": [
-            "Dinges", "Dat", "En nog iets..."
-        ]
+     "": [
+    "Week 1",
+    "__DIVIDER__",
+    "Week 2",
+    "__DIVIDER__",
+    "Week 3",
+    "__DIVIDER__",
+    "Week 4",
+    "__DIVIDER__"]
     }
+
 };
 </script>
 
 <script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/00_devil-saint.js' | relative_url }}"></script>
-
 <script src="{{ '/assets/js/00_period-date.js' | relative_url }}"></script>

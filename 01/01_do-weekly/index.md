@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Wekelijks
-submenu: tijdelijk-eruit
+submenu: huishouden
 category: to-do
 ---
 
@@ -11,16 +11,6 @@ category: to-do
 
 <div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>
-
-    <form id="item-custom-form" class="item-custom">
-        <input
-            type="text"
-            id="item-custom-input"
-            placeholder="Voeg zelf toe …"
-            autocomplete="off"
-        >
-        <button type="submit">+</button>
-    </form>
 </div>
 
 <div id="item-list"></div>
@@ -28,19 +18,21 @@ category: to-do
 <script src="{{ '/assets/js/00_weekly-tasks.js' | relative_url }}"></script>
 
 <script>
-
 window.itemListConfig = {
-    storageKey: "to-do-weekly",
-    customCategory: "Rest",
+    storageKey: "weekly-tasks",
+    customInputPerCategory: true,
+    clearListButton: true,
 
     categories: {
-"In ieder geval wekelijks": window.weeklyTasks,
-        "Nog een categorie": [
-            "Dinges", "Dat", "En nog iets..."
-        ],
-        "Rest": [
-            "Dinges", "Dat", "En nog iets..."
-        ]
+     "": [
+    "Badkamer",
+    "__DIVIDER__",
+    "Koelkast",
+    "__DIVIDER__",
+    "Trap",
+    "__DIVIDER__",
+    "Zolder",
+    "__DIVIDER__"]
     }
 };
 </script>
