@@ -53,10 +53,11 @@ window.itemListConfig = {
     "Overig": [
         "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Tandpasta","Handschoenen", "Vuilniszakken", "Baking soda"
     ],
-    "Rest": [],
+
     "EKOPLAZA": [
     "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Stamppotgroenten", "Appels", "Tomaten", "Paprika", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood",  "Tandendstokers"
-    ]
+    ],
+    "Rest": []
 }
 };
 </script>

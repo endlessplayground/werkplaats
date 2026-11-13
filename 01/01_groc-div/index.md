@@ -41,8 +41,8 @@ window.itemListConfig = {
     "Toko": [
         "Ketjap", "Sojasaus", "Oestersaus", "Limoenblad", "Noedels", "Santen"
     ],
-    "Drogist": [
-        "Oordopjes", "Neusdruppels", "Pijnstillers", "Tandenstokers"
+    "Drogist & apotheek": [
+        "Oordopjes", "Neusdruppels", "Pijnstillers", "Tandenstokers", "Macrogol", "Quetiapine"
     ],
     
     "Kringloop": [],
