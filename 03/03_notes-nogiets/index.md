@@ -31,8 +31,9 @@ h2 {
     align-items: center;
     margin: 15px auto;
     text-align: center;
-    letter-spacing: 2px;
+    letter-spacing: 6px;
     font-size: 1.4em;
+    line-height: 1.5;
 }
 </style>
 
@@ -57,9 +58,10 @@ h2 {
 🩷❤️🧡💛💚🩵💙💜<br>
 ❗❓▶️🔽◀️🔼<br>
 ➡️⬅️⬆️⬇️↗️↘️↖️🔄<br>
-1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟<br>
-🔴🟠🟡🟢🔵🟣🔺🔻<br>
-🕒🕓🕘🕣🕝
+1️⃣2️⃣3️⃣4️⃣5️⃣
+<br>6️⃣7️⃣8️⃣9️⃣🔟<br>
+🔴🟠🟡🟢🔵🟣<br>
+🔺🔻🕒🕓🕘🕣🕝
 </div>
 
 <div class="kleurcirkel"><img src="{{ '/assets/images/colorwheel-spikes.svg' | relative_url }}"></div>
