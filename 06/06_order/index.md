@@ -5,6 +5,13 @@ submenu: order
 category: order
 ---
 
+<style>
+   .item-button.item-colour-3 {
+    background-color: transparent;
+    border: none;
+}
+</style>
+
 <h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Spullen per rubriek</h2>
 
 
