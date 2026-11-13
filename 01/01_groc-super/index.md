@@ -36,7 +36,7 @@ window.itemListConfig = {
 
     categories: {
     "Groenten & fruit": [
-        "🟠", "Uien", "Knoflook", "Gember", "Peper", "🟡", "Peen / wortel", "Pompoen", "Aardappelen", "🟢", "Paprika", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "🔵", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons", "🟣"
+        "🟠", "Uien", "Knoflook", "Gember", "Peper", "🟡", "Peen / wortel", "Pompoen", "Aardappelen", "🟢", "Paprika rood", "Paprika groen", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "🔵", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons", "🟣"
     ],
     "Vlees & eieren": [
         "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
@@ -55,7 +55,7 @@ window.itemListConfig = {
     ],
 
     "EKOPLAZA": [
-    "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Stamppotgroenten", "Appels", "Tomaten", "Paprika", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood",  "Tandendstokers"
+    "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Stamppotgroenten", "Appels", "Tomaten", "Paprika rood", "Paprika groen", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood",  "Tandendstokers"
     ],
     "Rest": []
 }
