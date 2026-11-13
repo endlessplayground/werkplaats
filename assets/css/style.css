@@ -271,7 +271,7 @@ footer {
   max-width: var(--phone-width);
   height:25px;
   background-color: var(--grey-dark);
-  border-top: 3px solid var(--magenta);
+  border-top: 3px solid rgb(147 206 75);
   z-index: 100;
 }
 
