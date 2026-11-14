@@ -25,13 +25,13 @@ window.itemListConfig = {
 
     categories: {
      "": [
-    "Week 1",
+    "30 - 24",
     "__DIVIDER__",
-    "Week 2",
+    "23 - 17",
     "__DIVIDER__",
-    "Week 3",
+    "16 - 10",
     "__DIVIDER__",
-    "Week 4",
+    "9 - 3",
     "__DIVIDER__",
     "Extra / toevoegen",
     ]

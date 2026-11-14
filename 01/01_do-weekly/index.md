@@ -25,11 +25,11 @@ window.itemListConfig = {
 
     categories: {
      "": [
-    "Nog 7-6",
+    "6 - 7",
     "__DIVIDER__",
-    "Nog 5-4",
+    "5 - 4",
     "__DIVIDER__",
-    "Nog 3-2",
+    "3 - 2",
     "__DIVIDER__",
     "Extra / toevoegen"
      ]
