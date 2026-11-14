@@ -6,9 +6,21 @@ category: order
 ---
 
 <style>
-   .item-button.item-colour-3 {
-    background-color: transparent;
-    border: none;
+button {
+    background: transparent;
+}
+button:hover {
+    background: var(--green-dark);
+}
+.item-button.item-colour-1 {
+    opacity: 1;
+    background: var(--main-color);
+}
+.item-button.item-colour-2 {
+    background: var(--orange);
+}
+.item-button.item-colour-3 {
+    border: 4px solid var(--orange);
 }
 </style>
 
