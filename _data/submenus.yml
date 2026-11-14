@@ -62,6 +62,17 @@ order:
     url: /06/06_find/
     up: true
 
+eruit:
+  - title: Tas eruit
+    url: /04/04_eruit-tas/
+    up: true
+  - title: Ding eruit
+    url: /04/04_eruit-ding/
+    up: true
+  - title: Digi eruit
+    url: /04/04_eruit-digi/
+    up: true
+
 jigsaw:
   - title: Rubri ceren
     url: /06/06_order/
