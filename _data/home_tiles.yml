@@ -11,9 +11,8 @@
   image: /assets/images//home-calendar.svg
 
 
-- title: To do
-  url: /01/01_do-weekly/
-  image: /assets/images//home-todo.svg
+- title: 
+  url: 
   dimmed: true
 
 - title: Notities
@@ -23,20 +22,19 @@
 - title: 
   url: /06/06_find/
   dimmed: true
-  up: true
 
 
 - title: Huis
   url: /06/06_beneden/
   image: /assets/images//home-clean.svg
 
+- title: 
+  url: /06/06_jigsaw-start/
+  dimmed: true
+
 - title: Ru brieken
   url: /06/06_order/
   image: /assets/images//home-order.svg
-
-- title: Puzzel
-  url: /06/06_jigsaw-start/
-  image: /assets/images//home-jigsaw.svg
 
 
 - title: 

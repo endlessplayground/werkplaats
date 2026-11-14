@@ -2,10 +2,13 @@ huishouden:
   - title: Van daag
     url: /01/01_do-today/
     up: true
-  - title: Deze week
+  - title: Diverse klusjes
+    url: /01/01_do-list/
+    up: true
+  - title: Elke week
     url: /01/01_do-weekly/
     up: true
-  - title: Deze maand
+  - title: Elke maand
     url: /01/01_do-monthly/
     up: true
   - title: ''
