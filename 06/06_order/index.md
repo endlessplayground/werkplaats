@@ -77,6 +77,12 @@ window.itemListConfig = {
     "Plantenpotten": [
         "🔴", "🟠", "🟡", "🟢", "🔵", "🟣"
     ],
+    "Beddengoed": [
+        "🔴", "🟠", "🟡", "🟢", "🔵", "🟣"
+    ],
+    "Plastic opbergmandjes en -bakken": [
+        "🔴", "🟠", "🟡", "🟢", "🔵", "🟣"
+    ],
 
         "Rest": [
         "…", "…", "…", "…"
