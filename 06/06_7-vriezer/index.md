@@ -10,7 +10,7 @@ puzzle_background: vriezer.png
 
 <style>
 .puzzle {
-    background-size: 120% 100%;
+    background-size: 100% 102% !important;
     background-repeat: no-repeat;
     background-position: center;
 }

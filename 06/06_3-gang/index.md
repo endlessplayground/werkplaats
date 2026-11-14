@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Puzzel
-submenu: order
+submenu: jigsaw
 category: order
 custom_css: jigsaw
 puzzle_title: Gang
@@ -10,7 +10,7 @@ puzzle_background: gang.png
 
 <style>
 .puzzle {
-    background-size: 110% 100%;
+    background-size: 100% 103% !important;
     background-repeat: no-repeat;
     background-position: center;
 }
