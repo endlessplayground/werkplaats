@@ -24,12 +24,14 @@ window.itemListConfig = {
 
         "": [
     "Ochtend",
+    "Afwas",
+    "Keukenvloer",
+    "Vuilnis",
     "__DIVIDER__",
     "Middag",
-    "__DIVIDER__",
-    "Avond",
-    "__DIVIDER__",
-    "Morgen",
+    "Was",
+    "Planten",
+    "Opruimen",
     "__DIVIDER__",
     "Later"
 ]

@@ -25,14 +25,14 @@ window.itemListConfig = {
 
     categories: {
      "": [
-    "Badkamer",
+    "Nog 7-6",
     "__DIVIDER__",
-    "Koelkast",
+    "Nog 5-4",
     "__DIVIDER__",
-    "Trap",
+    "Nog 3-2",
     "__DIVIDER__",
-    "Zolder",
-    "__DIVIDER__"]
+    "Extra / toevoegen"
+     ]
     }
 };
 </script>

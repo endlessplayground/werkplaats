@@ -32,7 +32,9 @@ window.itemListConfig = {
     "Week 3",
     "__DIVIDER__",
     "Week 4",
-    "__DIVIDER__"]
+    "__DIVIDER__",
+    "Extra / toevoegen",
+    ]
     }
 
 };
