@@ -10,7 +10,7 @@ huishouden1:
     up: true
 
 huishouden2:
-  - title: Diverse klusjes
+  - title: Klusjes lijst
     url: /01/01_do-list/
     up: true
   - title: ''
