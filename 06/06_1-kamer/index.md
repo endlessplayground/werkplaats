@@ -11,4 +11,4 @@ puzzle_background: kamer.png
 {% include jigsaw-puzzle.html %}
 
 <script src="{{ '/assets/js/06_jigsaw.js' | relative_url }}"
-        data-storage-key="kamer-puzzle"></script>
+        data-storage-key="keuken-puzzle"></script>

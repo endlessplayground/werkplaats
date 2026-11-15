@@ -17,7 +17,7 @@ category: notes
 
 <script>
 window.itemListConfig = {
-    storageKey: "notes-web-later",
+    storageKey: "notes-web-planning",
     textOnlyCategories: ["Later", "Nog later"],
 
     categories: {
