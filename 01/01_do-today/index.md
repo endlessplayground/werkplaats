@@ -9,7 +9,7 @@ category: to-do
 
 <h2>
 
-<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Elke maand
+<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Vandaag
 
 {% include 01_extra-button.html %}
 
