@@ -1,11 +1,20 @@
 ---
 layout: default
 title: Maandelijks
-submenu: huishouden
+submenu: huishouden1
 category: to-do
 ---
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Terugkerend elke maand</h2>
+
+{% include 01_extra-button-css.html %}
+
+<h2>
+
+<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Elke maand
+
+{% include 01_extra-button.html %}
+
+</h2>
 
 <div id="period-date" data-period="monthly"></div>
 

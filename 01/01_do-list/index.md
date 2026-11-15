@@ -1,11 +1,19 @@
 ---
 layout: default
 title: Vandaag
-submenu: huishouden
+submenu: huishouden2
 category: to-do
 ---
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Klusjeslijst</h2>
+{% include 01_extra-button-css.html %}
+
+<h2>
+
+<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Klusjeslijst
+
+{% include 01_extra-button-back.html %}
+
+</h2>
 
 <div id="hidden" hidden>
     <div id="item-categories" class="item-grid"></div>
