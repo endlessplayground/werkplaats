@@ -7,7 +7,7 @@ category: to-do
 
 <style>
 .submenu {
-  gap: 22px;
+  gap: 24px;
 }
 </style>
 
