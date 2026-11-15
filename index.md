@@ -3,6 +3,12 @@ layout: home
 title: Home
 ---
 
+<style>
+main {
+margin-top: 50px;
+}
+</style>
+
 
 <div class="home-grid">
   {% for item in site.data.home_tiles %}
