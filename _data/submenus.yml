@@ -1,4 +1,4 @@
-huishouden:
+huishouden1:
   - title: Van daag
     url: /01/01_do-today/
     up: true
@@ -8,6 +8,8 @@ huishouden:
   - title: Elke maand
     url: /01/01_do-monthly/
     up: true
+
+huishouden2:
   - title: Diverse klusjes
     url: /01/01_do-list/
     up: true
