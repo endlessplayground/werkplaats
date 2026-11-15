@@ -24,12 +24,12 @@ boodschappen:
 
 kalender:
   - title: Over zicht
-    url: /01/01_calendar-month/
+    url: /02/02_calendar-month/
   - title: Time line
-    url: /01/01_calendar-timeline/
+    url: /02/02_calendar-timeline/
     up: true
   - title: Af spraken
-    url: /01/01_calendar-appointments/
+    url: /02/02_calendar-appointments/
     up: true
 
 periodiek:
@@ -58,7 +58,7 @@ order:
   - title: Puzzels
     url: /06/06_jigsaw-start/
     up: true
-  - title: Zoek vind
+  - title: '???'
     url: /06/06_find/
     up: true
 
