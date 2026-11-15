@@ -6,23 +6,7 @@ category: eruit
 ---
 
 <style>
-button {
-    width: 40px;
-    text-align: center;
-}
-/*button:hover {
-    background: var(--green-dark);
-}
-.item-button.item-colour-1 {
-    opacity: 1;
-    background: var(--main-color);
-}
-.item-button.item-colour-2 {
-    background: var(--orange);
-}
-.item-button.item-colour-3 {
-    border: 4px solid var(--orange);
-}*/
+{% include 01_countdown.css %}
 </style>
 
 <h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Enkele digi files eruit</h2>
@@ -51,7 +35,7 @@ window.itemListConfig = {
     textOnlyCategories: ["Bol.com", "Kringloop"],
 
     categories: {
-    "Tassen": [
+    "": [
         "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
@@ -64,9 +48,6 @@ window.itemListConfig = {
 "91", "92", "93", "94", "95", "96", "97", "98", "99"
     ],
 
-        "Rest": [
-        "…", "…", "…", "…"
-    ]
 
 }
 };
