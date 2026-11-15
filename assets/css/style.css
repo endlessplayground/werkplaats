@@ -25,7 +25,7 @@
   --cyan: rgb(45, 231, 212);
 
   --main-color: var(--blue);
-
+  --line-color: rgb(147 206 75);
 }
 
 body.groceries {
@@ -118,7 +118,7 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 0 20px 22px 0;
+  margin: 10px 20px 32px 0;
   font-size: 1.3rem;
   font-weight: 800;
 }
@@ -188,15 +188,51 @@ h3, #calendar-form label {
 header {
     position: sticky;
     top: 0;
-    height: 70px;
+    height: 50px;
+    display: flex;
+    align-items: center;
     z-index: 100;
+    background-color: var(--grey-dark);
+    border-bottom: 3px solid var(--line-color);
 }
 
-header img {
-  display: block;
-  width: 100%;
-  height: auto;
+.dinges {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 50px;
+    margin: 0 auto;
+    width: 200px;
+    z-index: 101;
 }
+
+.dinges img {
+    display: block;
+    width: 275px;
+    height: auto;
+}
+
+.header-images {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: var(--phone-width);
+  max-width: var(--phone-width);
+  z-index: 103;
+
+}
+
+.header-left {
+  margin: -50px 0 0 0;
+  height: 0;
+}
+.header-right {
+  margin: -20px 0 0 0;
+  height: 0;
+}
+
+
+
 
 
 /* SUBMENU */
@@ -207,13 +243,13 @@ header img {
   align-items: center;
   flex-wrap: wrap;
   gap: 17px;
-  padding: 10px 10px 0 10px;
+  padding: 26px 0px 0 30px;
   background: transparent;
 }
 
 .submenu-item {
-  width: 58px;
-  height: 58px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
   border-radius: 50%;
   display: flex;
@@ -226,8 +262,8 @@ header img {
   color: white;
   text-decoration: none;
   font-family: "Rammetto One", sans-serif;
-  font-size: 0.9rem;
-  line-height: 1;
+  font-size: 0.85rem;
+  line-height: 0.9;
   text-shadow: 0px 0px 2px rgba(0,0,0,0.8);
 }
 
@@ -271,7 +307,7 @@ footer {
   max-width: var(--phone-width);
   height:25px;
   background-color: var(--grey-dark);
-  border-top: 3px solid rgb(147 206 75);
+  border-top: 3px solid var(--line-color);
   z-index: 100;
 }
 
@@ -368,63 +404,3 @@ footer {
   visibility: visible;
 }
 
-/*---------- drag and drop and colour changes ---------*/
-
-.item-row {
-    display: inline-flex;
-}
-
-.item-row .item-button {
-    touch-action: none;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: grab;
-}
-
-.item-row.dragging {
-    filter: hue-rotate(-90deg);
-    opacity: 0.7;
-}
-
-/*------------- item colours --------------*/
-
-.item-button.item-colour-1 {
-    opacity: 0.3;
-}
-
-.item-button.item-colour-2 {
-    background: var(--orange);
-}
-
-.item-button.item-colour-3 {
-    border: 4px solid var(--orange);
-}
-
-/*------------- divider items --------------*/
-
-.item-row .item-divider-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 16px;
-    padding: 0;
-    border: none;
-    background: transparent;
-    box-shadow: none;
-}
-
-.item-divider-button hr {
-    width: 100%;
-    margin: 0;
-    border: 0;
-    border-top: 4px dotted var(--green-dark);
-}
-.item-row:has(.item-divider-button) {
-    display: flex;
-    width: 100%;
-}
-
-.item-row .item-divider-button {
-    width: 100%;
-}
