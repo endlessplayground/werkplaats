@@ -123,6 +123,22 @@ h2 {
   font-weight: 800;
 }
 
+#h2-extra-button, .h2-extra-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 0 0 6px;
+    background-color: var(--green-darker);
+    border: none;
+}
+
+#h2-extra-button img, .h2-extra-button img {
+    width: 25px;
+}
+
 h3 {
   color: var(--grey-light);
 
