@@ -198,9 +198,9 @@ header {
 
 .dinges {
     position: absolute;
-    top: 0;
+    top: -3px;
     left: 0;
-    right: 65px;
+    right: 100px;
     margin: 0 auto;
     width: 200px;
     z-index: 101;
@@ -208,7 +208,7 @@ header {
 
 .dinges img {
     display: block;
-    width: 275px;
+    width: 300px;
     height: auto;
 }
 
