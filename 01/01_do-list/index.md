@@ -5,6 +5,12 @@ submenu: huishouden2
 category: to-do
 ---
 
+<style>
+.submenu {
+  gap: 24px;
+}
+</style>
+
 {% include 01_extra-button-css.html %}
 
 <h2>
