@@ -5,7 +5,7 @@ title: Home
 
 <style>
 main {
-margin-top: 35px;
+margin-top: 30px;
 }
 </style>
 
