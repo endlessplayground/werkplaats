@@ -27,28 +27,6 @@
         });
     }
 
-    function nextPeriod(start) {
-        const next = new Date(start);
-
-        if (period === "weekly") {
-            next.setDate(next.getDate() + 7);
-        } else if (period === "monthly") {
-            const day = next.getDate();
-            next.setDate(1);
-            next.setMonth(next.getMonth() + 1);
-
-            const lastDay = new Date(
-                next.getFullYear(),
-                next.getMonth() + 1,
-                0
-            ).getDate();
-
-            next.setDate(Math.min(day, lastDay));
-        }
-
-        return next;
-    }
-
     function render() {
         let savedDate = localStorage.getItem(storageKey);
 
@@ -58,23 +36,13 @@
         }
 
         const start = parseDate(savedDate);
-        const deadline = nextPeriod(start);
         const today = parseDate(localDateString(new Date()));
 
-        const daysDifference = Math.round(
-            (deadline - today) / 86400000
+        const daysPassed = Math.round(
+            (today - start) / 86400000
         );
 
-        let status;
-
-        if (daysDifference > 0) {
-            status = `nog ${daysDifference} ${daysDifference === 1 ? "dag" : "dagen"}…`;
-        } else if (daysDifference === 0) {
-            status = "vandaag verlopen";
-        } else {
-            const daysPassed = Math.abs(daysDifference);
-            status = `${daysPassed} ${daysPassed === 1 ? "dag" : "dagen"} geleden verlopen`;
-        }
+        const dayNumber = daysPassed + 1;
 
         container.replaceChildren();
 
@@ -93,7 +61,7 @@
         dateText.textContent = formatDate(start);
 
         const countdown = document.createElement("span");
-        countdown.textContent = ` (${status})`;
+        countdown.textContent = ` (dag ${dayNumber})`;
 
         const input = document.createElement("input");
         input.type = "date";
