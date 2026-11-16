@@ -39,7 +39,7 @@ window.itemListConfig = {
         "Kip", "Bulgur", "Olijven", "Tuinbonen", "Koriander", "Basilicum", "Garam massala", "Roti pannekoeken"
     ],
     "Toko": [
-        "Ketjap", "Sojasaus", "Oestersaus", "Limoenblad", "Noedels", "Santen"
+        "Ketjap", "Sojasaus", "Oestersaus", "Sambal", "Limoenblad", "Noedels", "Santen"
     ],
     "Drogist & apotheek": [
         "Oordopjes", "Neusdruppels", "Pijnstillers", "Tandenstokers", "Macrogol", "Quetiapine"

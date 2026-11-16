@@ -41,9 +41,7 @@ window.itemListConfig = {
     "Middag",
     "Was",
     "Planten",
-    "Opruimen",
-    "__DIVIDER__",
-    "Later"
+    "🧩"
 ]
 
     }

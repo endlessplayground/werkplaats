@@ -34,13 +34,17 @@ window.itemListConfig = {
 
     categories: {
      "": [
-    "30 - 24",
+    "Dag 1 - 7",
+    "Bed verschonen",
     "__DIVIDER__",
-    "23 - 17",
+    "Dag 8 - 14",
+    "Koelkast",
     "__DIVIDER__",
-    "16 - 10",
+    "Dag 15 - 21",
+    "Trappen en vloeren",
     "__DIVIDER__",
-    "9 - 3",
+    "Dag 22 - 30",
+    "Vriezer",
     "__DIVIDER__",
     "Extra / toevoegen",
     ]

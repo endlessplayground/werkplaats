@@ -42,7 +42,7 @@ window.itemListConfig = {
         "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
     ],
     "Blik & pot & fles": [
-        "Bliktomaten", "Tomatenpuree", "Pesto", "Jalapeño", "Sriracha", "Mosterd", "Mayonaise", "Artisjokken", "Bonen", "Balsamico", "Ketjap", "Sojasaus", "Oestersaus", "Pindakaas"
+        "Bliktomaten", "Tomatenpuree", "Pesto", "Jalapeño", "Sriracha", "Mosterd", "Mayonaise", "Artisjokken", "Bonen", "Balsamico", "Ketjap", "Sojasaus", "Oestersaus", "Sambal", "Miso", "Pindakaas"
     ],
     "Granen & noten": [
         "Pasta", "Lasagne vellen", "Rijst", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempitten", "Pompoenpitten", "Pijnboompitten"

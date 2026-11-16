@@ -35,12 +35,9 @@ window.itemListConfig = {
     customInputPerCategory: true,
 
     categories: {
-
-        "": [
-    "__DIVIDER__",
-    "__DIVIDER__",
-]
-
+        "Praktisch": [],
+        "Administratief": [],
+        "Rest": []
     }
 };
 </script>

@@ -7,8 +7,9 @@ category: to-do
 
 {% include 01_extra-button-css.html %}
 
+<h2>
 
-<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Elke week
+<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Elke week
 
 {% include 01_extra-button.html %}
 
@@ -32,14 +33,17 @@ window.itemListConfig = {
 
     categories: {
      "": [
-    "6 - 7",
+    "Dag 1 - 2",
+    "Bed verschonen",
     "__DIVIDER__",
-    "5 - 4",
+    "Dag 3 - 4",
+    "Koelkast",
     "__DIVIDER__",
-    "3 - 2",
+    "Dag 5 - 6",
+    "Trappen en vloeren",
     "__DIVIDER__",
-    "Extra / toevoegen"
-     ]
+    "Extra / toevoegen",
+    ]
     }
 };
 </script>
