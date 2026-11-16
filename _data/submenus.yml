@@ -10,8 +10,11 @@ huishouden1:
     up: true
 
 huishouden2:
-  - title: Klus jes
-    url: /01/01_do-list/
+  - title: Prak tisch
+    url: /01/01_do-praktisch/
+    up: true
+  - title: Ad min
+    url: /01/01_do-admin/
     up: true
   - title: ''
     url: /01/01_devil/

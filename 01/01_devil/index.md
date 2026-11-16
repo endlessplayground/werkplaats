@@ -5,20 +5,11 @@ submenu: huishouden2
 category: to-do
 ---
 
-<style>
-.submenu {
-  gap: 24px;
-}
-</style>
-
 {% include 01_extra-button-css.html %}
-
-<h2>
-
-<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Heel eng…
-
 {% include 01_extra-button-back.html %}
 
+<h2>
+<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Heel eng…
 </h2>
 
 <div id="hidden" hidden>

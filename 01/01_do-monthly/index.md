@@ -5,14 +5,13 @@ submenu: huishouden1
 category: to-do
 ---
 
-
 {% include 01_extra-button-css.html %}
+{% include 01_extra-button.html %}
 
 <h2>
 
 <div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Elke maand
 
-{% include 01_extra-button.html %}
 
 </h2>
 
