@@ -28,7 +28,7 @@
      inkscape:document-units="mm"
      inkscape:zoom="2.127357"
      inkscape:cx="76.620896"
-     inkscape:cy="150.42139"
+     inkscape:cy="112.81604"
      inkscape:window-width="1350"
      inkscape:window-height="1032"
      inkscape:window-x="5"
@@ -89,7 +89,7 @@
        width="50.246231"
        height="50.246231"
        x="0.012301479"
-       y="-63.487705"
+       y="-58.196037"
        rx="18.675591"
        ry="18.675591" /><path
        style="fill:#e4dac7;fill-opacity:1;stroke:#fff7f7;stroke-width:0;stroke-dasharray:none"
@@ -166,7 +166,7 @@
        d="m 84.478784,-4.9317343 -2.249138,-0.3952423 -1.1522,1.9716176 -0.319125,-2.2611946 -2.231169,-0.4865442 2.051909,-1.0022528 -0.226738,-2.2723183 1.587274,1.6417683 2.091037,-0.9178259 -1.07092,2.0169214 z"
        inkscape:transform-center-x="-0.076850609"
        inkscape:transform-center-y="0.40457959"
-       transform="matrix(1.5240004,-0.37942368,0.37942368,1.5240004,-110.69414,54.150867)" /><path
+       transform="matrix(1.5240004,-0.37942368,0.37942368,1.5240004,-112.18661,54.026496)" /><path
        sodipodi:type="star"
        style="fill:#ffd900;fill-opacity:1;stroke:#93ce4b;stroke-width:0;stroke-linecap:round;stroke-linejoin:round"
        id="path16-6-4"
@@ -183,7 +183,7 @@
        d="m 84.478784,-4.9317343 -2.249138,-0.3952423 -1.1522,1.9716176 -0.319125,-2.2611946 -2.231169,-0.4865442 2.051909,-1.0022528 -0.226738,-2.2723183 1.587274,1.6417683 2.091037,-0.9178259 -1.07092,2.0169214 z"
        inkscape:transform-center-x="-0.32020141"
        inkscape:transform-center-y="-0.073242304"
-       transform="matrix(1.0820759,-0.68821293,0.68821293,1.0820759,-54.051739,73.413536)" /><path
+       transform="matrix(1.0820759,-0.68821293,0.68821293,1.0820759,-59.275357,70.428612)" /><path
        sodipodi:type="star"
        style="fill:#ffd900;fill-opacity:1;stroke:#93ce4b;stroke-width:0;stroke-linecap:round;stroke-linejoin:round"
        id="path16-6-7"
@@ -200,4 +200,4 @@
        d="m 84.478784,-4.9317343 -2.249138,-0.3952423 -1.1522,1.9716176 -0.319125,-2.2611946 -2.231169,-0.4865442 2.051909,-1.0022528 -0.226738,-2.2723183 1.587274,1.6417683 2.091037,-0.9178259 -1.07092,2.0169214 z"
        inkscape:transform-center-x="-0.13468874"
        inkscape:transform-center-y="0.48246325"
-       transform="matrix(1.9408201,-0.52126881,0.52126881,1.9408201,-131.8194,81.147282)" /></g></svg>
+       transform="matrix(1.9408201,-0.52126881,0.52126881,1.9408201,-137.29176,81.396026)" /></g></svg>
