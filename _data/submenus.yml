@@ -10,7 +10,7 @@ huishouden1:
     up: true
 
 huishouden2:
-  - title: Klusjes lijst
+  - title: Klus jes
     url: /01/01_do-list/
     up: true
   - title: ''
@@ -54,16 +54,27 @@ personal:
     url: /03/03_personal-mentaal/
   
 order:
-  - title: Rubri ceren
-    url: /06/06_order/
+  - title: Sor teren
+    url: /06/06_sorteren/
+    up: true
+  - title: 'Ru brie ken'
+    url: /06/06_rubrieken/
     up: true
   - title: Puzzels
     url: /06/06_jigsaw-start/
     up: true
-  - title: '???'
-    url: /06/06_find/
-    up: true
 
+jigsaw:
+  - title: Sor teren
+    url: /06/06_sorteren/
+    up: true
+  - title: 'Rub rieken'
+    url: /06/06_rubrieken/
+    up: true
+  - title: Puzzels
+    url: /06/06_jigsaw-start/
+    up: true
+ 
 eruit:
   - title: Tas eruit
     url: /04/04_eruit-tas/
@@ -73,17 +84,6 @@ eruit:
     up: true
   - title: Digi eruit
     url: /04/04_eruit-digi/
-    up: true
-
-jigsaw:
-  - title: Rubri ceren
-    url: /06/06_order/
-    up: true
-  - title: Puzzels
-    url: /06/06_jigsaw-start/
-    up: true
-  - title: Zoek vind
-    url: /06/06_find/
     up: true
 
 notities:
