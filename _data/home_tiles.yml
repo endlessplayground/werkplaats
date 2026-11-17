@@ -29,11 +29,10 @@
   image: /assets/images//home-clean.svg
 
 - title: 
-  url: /06/06_jigsaw-start/
   dimmed: true
 
 - title: Ru brieken
-  url: /06/06_order/
+  url: /06/06_sorteren/
   image: /assets/images//home-order.svg
 
 
