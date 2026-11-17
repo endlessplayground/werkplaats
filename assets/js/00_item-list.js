@@ -54,7 +54,7 @@
                         category: categoryNames.includes(item.category)
                             ? item.category
                             : findCategory(item.name),
-                        colourState: [0, 1, 2, 3].includes(item.colourState)
+                        colourState: [0, 1, 2, 3, 4].includes(item.colourState)
                             ? item.colourState
                             : 0
                     };
@@ -341,7 +341,8 @@
         button.classList.remove(
             "item-colour-1",
             "item-colour-2",
-            "item-colour-3"
+            "item-colour-3",
+            "item-colour-4"
         );
 
         if (state > 0) {
@@ -488,36 +489,42 @@
     }
 
 
-    function startColourPreview() {
-        if (gestureMode !== "pending") return;
+function startColourPreview() {
+    if (gestureMode !== "pending") return;
 
-        gestureMode = "colour";
-        previewColourState = 1;
+    gestureMode = "colour";
+    previewColourState = 1;
 
+    applyItemColour(activeButton, previewColourState);
+
+    colourTimers.push(setTimeout(() => {
+        if (gestureMode !== "colour") return;
+
+        previewColourState = 2;
         applyItemColour(activeButton, previewColourState);
+    }, 900));
 
-        colourTimers.push(setTimeout(() => {
-            if (gestureMode !== "colour") return;
+    colourTimers.push(setTimeout(() => {
+        if (gestureMode !== "colour") return;
 
-            previewColourState = 2;
-            applyItemColour(activeButton, previewColourState);
-        }, 900));
+        previewColourState = 3;
+        applyItemColour(activeButton, previewColourState);
+    }, 1900));
 
-        colourTimers.push(setTimeout(() => {
-            if (gestureMode !== "colour") return;
+    colourTimers.push(setTimeout(() => {
+        if (gestureMode !== "colour") return;
 
-            previewColourState = 3;
-            applyItemColour(activeButton, previewColourState);
-        }, 1900));
+        previewColourState = 4;
+        applyItemColour(activeButton, previewColourState);
+    }, 2900));
 
-        colourTimers.push(setTimeout(() => {
-            if (gestureMode !== "colour") return;
+    colourTimers.push(setTimeout(() => {
+        if (gestureMode !== "colour") return;
 
-            previewColourState = 0;
-            applyItemColour(activeButton, previewColourState);
-        }, 2900));
-    }
-
+        previewColourState = 0;
+        applyItemColour(activeButton, previewColourState);
+    }, 3900));
+}
 
     // Find the page or nearest scrollable container.
     function findScrollTarget(element) {
