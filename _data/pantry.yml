@@ -1,0 +1,24 @@
+
+- category: Granen en noten
+  products:
+    - name: Rijst
+      voorraad: 1 kg
+    - name: Pasta
+      voorraad: 1 kg
+    - name: Roggemeel
+      voorraad: 1 zak
+
+- category: Groenten en fruit
+  products:
+    - name: Appels
+      voorraad: 4
+    - name: Wortels
+      voorraad: 500 g
+
+- category: Zuivel
+  products:
+    - name: Melk
+      voorraad: 1 liter
+    - name: Kaas
+      voorraad: 200 g
+  
