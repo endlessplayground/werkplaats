@@ -31,7 +31,7 @@ window.itemListConfig = {
     categories: {
      "": [
     "Dag 1 - 2",
-    "Bed verschonen",
+    "Sanitair",
     "__DIVIDER__",
     "Dag 3 - 4",
     "Koelkast",
