@@ -91,6 +91,11 @@ button:hover {
     border: 4px solid var(--orange);
 }
 
+.item-button.item-colour-4 {
+    background: rgb(252, 252, 102);
+    color: grey;
+}
+
 /*------------- divider items --------------*/
 
 .item-row .item-divider-button {
@@ -119,3 +124,7 @@ button:hover {
 .item-row .item-divider-button {
     width: 100%;
 }
+
+
+/*------------- count-down buttons --------------*/
+
