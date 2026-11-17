@@ -19,10 +19,10 @@ category: order
 window.itemListConfig = {
     storageKey: "rubrieken",
     customInputPerCategory: true,
-    textOnlyCategories: [""],
+    textOnlyCategories: [],
 
     categories: {
-        "": [], 
+        "": ["Plastic emmers", "Plantenpotten", "Keukentextiel", "Glazen potten", "Boeken", "Schrijfgerei", "Eten gangkast", "Ongeopende post"], 
     }
 };
 </script>
