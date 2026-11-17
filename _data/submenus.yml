@@ -26,6 +26,8 @@ boodschappen:
   - title: Di versen
     url: /01/01_groc-div/
     up: true
+  - title: Voor raden
+    url: /01/01_groc-pantry/
 
 kalender:
   - title: Over zicht
