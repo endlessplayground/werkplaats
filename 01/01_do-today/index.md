@@ -30,7 +30,7 @@ window.itemListConfig = {
 
         "": [
     "Ochtend",
-    "Afwas",
+    "Afwas 1",
     "Keukenvloer",
     "Vuilnis",
     "Klusje uit lijst",
@@ -38,7 +38,8 @@ window.itemListConfig = {
     "Middag",
     "Was",
     "Planten",
-    "🧩"
+    "🧩",
+    "Afwas 2"
 ]
 
     }
