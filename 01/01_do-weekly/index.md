@@ -30,17 +30,14 @@ window.itemListConfig = {
 
     categories: {
 "Doen": [
-    "Dag 1 - 2",
     "Sanitair",
-    "__DIVIDER__",
-    "Dag 3 - 4",
     "Koelkast",
-    "__DIVIDER__",
-    "Dag 5 - 6",
     "Trappen en vloeren",
     "__DIVIDER__",
+    "Extra / toevoegen"
+
     ],
-"Per dag": [
+"Per dag…": [
     "Maandag",
     "__DIVIDER__",
     "Dinsdag",
@@ -54,8 +51,6 @@ window.itemListConfig = {
     "Zaterdag",
     "__DIVIDER__",
     "Zondag",
-    "__DIVIDER__",
-    "Extra / toevoegen"
     ]
     }
 };
