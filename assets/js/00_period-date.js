@@ -57,11 +57,18 @@
         const label = document.createElement("span");
         label.textContent = " Gestart op ";
 
+        const weekday = document.createElement("span");
+        weekday.textContent = start.toLocaleDateString("nl-NL", {
+            weekday: "short"
+        });
+
         const dateText = document.createElement("strong");
         dateText.textContent = formatDate(start);
 
+        const spacing = document.createTextNode("\u00A0\u00A0");
+
         const countdown = document.createElement("span");
-        countdown.textContent = ` (dag ${dayNumber})`;
+        countdown.textContent = `(dag ${dayNumber})`;
 
         const input = document.createElement("input");
         input.type = "date";
@@ -91,7 +98,10 @@
         container.append(
             calendar,
             label,
+            weekday,
+            document.createTextNode(" "),
             dateText,
+            spacing,
             countdown,
             input
         );
