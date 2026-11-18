@@ -51,7 +51,7 @@ window.itemListConfig = {
         "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Crème fraiche", "Boter", "🟢", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
     ],
     "Overig": [
-        "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Tandpasta","Handschoenen", "Vuilniszakken", "Baking soda"
+        "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Afwasmiddel", "Tandpasta","Handschoenen", "Vuilniszakken", "Baking soda"
     ],
 
     "EKOPLAZA": [
