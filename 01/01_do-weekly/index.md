@@ -29,7 +29,7 @@ window.itemListConfig = {
     clearListButton: true,
 
     categories: {
-     "": [
+"Doen": [
     "Dag 1 - 2",
     "Sanitair",
     "__DIVIDER__",
@@ -39,7 +39,23 @@ window.itemListConfig = {
     "Dag 5 - 6",
     "Trappen en vloeren",
     "__DIVIDER__",
-    "Extra / toevoegen",
+    ],
+"Per dag": [
+    "Maandag",
+    "__DIVIDER__",
+    "Dinsdag",
+    "__DIVIDER__",
+    "Woensdag",
+    "__DIVIDER__",
+    "Donderdag",
+    "__DIVIDER__",
+    "Vrijdag",
+    "__DIVIDER__",
+    "Zaterdag",
+    "__DIVIDER__",
+    "Zondag",
+    "__DIVIDER__",
+    "Extra / toevoegen"
     ]
     }
 };
