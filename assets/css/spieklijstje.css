@@ -4,6 +4,7 @@
 
 .submenu-item:nth-child(2) {
     transform: scale(1.2);
+    transform: rotate(90deg);
     background: var(--main-color);
     font-weight: bold;
     color: white;
