@@ -67,5 +67,5 @@ custom_css: calendar
 
 <link rel="stylesheet" href="{{ '/assets/css/appointments.css' | relative_url }}">
 
-<script src="{{ '/assets/js/00_appointments.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/00_show-hide.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/02_appointments.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/02_show-hide.js' | relative_url }}"></script>

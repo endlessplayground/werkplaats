@@ -66,4 +66,4 @@ custom_css: calendar
 
 </div>
 
-<script src="{{ '/assets/js/00_calendar.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/02_calendar.js' | relative_url }}"></script>

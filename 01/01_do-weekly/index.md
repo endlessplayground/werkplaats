@@ -3,9 +3,10 @@ layout: default
 title: Wekelijks
 submenu: huishouden1
 category: to-do
+custom_css: extra-button
 ---
 
-{% include 01_extra-button-css.html %}
+
 {% include 01_extra-button.html %}
 
 <h2>
@@ -57,5 +58,6 @@ window.itemListConfig = {
 </script>
 
 <script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
-
-<script src="{{ '/assets/js/00_period-date.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/02_show-hide.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/00_item-list-gestures.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/01_period-date.js' | relative_url }}"></script>

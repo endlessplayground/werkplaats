@@ -28,3 +28,5 @@ window.itemListConfig = {
 </script>
 
 <script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/02_show-hide.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/00_item-list-gestures.js' | relative_url }}"></script>

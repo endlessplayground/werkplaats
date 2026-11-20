@@ -3,9 +3,10 @@ layout: default
 title: Duivelsdingen
 submenu: huishouden2
 category: to-do
+custom_css: extra-button
 ---
 
-{% include 01_extra-button-css.html %}
+
 {% include 01_extra-button-back.html %}
 
 <h2>
@@ -47,3 +48,5 @@ window.itemListConfig = {
 </script>
 
 <script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/02_show-hide.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/00_item-list-gestures.js' | relative_url }}"></script>

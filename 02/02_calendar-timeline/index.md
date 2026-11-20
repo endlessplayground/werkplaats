@@ -14,4 +14,4 @@ custom_css: calendar
     </div>
 </div>
 
-<script src="{{ '/assets/js/01_timeline.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/02_timeline.js' | relative_url }}"></script>
