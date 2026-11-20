@@ -10,7 +10,7 @@ custom_css: extra-button
 {% include 01_extra-button.html %}
 
 <h2>
-<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Vandaag
+<div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Vandaag!
 </h2>
 
 
