@@ -2,13 +2,9 @@
 layout: default
 title: Sorteren
 submenu: order
-category: sorteren
+category: order
+custom_css: countdown
 ---
-
-<style>
-{% include 01_countdown.css %}
-</style>
-
 
 <h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Paar items gerubriceerd</h2>
 
@@ -56,3 +52,5 @@ window.itemListConfig = {
 </script>
 
 <script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/02_show-hide.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/00_item-list-gestures.js' | relative_url }}"></script>
