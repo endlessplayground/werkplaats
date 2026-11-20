@@ -1,0 +1,67 @@
+---
+layout: default
+title: Supermarkt
+submenu: boodschappen
+category: groceries
+---
+
+
+<h2><div id="toggle-input" class="show-hide"><div class="pen"><img src="{{ '/assets/images/pen.svg' | relative_url }}"></div></div>Dagelijkse boodschappen</h2>
+
+
+
+<div id="hidden" hidden>
+
+<div id="item-categories" class="item-grid"></div>
+
+<form id="item-custom-form" class="item-custom">
+    <input
+            type="text"
+            id="item-custom-input"
+            placeholder="Voeg zelf toe …"
+            autocomplete="off"
+    >
+    <button type="submit">+</button>
+</form>
+</div>
+
+
+<div id="item-list"></div>
+
+<script>
+window.itemListConfig = {
+    storageKey: "groc-super",
+    customCategory: "Rest",
+    
+
+    categories: {
+    "Groenten & fruit": [
+        "🟠", "Uien", "Knoflook", "Gember", "Peper", "🟡", "Peen / wortel", "Pompoen", "Aardappelen", "🟢", "Paprika rood", "Paprika groen", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool", "🔵", "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola", "Champignons", "🟣"
+    ],
+    "Vlees & eieren": [
+        "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
+    ],
+    "Blik & pot & fles": [
+        "Bliktomaten", "Tomatenpuree", "Pesto", "Jalapeño", "Sriracha", "Mosterd", "Mayonaise", "Artisjokken", "Bonen", "Witte bonen", "kikkererwten", "Balsamico", "Ketjap", "Sojasaus", "Oestersaus", "Sambal", "Miso", "Pindakaas"
+    ],
+    "Granen & noten": [
+        "Pasta", "Lasagne vellen", "Rijst", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempitten", "Pompoenpitten", "Pijnboompitten"
+    ],
+    "Zuivel & vriezer": [
+        "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Crème fraiche", "Boter", "🟢", "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
+    ],
+    "Overig": [
+        "Kattenvoer", "Kattenbrokjes", "Koekjes", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Afwasmiddel", "Tandpasta","Handschoenen", "Vuilniszakken", "Baking soda"
+    ],
+
+    "EKOPLAZA": [
+    "Aardappelen", "Peen", "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Stamppotgroenten", "Appels", "Tomaten", "Paprika rood", "Paprika groen", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Tahin", "Chocola", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood",  "Tandendstokers"
+    ],
+    "Rest": []
+}
+};
+</script>
+
+<script src="{{ '/assets/js/00_item-list.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/02_show-hide.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/00_item-list-gestures.js' | relative_url }}"></script>
