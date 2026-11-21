@@ -1,46 +1,76 @@
+
 (() => {
     const table = document.getElementById("pantry-table");
     if (!table) return;
 
-    const storageKey = "pantry-shopping";
+    const storageKey = "pantry-quantities-v1";
 
-    // Restore saved selections.
-    const savedRows = JSON.parse(
-        localStorage.getItem(storageKey) || "[]"
-    );
+    // Load previously saved quantities.
+    let savedQuantities = {};
 
-    const selected = new Set(savedRows);
+    try {
+        savedQuantities = JSON.parse(
+            localStorage.getItem(storageKey) || "{}"
+        );
+    } catch {
+        savedQuantities = {};
+    }
 
-    const rows = table.querySelectorAll("tbody tr");
+    const rows = table.querySelectorAll("tbody tr[data-product]");
 
     rows.forEach(row => {
         const productId = row.dataset.product;
-
-        if (!productId) return;
-
-        // Restore highlight.
-        row.classList.toggle(
-            "needs-shopping",
-            selected.has(productId)
+        const desired = Number(
+            row.querySelector(".desired").textContent
         );
+        const input = row.querySelector("input");
 
-        // Toggle highlight on click.
-        row.addEventListener("click", () => {
-            if (selected.has(productId)) {
-                selected.delete(productId);
-            } else {
-                selected.add(productId);
-            }
+        // Restore previously entered quantity.
+        if (savedQuantities[productId] !== undefined) {
+            input.value = savedQuantities[productId];
+        }
 
-            row.classList.toggle(
-                "needs-shopping",
-                selected.has(productId)
+        // Compare the quantities and colour the cell.
+        function updateColour() {
+            const cell = input.closest("td");
+            const available = input.value;
+
+            cell.classList.remove(
+                "quantity-low",
+                "quantity-ok",
+                "quantity-high"
             );
+
+            if (available === "") return;
+
+            const amount = Number(available);
+
+            if (amount < desired) {
+                cell.classList.add("quantity-low");
+            } else if (amount > desired) {
+                cell.classList.add("quantity-high");
+            } else {
+                cell.classList.add("quantity-ok");
+            }
+        }
+
+        // Save every change.
+        input.addEventListener("input", () => {
+            if (input.value === "") {
+                delete savedQuantities[productId];
+            } else {
+                savedQuantities[productId] = input.value;
+            }
 
             localStorage.setItem(
                 storageKey,
-                JSON.stringify([...selected])
+                JSON.stringify(savedQuantities)
             );
+
+            updateColour();
         });
+
+        // Restore the correct colour on page load.
+        updateColour();
     });
 })();
