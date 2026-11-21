@@ -20,7 +20,7 @@ window.itemListConfig = {
     textOnlyCategories: [],
 
     categories: {
-        "": ["Plastic emmers", "Plantenpotten", "Keukentextiel", "Glazen potten", "Boeken", "Schrijfgerei", "Eten gangkast", "Ongeopende post"], 
+        "": ["Plastic emmers", "Plantenpotten", "Keukentextiel", "Glazen potten", "Boeken", "Schrijfgerei", "Eten gangkast", "Ongeopende post", "Voorraadbakjes", "Plastic opbergbakjes", "Plastic kratten", "Schoonmaakmiddelen", "Hemdjes", "Beddengoed"], 
     }
 };
 </script>
