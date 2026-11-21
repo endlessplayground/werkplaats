@@ -119,3 +119,19 @@
     display: none;
     -webkit-appearance: none;
 }
+
+/* Collapsible pantry categories */
+
+.pantry-table tbody tr.pantry-category {
+    cursor: pointer;
+}
+
+.pantry-table tbody tr.pantry-category td::after {
+    content: "▼";
+    float: right;
+    font-size: 0.75em;
+}
+
+.pantry-table tbody tr.pantry-category.collapsed td::after {
+    content: "▶";
+}
