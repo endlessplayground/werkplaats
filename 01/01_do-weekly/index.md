@@ -28,16 +28,9 @@ window.itemListConfig = {
     storageKey: "weekly-tasks",
     customInputPerCategory: true,
     clearListButton: true,
+    newPeriodButton: true,
 
     categories: {
-"Doen": [
-    "Sanitair",
-    "Koelkast",
-    "Trappen en vloeren",
-    "__DIVIDER__",
-    "Extra / toevoegen"
-
-    ],
 "Per dag…": [
     "Maandag",
     "__DIVIDER__",

@@ -29,8 +29,6 @@ custom_css: extra-button
 
 <div id="item-list"></div>
 
-<script src="{{ '/assets/js/00_daily-tasks.js' | relative_url }}"></script>
-
 <script>
 window.itemListConfig = {
     storageKey: "to-do-devil",

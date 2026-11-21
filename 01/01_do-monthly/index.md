@@ -31,6 +31,7 @@ window.itemListConfig = {
     storageKey: "monthly-tasks",
     customInputPerCategory: true,
     clearListButton: true,
+    newPeriodButton: true,
 
     categories: {
      "": [
