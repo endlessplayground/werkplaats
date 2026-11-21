@@ -1,5 +1,5 @@
 
-- category: Groenten en fruit
+- category: Koelkast en vriezer
   products:
     - name: Uien
       voorraad: 1
@@ -66,7 +66,7 @@
       eenheid: bos
     - name: Prei
       voorraad: 2
-      eenheid: stukk
+      eenheid: stuk
     - name: Stamppotgroenten
       voorraad: 1
       eenheid: zak
@@ -79,9 +79,45 @@
     - name: Citroen
       voorraad: 1
       eenheid: stuk
-
-- category: Vlees, vis en eieren
-  products:
+    - name: Kaas
+      voorraad: 1
+      eenheid: stuk
+    - name: Melk
+      voorraad: 4
+      eenheid: pak
+    - name: Melk M
+      voorraad: 1
+      eenheid: pak
+    - name: Karnemelk
+      voorraad: 1
+      eenheid: pak
+    - name: Kwark
+      voorraad: 1
+      eenheid: beker
+    - name: Yoghurt
+      voorraad: 1
+      eenheid: beker
+    - name: Crème fraiche
+      voorraad: 1
+      eenheid: bekertje
+    - name: Boter
+      voorraad: 1
+      eenheid: pakje
+    - name: Sperziebonen
+      voorraad: 1
+      eenheid: zak
+    - name: Spinazie
+      voorraad: 1
+      eenheid: zak
+    - name: Bloemkool
+      voorraad: 1
+      eenheid: zak
+    - name: Zoete aardappel
+      voorraad: 1
+      eenheid: zak
+    - name: Rood fruit
+      voorraad: 1
+      eenheid: zak
     - name: Gehakt
       voorraad: 1
       eenheid: zak
@@ -91,20 +127,17 @@
     - name: Hamburger
       voorraad: 2
       eenheid: stuk
-    - name: Rookworst
-      voorraad: 2
-      eenheid: stuk
     - name: Zalm
       voorraad: 4
       eenheid: moot
-    - name: Vis blik
-      voorraad: 2
-      eenheid: blik
     - name: Eieren
       voorraad: 20
       eenheid: stuk
+    - name: Brood
+      voorraad: 1
+      eenheid: stuk
 
-- category: Blik, pot en fles
+- category: Gangkast
   products:
     - name: Bliktomaten
       voorraad: 8
@@ -130,6 +163,12 @@
     - name: Artisjokken
       voorraad: 1
       eenheid: blik
+    - name: Vis blik
+      voorraad: 2
+      eenheid: blik
+    - name: Rookworst
+      voorraad: 2
+      eenheid: stuk
     - name: Bonen
       voorraad: 2
       eenheid: pot
@@ -139,6 +178,12 @@
     - name: Kikkererwten
       voorraad: 2
       eenheid: pot
+    - name: Sojamelk
+      voorraad: 2
+      eenheid: pak
+    - name: Strooikaas
+      voorraad: 1
+      eenheid: busje
     - name: Balsamico
       voorraad: 1
       eenheid: fles
@@ -160,6 +205,9 @@
     - name: Pindakaas
       voorraad: 1
       eenheid: pot
+    - name: Tahin
+      voorraad: 1
+      eenheid: pot
     - name: Azijn
       voorraad: 1
       eenheid: fles
@@ -169,6 +217,12 @@
     - name: Lijnzaadolie
       voorraad: 1
       eenheid: fles
+    - name: Koffie
+      voorraad: 1
+      eenheid: zak
+    - name: Koffiefilters
+      voorraad: 1
+      eenheid: doosje
 
 - category: Granen, pasta, noten en zaden
   products:
@@ -224,54 +278,6 @@
       voorraad: 1
       eenheid: zak
 
-- category: Zuivel en vriezer
-  products:
-    - name: Kaas
-      voorraad: 1
-      eenheid: stuk
-    - name: Strooikaas
-      voorraad: 1
-      eenheid: busje
-    - name: Melk
-      voorraad: 4
-      eenheid: pak
-    - name: Melk M
-      voorraad: 1
-      eenheid: pak
-    - name: Karnemelk
-      voorraad: 1
-      eenheid: pak
-    - name: Kwark
-      voorraad: 1
-      eenheid: beker
-    - name: Yoghurt
-      voorraad: 1
-      eenheid: beker
-    - name: Crème fraiche
-      voorraad: 1
-      eenheid: bekertje
-    - name: Boter
-      voorraad: 1
-      eenheid: pakje
-    - name: Sperziebonen
-      voorraad: 1
-      eenheid: zak
-    - name: Spinazie
-      voorraad: 1
-      eenheid: zak
-    - name: Bloemkool
-      voorraad: 1
-      eenheid: zak
-    - name: Zoete aardappel
-      voorraad: 1
-      eenheid: zak
-    - name: Rood fruit
-      voorraad: 1
-      eenheid: zak
-    - name: Sojamelk
-      voorraad: 2
-      eenheid: pak
-
 - category: Overig
   products:
     - name: Kattenvoer
@@ -289,12 +295,6 @@
     - name: Koekjes overig
       voorraad: 1
       eenheid: stuk
-    - name: Koffie
-      voorraad: 1
-      eenheid: zak
-    - name: Koffiefilters
-      voorraad: 1
-      eenheid: doosje
     - name: Chocola 100%
       voorraad: 2
       eenheid: reep
@@ -328,10 +328,4 @@
     - name: Baking soda
       voorraad: 1
       eenheid: doosje
-    - name: Tahin
-      voorraad: 1
-      eenheid: pot
-    - name: Brood
-      voorraad: 1
-      eenheid: stuk
 
