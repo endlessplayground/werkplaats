@@ -104,7 +104,7 @@
       voorraad: 20
       eenheid: stuk
 
-- category: Blik, pot en saus
+- category: Blik, pot en fles
   products:
     - name: Bliktomaten
       voorraad: 8
@@ -161,6 +161,12 @@
       voorraad: 1
       eenheid: pot
     - name: Azijn
+      voorraad: 1
+      eenheid: fles
+    - name: Olijfolie
+      voorraad: 1
+      eenheid: fles
+    - name: Lijnzaadolie
       voorraad: 1
       eenheid: fles
 
@@ -266,22 +272,7 @@
       voorraad: 2
       eenheid: pak
 
-- category: Oliën
-  products:
-    - name: Olijfolie
-      voorraad: 1
-      eenheid: fles
-    - name: Lijnzaadolie
-      voorraad: 1
-      eenheid: fles
-
-- category: Brood
-  products:
-    - name: Brood
-      voorraad: 1
-      eenheid: stuk
-
-- category: Snacks, koffie en overig
+- category: Overig
   products:
     - name: Kattenvoer
       voorraad: 1
@@ -340,3 +331,7 @@
     - name: Tahin
       voorraad: 1
       eenheid: pot
+    - name: Brood
+      voorraad: 1
+      eenheid: stuk
+
