@@ -27,7 +27,7 @@ custom_css: countdown
 <div id="item-list"></div>
 <script>
     window.itemListConfig = {
-    storageKey: "sorteren",
+    storageKey: "tas-eruit",
     clearListButton: true,
     customCategory: "Rest",
 
