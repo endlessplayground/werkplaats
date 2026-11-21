@@ -128,7 +128,7 @@
 
     if (
         categoryContainer &&
-        config?.clearListButton === true &&
+        config?.newPeriodButton === true &&
         (period === "weekly" || period === "monthly")
     ) {
         const newPeriodButton = document.createElement("button");
