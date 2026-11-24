@@ -3,11 +3,11 @@
   image: /assets/images//home-todo.svg
 
 - title: 
-  url: /01/01_groc-super/
+  url: /02/02_groc-super/
   image: /assets/images//home-shopping.svg
 
 - title: 
-  url: /02/02_calendar-month/
+  url: /03/03_calendar-month/
   image: /assets/images//home-calendar.svg
 
 
@@ -16,7 +16,7 @@
   dimmed: true
 
 - title: Notities
-  url: /03/03_notes-web/
+  url: /07/07_notes-web/
   image: /assets/images//home-notes.svg
 
 - title: 
@@ -25,7 +25,7 @@
 
 
 - title: Huis
-  url: /04/04_eruit-tas/
+  url: /05/05_eruit-tas/
   image: /assets/images//home-clean.svg
 
 - title: 

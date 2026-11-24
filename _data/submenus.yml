@@ -22,21 +22,21 @@ huishouden2:
 
 boodschappen:
   - title: Super
-    url: /01/01_groc-super/
+    url: /02/02_groc-super/
   - title: Di versen
-    url: /01/01_groc-div/
+    url: /02/02_groc-div/
     up: true
   - title: Voor raden
-    url: /01/01_groc-pantry/
+    url: /02/02_groc-pantry/
 
 kalender:
   - title: Over zicht
-    url: /02/02_calendar-month/
+    url: /03/03_calendar-month/
   - title: Time line
-    url: /02/02_calendar-timeline/
+    url: /03/03_calendar-timeline/
     up: true
   - title: Af spraken
-    url: /02/02_calendar-appointments/
+    url: /03/03_calendar-appointments/
     up: true
 
 periodiek:
@@ -52,11 +52,11 @@ periodiek:
 
 personal:
   - title: Voeding
-    url: /03/03_personal-voeding/
+    url: /07/07_personal-voeding/
   - title: Sport
-    url: /03/03_personal-sport/
+    url: /07/07_personal-sport/
   - title: Mentaal
-    url: /03/03_personal-mentaal/
+    url: /07/07_personal-mentaal/
   
 order:
   - title: Sor teren
@@ -82,22 +82,22 @@ jigsaw:
  
 eruit:
   - title: Tas eruit
-    url: /04/04_eruit-tas/
+    url: /05/05_eruit-tas/
     up: true
   - title: Ding eruit
-    url: /04/04_eruit-ding/
+    url: /05/05_eruit-ding/
     up: true
   - title: Digi eruit
-    url: /04/04_eruit-digi/
+    url: /05/05_eruit-digi/
     up: true
 
 notities:
   - title: Web edit 
-    url: /03/03_notes-web/
+    url: /07/07_notes-web/
   - title: Idee ën
-    url: /03/03_notes-ideeen/
+    url: /07/07_notes-ideeen/
   - title: Nog iets
-    url: /03/03_notes-nogiets/
+    url: /07/07_notes-nogiets/
 
 
 huis:

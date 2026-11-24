@@ -2,7 +2,7 @@
 - category: Koelkast en vriezer
   products:
     - name: Uien
-      voorraad: 2
+      voorraad: 1
       eenheid: zak
     - name: Knoflook
       voorraad: 3
@@ -22,7 +22,7 @@
     - name: Aardappelen
       voorraad: 1
       eenheid: zak
-    - name: Paprika punt
+    - name: Paprika rood
       voorraad: 4
       eenheid: stuk
     - name: Paprika groen
@@ -46,6 +46,9 @@
     - name: Chinese kool
       voorraad: 1
       eenheid: stuk
+    - name: Zuurkool
+      voorraad: 1
+      eenheid: zak
     - name: Koriander
       voorraad: 1
       eenheid: bosje
@@ -229,7 +232,7 @@
     - name: Pasta penne
       voorraad: 1
       eenheid: zak
-    - name: Pasta curl
+    - name: Pasta fussili
       voorraad: 1
       eenheid: zak
     - name: Pasta macaroni
@@ -271,6 +274,12 @@
     - name: Roggemeel
       voorraad: 1
       eenheid: zak
+    - name: Tarwe-/speltmeel
+      voorraad: 1
+      eenheid: zak
+    - name: Boekweitmeel
+      voorraad: 1
+      eenheid: zak
     - name: Rijstvlokken
       voorraad: 1
       eenheid: zak
@@ -304,7 +313,13 @@
     - name: Kamille
       voorraad: 1
       eenheid: zak
-    - name: Tandendstokers
+    - name: Tandpasta
+      voorraad: 2
+      eenheid: tube
+    - name: Tandenstokers
+      voorraad: 1
+      eenheid: pakje
+    - name: Oordopjes
       voorraad: 1
       eenheid: pakje
     - name: Toiletpapier
@@ -316,9 +331,6 @@
     - name: Afwasmiddel
       voorraad: 1
       eenheid: fles
-    - name: Tandpasta
-      voorraad: 2
-      eenheid: tube
     - name: Handschoenen
       voorraad: 1
       eenheid: zak
@@ -329,3 +341,23 @@
       voorraad: 1
       eenheid: doosje
 
+- category: Kruiden
+  products:
+    - name: Garam masala fijn
+      voorraad: 1
+      eenheid: zakje
+    - name: Garam masala grof
+      voorraad: 1
+      eenheid: zakje
+    - name: Zwarte peper
+      voorraad: 1
+      eenheid: zakje
+    - name: Paprika poeder
+      voorraad: 1
+      eenheid: zakje
+    - name: Chilivlokken
+      voorraad: 1
+      eenheid: zakje
+    - name: Bouillon
+      voorraad: 1
+      eenheid: potje
