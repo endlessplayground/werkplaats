@@ -1,0 +1,137 @@
+
+/* Pantry table */
+
+.pantry-table {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.pantry-table table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.pantry-table th,
+.pantry-table td {
+    padding: 2px 4px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+/* Column widths */
+
+.pantry-table th:nth-child(1),
+.pantry-table td:nth-child(1) {
+    width: 38%;
+}
+
+.pantry-table th:nth-child(2),
+.pantry-table td:nth-child(2) {
+    width: 22%;
+}
+
+.pantry-table th:nth-child(3),
+.pantry-table td:nth-child(3) {
+    width: 16%;
+}
+
+.pantry-table th:nth-child(4),
+.pantry-table td:nth-child(4) {
+    width: 26%;
+    text-align: center;
+}
+
+/* Table headings */
+
+.pantry-table th {
+    background: var(--grey-light);
+    color: white;
+}
+
+/* Product rows */
+
+.pantry-table tbody tr[data-product] {
+    background: #ffffeb;
+}
+
+/* Category headings */
+
+.pantry-table tbody tr.pantry-category {
+    background: var(--main-color);
+    color: white;
+}
+
+.pantry-table tbody tr.pantry-category td {
+    border-bottom: 1px solid #ccc;
+}
+
+/* Larger padding second and third column, only normal rows */
+.pantry-table tbody tr[data-product] td:nth-child(2),
+.pantry-table tbody tr[data-product] td:nth-child(3) {
+    padding-left: 20px;
+}
+
+/* Quantity colours */
+
+.pantry-table td.quantity-low {
+    background: #d4f7ff;
+}
+
+.pantry-table td.quantity-ok {
+    background: inherit;
+}
+
+.pantry-table td.quantity-high {
+    background: #ffe6f8;
+}
+
+/* Number input */
+
+#pantry-table table tbody td input[type="number"] {
+    all: unset;
+
+    display: inline-block;
+    box-sizing: border-box;
+
+    width: 35px;
+    min-width: 0;
+    max-width: 35px;
+    height: 18px;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+    color: inherit;
+
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+#pantry-table table tbody td input[type="number"]::-webkit-inner-spin-button,
+#pantry-table table tbody td input[type="number"]::-webkit-outer-spin-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+/* Collapsible pantry categories */
+
+.pantry-table tbody tr.pantry-category {
+    cursor: pointer;
+}
+
+.pantry-table tbody tr.pantry-category td::after {
+    content: "▼";
+    float: right;
+    font-size: 0.75em;
+}
+
+.pantry-table tbody tr.pantry-category.collapsed td::after {
+    content: "▶";
+}

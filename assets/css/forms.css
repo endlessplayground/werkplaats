@@ -1,0 +1,126 @@
+
+/* ==============================
+   SHARED FORM STYLES
+   ============================== */
+
+/* Dropdowns */
+
+select, input:not([type="checkbox"]):not([type="radio"]),
+textarea, button {
+    border: 2px solid var(--green-dark);
+    border-radius: 4px;
+    padding: 1px 6px 3px 6px;
+    margin: 3px 6px 3px 0;
+    color: var(--text-color);
+}
+
+select {
+    font: inherit;
+    color: var(--text-color);
+    background: white;
+}
+
+/* Text fields */
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea {
+    font: inherit;
+    background: var(--green-lighter);
+}
+
+/* Focus */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--main-color);
+    outline-offset: -1px;
+}
+
+/* Buttons */
+
+button {
+    font: inherit;
+    text-align: left;
+    line-height: 1; 
+    padding: 7px 9px 9px 9px; 
+    margin: 0px 10px 10px 0px;
+    background: var(--main-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--main-color);
+}
+
+.item-button.confirm-removal {
+    background-color: red;
+}
+
+/*---------- drag and drop and colour changes ---------*/
+
+.item-row {
+    display: inline-flex;
+}
+
+.item-row .item-button {
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: grab;
+}
+
+.item-row.dragging {
+    filter: hue-rotate(-90deg);
+    opacity: 0.7;
+}
+
+/*------------- item colours --------------*/
+
+.item-button.item-colour-1 {
+    opacity: 0.3;
+}
+
+.item-button.item-colour-2 {
+    background: var(--orange);
+}
+
+.item-button.item-colour-3 {
+    border: 4px solid var(--orange);
+}
+
+.item-button.item-colour-4 {
+    background: rgb(252, 252, 102);
+    color: grey;
+}
+
+/*------------- divider items --------------*/
+
+.item-row .item-divider-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 16px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+.item-divider-button hr {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-top: 4px dotted var(--green-dark);
+}
+.item-row:has(.item-divider-button) {
+    display: flex;
+    width: 100%;
+}
+
+.item-row .item-divider-button {
+    width: 100%;
+}

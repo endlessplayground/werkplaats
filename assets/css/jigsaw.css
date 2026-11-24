@@ -1,0 +1,47 @@
+/*------ jigsaw home ------*/
+.home-grid {
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: repeat(3, 120px);
+    column-gap: 0px;
+    row-gap: 54px;
+    justify-content: center;
+}
+
+.home-tile {
+    width: 120px;
+    height: 120px;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-size: 100% 100%;
+    background-repeat: no-repeat !important;
+    background-position: center;
+
+    text-decoration: none;
+    position: relative;
+    isolation: isolate;
+}
+
+.tile-one {
+    filter: hue-rotate(0deg) saturate(1);
+}
+
+.tile-two {
+    filter: hue-rotate(-40deg) saturate(7);
+}
+
+.tile-label {
+    text-align: center;
+    font-family: "Rammetto One", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.9);
+    z-index: 1;
+}
