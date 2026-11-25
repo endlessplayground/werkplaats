@@ -17,32 +17,50 @@
     padding: 2px 4px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 /* Column widths */
 
 .pantry-table th:nth-child(1),
 .pantry-table td:nth-child(1) {
-    width: 38%;
+/*    width: 43%;*/
 }
 
 .pantry-table th:nth-child(2),
 .pantry-table td:nth-child(2) {
-    width: 22%;
+ /*   width: 21%;*/
 }
 
 .pantry-table th:nth-child(3),
 .pantry-table td:nth-child(3) {
-    width: 16%;
+/*    width: 20%;*/
 }
 
 .pantry-table th:nth-child(4),
 .pantry-table td:nth-child(4) {
-    width: 26%;
+/*    width: 18%;*/
     text-align: center;
 }
 
+/* Column widths */
+
+.pantry-table table {
+    table-layout: auto;
+}
+
+.pantry-table th:nth-child(1),
+.pantry-table td:nth-child(1) {
+    width: auto;
+}
+
+.pantry-table th:nth-child(n+2),
+.pantry-table td:nth-child(n+2) {
+    width: 1%;
+    white-space: nowrap;
+    padding-left: 4px;
+    padding-right: 4px;
+}
 /* Table headings */
 
 .pantry-table th {
@@ -130,8 +148,10 @@
     content: "▼";
     float: right;
     font-size: 0.75em;
+    padding: 3px 0 0 0;
 }
 
 .pantry-table tbody tr.pantry-category.collapsed td::after {
     content: "▶";
+    padding: 0 0 0 0;
 }
