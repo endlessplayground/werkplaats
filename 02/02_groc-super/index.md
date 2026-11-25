@@ -63,9 +63,15 @@ window.itemListConfig = {
     ],
 
     "EKOPLAZA": [
-    "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Chinese kool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika groen", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Bouillon", "Paprika poeder", "", "Tahin", "Chocola 100%", "Chocola 85%", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood"
+    "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Chinese kool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika groen", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Bouillon", "Paprika poeder", "Tahin", "Chocola 100%", "Chocola 85%", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood"
     ],
-    "Rest": []
+
+    "Zelf maken": [
+    "Brood", "Dressing", "Notenpasta", "Masala, gestampt", "Chilivlokken", "Peper", "Gesn.groenten"    ],
+
+    "Rest": [
+        "Brood", "Dressing", "Notenpasta", "Masala, gestampt", "Chilivlokken", "Peper", "Gesneden groenten"
+    ]
 }
 };
 </script>

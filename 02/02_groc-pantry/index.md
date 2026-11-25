@@ -23,7 +23,7 @@ custom_css: pantry
       <th>Produkt</th>
       <th>Gewenst</th>
       <th>Aanwezig</th>
-      <th style="text-align:right;">Eenheid</th>
+      <th >Eenheid</th>
     </tr>
   </thead>
 
