@@ -227,7 +227,7 @@
       voorraad: 1
       eenheid: doosje
 
-- category: Granen, pasta, noten en zaden
+- category: Granen, pasta, noten, zaden, zuidvruchten
   products:
     - name: Pasta penne
       voorraad: 1
@@ -361,3 +361,27 @@
     - name: Bouillon
       voorraad: 1
       eenheid: potje
+
+- category: Zelf maken
+  products:
+    - name: Brood
+      voorraad: 2
+      eenheid: stuk
+    - name: Dressing
+      voorraad: 1
+      eenheid: pot
+    - name: Notenpasta
+      voorraad: 2
+      eenheid: pot
+    - name: Masala, gestampt
+      voorraad: 1
+      eenheid: potje
+    - name: Chilivlokken
+      voorraad: 1
+      eenheid: potje
+    - name: Peper
+      voorraad: 1
+      eenheid: potje
+    - name: Gesn.groenten
+      voorraad: 1
+      eenheid: bak
