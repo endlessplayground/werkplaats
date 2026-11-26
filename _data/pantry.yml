@@ -370,7 +370,7 @@
     - name: Paprika poeder
       voorraad: 1
       eenheid: zakje
-    - name: Chilivlokken
+    - name: Chilivlokken 1
       voorraad: 1
       eenheid: zakje
     - name: Bouillon
@@ -424,7 +424,7 @@
     - name: Masala, gestampt
       voorraad: 1
       eenheid: potje
-    - name: Chilivlokken
+    - name: Chilivlokken 2
       voorraad: 1
       eenheid: potje
     - name: Peper gemalen
