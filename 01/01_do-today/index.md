@@ -32,6 +32,7 @@ window.itemListConfig = {
     "Afwas 1",
     "Keukenvloer",
     "Vuilnis",
+    "Boodschappen",
     "Klusje",
     "__DIVIDER__",
     "Middag",
