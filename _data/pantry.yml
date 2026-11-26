@@ -227,7 +227,7 @@
       voorraad: 1
       eenheid: doosje
 
-- category: Granen, pasta, noten, zaden, zuidvruchten
+- category: Gedroogd, noten, zaden etc.
   products:
     - name: Pasta penne
       voorraad: 1
@@ -242,6 +242,9 @@
       voorraad: 1
       eenheid: pak
     - name: Rijst
+      voorraad: 1
+      eenheid: zak
+    - name: Linzen
       voorraad: 1
       eenheid: zak
     - name: Taco chips
@@ -286,6 +289,12 @@
     - name: Havermout
       voorraad: 1
       eenheid: zak
+    - name: Rozijnen
+      voorraad: 1
+      eenheid: zak
+    - name: Abrikozen
+      voorraad: 1
+      eenheid: zak
 
 - category: Overig
   products:
@@ -313,15 +322,6 @@
     - name: Kamille
       voorraad: 1
       eenheid: zak
-    - name: Tandpasta
-      voorraad: 2
-      eenheid: tube
-    - name: Tandenstokers
-      voorraad: 1
-      eenheid: pakje
-    - name: Oordopjes
-      voorraad: 1
-      eenheid: pakje
     - name: Toiletpapier
       voorraad: 1
       eenheid: zak
@@ -337,9 +337,6 @@
     - name: Vuilniszakken
       voorraad: 1
       eenheid: rol
-    - name: Baking soda
-      voorraad: 1
-      eenheid: doosje
 
 - category: Kruiden
   products:
@@ -361,6 +358,39 @@
     - name: Bouillon
       voorraad: 1
       eenheid: potje
+
+- category: Verzorging
+  products:
+    - name: Tandpasta
+      voorraad: 2
+      eenheid: tube
+    - name: Tandenstokers
+      voorraad: 1
+      eenheid: pakje
+    - name: Oordopjes
+      voorraad: 1
+      eenheid: pakje
+    - name: Neusdruppels
+      voorraad: 1
+      eenheid: flesje
+    - name: Paracetamol
+      voorraad: 1
+      eenheid: pakje
+    - name: Saridon
+      voorraad: 1
+      eenheid: pakje
+    - name: Baking soda
+      voorraad: 1
+      eenheid: doosje
+    - name: Vaseline
+      voorraad: 1
+      eenheid: blikje
+    - name: Quetiapine
+      voorraad: 1
+      eenheid: doosje
+    - name: Macrogol
+      voorraad: 1
+      eenheid: pot
 
 - category: Zelf maken
   products:
@@ -385,3 +415,9 @@
     - name: Gesn.groenten
       voorraad: 1
       eenheid: bak
+    - name: Baking soda 1
+      voorraad: 1
+      eenheid: blikje
+    - name: Baking soda 2
+      voorraad: 1
+      eenheid: blikje
