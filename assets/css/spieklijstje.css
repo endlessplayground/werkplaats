@@ -1,5 +1,6 @@
 .tile-two {
     filter: hue-rotate(-40deg) saturate(7);
+    filter: brightness(1.1);
 }
 
 .submenu-item:nth-child(2) {

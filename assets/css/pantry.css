@@ -48,7 +48,7 @@
 /* Product rows */
 
 .pantry-table tbody tr[data-product] {
-    background: #ffffeb;
+    background-color:rgb(250, 255, 226);
 }
 
 /* Category headings */
@@ -80,6 +80,24 @@
 
 .pantry-table td.quantity-high {
     background: #ffe6f8;
+}
+
+/* Row colors */
+
+tr.telkens td {
+  background-color: rgb(251, 233, 200);
+}
+
+tr.wekelijks td {
+  background-color: rgb(255, 255, 208);
+}
+
+tr.maandelijks td {
+    background: rgb(235, 253, 208);
+}
+
+tr.heelsoms td {
+    background: rgb(226, 231, 226);
 }
 
 /* Number input */
@@ -131,4 +149,45 @@
 .pantry-table tbody tr.pantry-category.collapsed td::after {
     content: "▶";
     padding: 0 0 0 0;
+}
+
+/* Hiding other rows */
+
+.pantry-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.pantry-filters button {
+  cursor: pointer;
+}
+
+/* Highlight selected filter */
+.pantry-filters button.active {
+  outline: 3px solid currentColor;
+  font-weight: bold;
+}
+
+/* Make sure hidden rows stay hidden */
+tr[hidden] {
+  display: none !important;
+}
+
+/* mark products that I have to produce myself */
+
+tr[data-product="brood"] td:first-child::after,
+tr[data-product="dressing"] td:first-child::after,
+tr[data-product="notenpasta"] td:first-child::after,
+tr[data-product="masala-gestampt"] td:first-child::after,
+tr[data-product="chilivlokken"] td:first-child::after,
+tr[data-product="peper-gemalen"] td:first-child::after,
+tr[data-product="gesn-groenten"] td:first-child::after,
+tr[data-product="baking-soda-1"] td:first-child::after,
+tr[data-product="baking-soda-2"] td:first-child::after,
+tr[data-product=""] td:first-child::after {
+  content: " ★";
+  color: #d18b25;
+  font-size: 0.8em;
 }
