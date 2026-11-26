@@ -79,6 +79,10 @@ button:hover {
 
 /*------------- item colours --------------*/
 
+.item-clear-list-button {
+    background: var(--magenta);
+}
+
 .item-button.item-colour-1 {
     opacity: 0.3;
 }
@@ -94,6 +98,16 @@ button:hover {
 .item-button.item-colour-4 {
     background: rgb(252, 252, 102);
     color: grey;
+}
+
+/* See 00_item-list.js */
+
+.item-button.orange-button {
+    background: var(--orange);
+}
+
+.item-button.magenta-button {
+    background: var(--magenta);
 }
 
 /*------------- divider items --------------*/

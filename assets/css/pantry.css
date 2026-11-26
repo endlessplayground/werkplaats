@@ -22,29 +22,6 @@
 
 /* Column widths */
 
-.pantry-table th:nth-child(1),
-.pantry-table td:nth-child(1) {
-/*    width: 43%;*/
-}
-
-.pantry-table th:nth-child(2),
-.pantry-table td:nth-child(2) {
- /*   width: 21%;*/
-}
-
-.pantry-table th:nth-child(3),
-.pantry-table td:nth-child(3) {
-/*    width: 20%;*/
-}
-
-.pantry-table th:nth-child(4),
-.pantry-table td:nth-child(4) {
-/*    width: 18%;*/
-    text-align: center;
-}
-
-/* Column widths */
-
 .pantry-table table {
     table-layout: auto;
 }
