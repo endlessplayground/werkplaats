@@ -43,7 +43,7 @@ button {
     font: inherit;
     text-align: left;
     line-height: 1; 
-    padding: 7px 9px 9px 9px; 
+    padding: 5px 9px 7px 9px; 
     margin: 0px 10px 10px 0px;
     background: var(--main-color);
     color: white;
@@ -79,10 +79,10 @@ button:hover {
 
 /*------------- item colours --------------*/
 
-.item-clear-list-button {
+.item-clear-list-button, #transfer-pantry {
     background: var(--magenta);
 }
-.item-clear-list-button:hover {
+.item-clear-list-button:hover, #transfer-pantry:hover {
     background: var(--magenta);
     filter:  hue-rotate(20deg);
 }
