@@ -438,7 +438,7 @@ function renderItems() {
             button.className = "item-button";
             if ([
                 "Maandag", "Dinsdag", "Woensdag", "Donderdag",
-                "Vrijdag", "Zaterdag", "Zondag", "Ochtend", "Middag", "Later", "Dag 1 - 7", "Dag 8 - 14", "Dag 15 - 21", "Dag 22 - 30", "Extra / toevoegen", "Extra…"
+                "Vrijdag", "Zaterdag", "Zondag", "Ochtend", "Middag", "Later", "Dag 1 - 7", "Dag 8 - 14", "Dag 15 - 21", "Dag 22 - 30", "Extra / toevoegen", "Extra…", "Later…", "Plus!", "En!"
             ].includes(item.name)) {
                 button.classList.add("orange-button");
             }

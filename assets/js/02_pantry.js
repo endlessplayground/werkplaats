@@ -145,6 +145,198 @@
     });
 })();
 
+// Coloring table rows.
+
+const productRijKleuren = [
+  { producten: [
+  "melk",
+  "melk-m",
+  "kwark",
+  "karnemelk",
+  "yoghurt",
+  "crème-fraiche",
+  "kip",
+  "eieren",
+], 
+    kleur: "telkens"
+  },
+
+  { producten: [
+  "brood",
+  "uien",
+  "knoflook",
+  "gember",
+  "peen-wortel",
+  "pompoen",
+  "aardappelen",
+  "paprika-rood",
+  "paprika-groen",
+  "lente-ui",
+  "witlof",
+  "broccoli",
+  "courgette",
+  "spitskool",
+  "chinese-kool",
+  "zuurkool",
+  "koriander",
+  "basilicum",
+  "voorgesneden",
+  "rucola",
+  "raapsteel",
+  "snijbiet",
+  "prei",
+  "stamppotgroenten",
+  "tomaten",
+  "appels",
+  "avocado",
+  "hamburger",
+  "zalm",
+  "gehakt",
+  "dressing",
+  "gesn-groenten",
+  ], 
+kleur: "wekelijks"
+  },
+
+  {
+    producten: [
+  "citroen",
+  "kaas",
+  "sperziebonen",
+  "spinazie",
+  "bloemkool",
+  "boter",
+  "zoete-aardappel",
+  "rood-fruit",
+  "bliktomaten",
+  "tomatenpuree",
+  "pesto",
+  "jalapeño",
+  "sriracha",
+  "mosterd",
+  "mayonaise",
+  "rookworst",
+  "bonen",
+  "witte-bonen",
+  "kikkererwten",
+  "sojamelk",
+  "strooikaas",
+  "balsamico",
+  "ketjap",
+  "sojasaus",
+  "oestersaus",
+  "sambal",
+  "miso",
+  "pindakaas",
+  "tahin",
+  "azijn",
+  "olijfolie",
+  "lijnzaadolie",
+  "koffie",
+  "koffiefilters",
+  "pasta-penne",
+  "pasta-fussili",
+  "pasta-macaroni",
+  "lasagne-vellen",
+  "rijst",
+  "linzen",
+  "taco-chips",
+  "wraps",
+  "walnoten",
+  "cashewnoten",
+  "pecannoten",
+  "pistache",
+  "zonnebloempitten",
+  "pompoenpitten",
+  "pijnboompitten",
+  "rijstvlokken",
+  "havermout",
+  "kattenvoer",
+  "kattenbrokjes",
+  "speculaas",
+  "sprits",
+  "koekjes-overig",
+  "chocola-100",
+  "chocola-85",
+  "kamille",
+  "toiletpapier",
+  "quetiapine",
+  "macrogol",
+  "notenpasta",
+  "masala-gestampt",
+  "pepertje",
+],
+    kleur: "maandelijks"
+  },
+  {
+    producten: [
+  "handzeep",
+  "afwasmiddel",
+  "handschoenen",
+  "vuilniszakken",
+  "garam-masala-fijn",
+  "garam-masala-grof",
+  "peperkorrels",
+  "paprika-poeder",
+  "chilivlokken",
+  "bouillon",
+  "tandpasta",
+  "tandenstokers",
+  "oordopjes",
+  "neusdruppels",
+  "paracetamol",
+  "saridon",
+  "baking-soda",
+  "vaseline",
+  "artisjokken",
+  "vis-blik",
+  "chilivlokken",
+  "peper",
+  "roggemeel",
+  "tarwe-speltmeel",
+  "boekweitmeel",
+  "rozijnen",
+  "abrikozen",
+  "brood-ekoplaza",
+  "baking-soda-1",
+  "baking-soda-2",
+  "bulgur",
+  "gierst",
+  "noedels",
+  "limoenblad",
+  "santen"
+],
+    kleur: "heelsoms"
+  }
+
+
+
+].flatMap(groep =>
+  groep.producten.map(product => ({
+    product,
+    kleur: groep.kleur
+  }))
+);
+
+/*
+ */
+
+
+
+
+
+function pasProductRijKleurenToe() {
+  productRijKleuren.forEach(item => {
+    document.querySelectorAll(
+      `tr[data-product="${item.product}"]`
+    ).forEach(row => {
+      row.classList.add(item.kleur);
+    });
+  });
+}
+
+pasProductRijKleurenToe();
+
 // Transfer shortages to the shopping list.
 (() => {
     const table = document.getElementById("pantry-table");
@@ -199,3 +391,27 @@ localStorage.setItem(transferKey, JSON.stringify(products));
             }
     });
 })();
+
+// Filter pantry table rows.
+
+document.querySelectorAll(".pantry-filters button").forEach(button => {
+  button.addEventListener("click", () => {
+
+    const filter = button.dataset.filter;
+    const rows = document.querySelectorAll("tbody tr");
+
+    const reset = button.classList.contains("active");
+
+    document.querySelectorAll(".pantry-filters button")
+      .forEach(btn => btn.classList.remove("active"));
+
+    if (!reset) {
+      button.classList.add("active");
+    }
+
+    rows.forEach(row => {
+      row.hidden = !reset && !row.classList.contains(filter);
+    });
+
+  });
+});
