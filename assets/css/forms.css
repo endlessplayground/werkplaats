@@ -82,6 +82,10 @@ button:hover {
 .item-clear-list-button {
     background: var(--magenta);
 }
+.item-clear-list-button:hover {
+    background: var(--magenta);
+    filter:  hue-rotate(20deg);
+}
 
 .item-button.item-colour-1 {
     opacity: 0.3;
