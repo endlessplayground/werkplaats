@@ -27,7 +27,7 @@ window.itemListConfig = {
 
     categories: {
 
-        "": [
+"Vandaag": [
     "Ochtend",
     "Afwas 1",
     "Keukenvloer",
@@ -40,8 +40,13 @@ window.itemListConfig = {
     "Planten",
     "🧩",
     "Afwas 2"
+],
+"Extra…": [    
+    "Plus!", "Mail", "Planten", "Voorraadlijst",
+    "Markt", "Rondom bed", "Werktas", "Rondom bank", "Bed verschonen", "Koelkast", "Trappen en vloeren", "Vriezer"
+],
+"Later…": ["En!", "HR: Vrije dagen VdV?!", "Beschikbaarheid HS", "Pakketje terugbrengen", "Bed verschonen + elektrische deken", "Voorradenlijst"
 ]
-
     }
 };
 </script>

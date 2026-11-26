@@ -15,6 +15,13 @@ custom_css: pantry
   Voorraadlijst
 </h2>
 
+<div class="pantry-filters">
+  <button type="button" data-filter="telkens">Vaak</button>
+  <button type="button" data-filter="wekelijks">Week</button>
+  <button type="button" data-filter="maandelijks">Maand</button>
+  <button type="button" data-filter="heelsoms">Soms</button>
+</div>
+
 <div class="pantry-table" id="pantry-table">
 
 <table>

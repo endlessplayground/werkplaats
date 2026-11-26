@@ -21,8 +21,6 @@ custom_css: extra-button
 
 <div id="item-list"></div>
 
-<script src="{{ '/assets/js/00_weekly-tasks.js' | relative_url }}"></script>
-
 <script>
 window.itemListConfig = {
     storageKey: "weekly-tasks",

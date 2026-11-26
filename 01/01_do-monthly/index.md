@@ -24,8 +24,6 @@ custom_css: extra-button
 
 <div id="item-list"></div>
 
-<script src="{{ '/assets/js/00_monthly-tasks.js' | relative_url }}"></script>
-
 <script>
 window.itemListConfig = {
     storageKey: "monthly-tasks",

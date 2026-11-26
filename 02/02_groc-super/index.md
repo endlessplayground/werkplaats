@@ -37,7 +37,7 @@ window.itemListConfig = {
 
     categories: {
     "Groenten & fruit": [
-        "Uien", "Knoflook", "Gember", "Peper",
+        "Uien", "Knoflook", "Gember", "Pepertje",
         "__DIVIDER__",
         "Peen / wortel", "Pompoen", "Aardappelen",
         "__DIVIDER__",
@@ -59,11 +59,11 @@ window.itemListConfig = {
         "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
     ],
     "Overig": [
-        "Kattenvoer", "Kattenbrokjes", "Speculaas", "Sprits", "Koekjes overig", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Afwasmiddel", "Handschoenen", "Vuilniszakken", "Baking soda", "Garam masala fijn", "Garam masala grof", "Zwarte peper", "Chilivlokken"
+        "Kattenvoer", "Kattenbrokjes", "Speculaas", "Sprits", "Koekjes overig", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Afwasmiddel", "Handschoenen", "Vuilniszakken", "Baking soda", "Garam masala fijn", "Garam masala grof", "Zwarte peper", "Chilivlokken", "Avocado", "Bulgur", "Gierst", "Noedels", "Limoenblad", "Santen"
     ],
 
     "EKOPLAZA": [
-    "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Chinese kool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika groen", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Bouillon", "Paprika poeder", "Tahin", "Chocola 100%", "Chocola 85%", "Kamille", "Rozijnen", "Abrikozen", "Sojamelk", "Rijstvlokken", "Havermout", "Brood"
+    "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Chinese kool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika groen", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Bouillon", "Paprika poeder", "Tahin", "Chocola 100%", "Chocola 85%", "Kamille", "Rozijnen", "Abrikozen", "Sojamelk", "Rijstvlokken", "Havermout", "Brood Ekoplaza"
     ],
 
     "Verzorging & gezondheid": [
