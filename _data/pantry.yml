@@ -10,8 +10,11 @@
     - name: Gember
       voorraad: 1
       eenheid: knol
-    - name: Peper
+    - name: Pepertje
       voorraad: 1
+      eenheid: stuk
+    - name: Avocado
+      voorraad: 5
       eenheid: stuk
     - name: Peen / wortel
       voorraad: 2
@@ -118,6 +121,9 @@
     - name: Zoete aardappel
       voorraad: 1
       eenheid: zak
+    - name: Limoenblad
+      voorraad: 1
+      eenheid: zakje
     - name: Rood fruit
       voorraad: 1
       eenheid: zak
@@ -136,7 +142,7 @@
     - name: Eieren
       voorraad: 20
       eenheid: stuk
-    - name: Brood
+    - name: Brood Ekoplaza
       voorraad: 1
       eenheid: stuk
 
@@ -176,7 +182,7 @@
       voorraad: 2
       eenheid: pot
     - name: Witte bonen
-      voorraad: 1
+      voorraad: 2
       eenheid: pot
     - name: Kikkererwten
       voorraad: 2
@@ -205,6 +211,9 @@
     - name: Miso
       voorraad: 1
       eenheid: pot
+    - name: Santen
+      voorraad: 1
+      eenheid: pakje
     - name: Pindakaas
       voorraad: 1
       eenheid: pot
@@ -244,6 +253,15 @@
     - name: Rijst
       voorraad: 1
       eenheid: zak
+    - name: Bulgur
+      voorraad: 1
+      eenheid: zak
+    - name: Gierst
+      voorraad: 1
+      eenheid: zak
+    - name: Noedels
+      voorraad: 3
+      eenheid: pak
     - name: Linzen
       voorraad: 1
       eenheid: zak
@@ -346,7 +364,7 @@
     - name: Garam masala grof
       voorraad: 1
       eenheid: zakje
-    - name: Zwarte peper
+    - name: Peperkorrels
       voorraad: 1
       eenheid: zakje
     - name: Paprika poeder
@@ -409,7 +427,7 @@
     - name: Chilivlokken
       voorraad: 1
       eenheid: potje
-    - name: Peper
+    - name: Peper gemalen
       voorraad: 1
       eenheid: potje
     - name: Gesn.groenten
