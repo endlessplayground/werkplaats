@@ -45,9 +45,7 @@ window.itemListConfig = {
     "Trappen en vloeren",
     "__DIVIDER__",
     "Dag 22 - 30",
-    "Vriezer",
-    "__DIVIDER__",
-    "Extra / toevoegen",
+    "Vriezer"
     ]
     }
 

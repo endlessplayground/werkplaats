@@ -32,19 +32,19 @@ window.itemListConfig = {
 
     categories: {
 "Per dag…": [
-    "Maandag",
+    "Maandag", "Mail 1",
     "__DIVIDER__",
-    "Dinsdag",
+    "Dinsdag", "Planten 1", "Voorraadlijst",
     "__DIVIDER__",
-    "Woensdag",
+    "Woensdag", "Mail 2",
     "__DIVIDER__",
-    "Donderdag",
+    "Donderdag", "Markt", "Rondom bed",
     "__DIVIDER__",
-    "Vrijdag",
+    "Vrijdag", "Mail 3", "Planten 2",
     "__DIVIDER__",
-    "Zaterdag",
+    "Zaterdag", "Werktas",
     "__DIVIDER__",
-    "Zondag",
+    "Zondag", "Rondom bank"
     ]
     }
 };
