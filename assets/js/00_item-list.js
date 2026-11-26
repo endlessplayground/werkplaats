@@ -436,6 +436,18 @@ function renderItems() {
             const button = document.createElement("button");
             button.type = "button";
             button.className = "item-button";
+            if ([
+                "Maandag", "Dinsdag", "Woensdag", "Donderdag",
+                "Vrijdag", "Zaterdag", "Zondag", "Ochtend", "Middag", "Later", "Dag 1 - 7", "Dag 8 - 14", "Dag 15 - 21", "Dag 22 - 30", "Extra / toevoegen"
+            ].includes(item.name)) {
+                button.classList.add("orange-button");
+            }
+            if ([
+                "", ""
+            ].includes(item.name)) {
+                button.classList.add("magenta-button");
+            }
+
             button.title = "Tik tweemaal om te verwijderen";
 
             if (item.type === "divider") {
