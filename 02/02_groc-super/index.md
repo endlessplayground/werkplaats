@@ -37,13 +37,13 @@ window.itemListConfig = {
 
     categories: {
     "Groenten & fruit": [
-"Uien", "Knoflook", "Gember", "Peper",
-    "__DIVIDER__",
-"Peen / wortel", "Pompoen", "Aardappelen",
-    "__DIVIDER__",
- "Paprika rood", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool",
-    "__DIVIDER__",
- "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola"
+        "Uien", "Knoflook", "Gember", "Peper",
+        "__DIVIDER__",
+        "Peen / wortel", "Pompoen", "Aardappelen",
+        "__DIVIDER__",
+        "Paprika rood", "Lente-ui", "Witlof", "Broccoli", "Courgette", "Spitskool",
+        "__DIVIDER__",
+        "Koriander", "Basilicum", "Lente-ui", "Voorgesneden", "Rucola"
     ],
     "Vlees & eieren": [
         "Gehakt", "Kip", "Hamburger", "Rookworst", "Zalm", "Vis blik", "Eieren"
@@ -51,23 +51,28 @@ window.itemListConfig = {
     "Blik & pot & fles": [
         "Bliktomaten", "Tomatenpuree", "Pesto", "Jalapeño", "Sriracha", "Mosterd", "Mayonaise", "Artisjokken", "Bonen", "Witte bonen", "Kikkererwten", "Balsamico", "Ketjap", "Sojasaus", "Oestersaus", "Sambal", "Miso", "Pindakaas"
     ],
-    "Granen & noten": [
-        "Pasta penne", "Pasta fussili", "Pasta macaroni", "Lasagne vellen", "Rijst", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempitten", "Pompoenpitten", "Pijnboompitten"
+    "Granen & noten en zo": [
+        "Pasta penne", "Pasta fussili", "Pasta macaroni", "Lasagne vellen", "Rijst", "Linzen", "Taco chips", "Wraps", "Walnoten", "Cashewnoten", "Pecannoten", "Pistache", "Zonnebloempitten", "Pompoenpitten", "Pijnboompitten"
     ],
     "Zuivel & vriezer": [
         "Kaas","Strooikaas", "Melk", "Melk M", "Karnemelk", "Kwark", "Yoghurt", "Crème fraiche", "Boter",     "__DIVIDER__",
- "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
+        "Sperziebonen", "Spinazie", "Bloemkool", "Zoete aardappel", "Rood fruit"
     ],
     "Overig": [
-        "Kattenvoer", "Kattenbrokjes", "Speculaas", "Sprits", "Koekjes overig", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Afwasmiddel", "Tandpasta", "Tandenstokers", "Oordopjes", "Handschoenen", "Vuilniszakken", "Baking soda", "Garam masala fijn", "Garam masala grof", "Zwarte peper", "Chilivlokken"
+        "Kattenvoer", "Kattenbrokjes", "Speculaas", "Sprits", "Koekjes overig", "Koffie", "Koffiefilters", "Toiletpapier","Handzeep","Afwasmiddel", "Handschoenen", "Vuilniszakken", "Baking soda", "Garam masala fijn", "Garam masala grof", "Zwarte peper", "Chilivlokken"
     ],
 
     "EKOPLAZA": [
-    "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Chinese kool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika groen", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Bouillon", "Paprika poeder", "Tahin", "Chocola 100%", "Chocola 85%", "Kamille", "Sojamelk", "Rijstvlokken", "Havermout", "Brood"
+    "Raapsteel", "Snijbiet", "Zuurkool", "Prei", "Chinese kool", "Stamppotgroenten", "Appels", "Tomaten", "Paprika groen", "Citroen", "Azijn", "Olijfolie", "Lijnzaadolie", "Bouillon", "Paprika poeder", "Tahin", "Chocola 100%", "Chocola 85%", "Kamille", "Rozijnen", "Abrikozen", "Sojamelk", "Rijstvlokken", "Havermout", "Brood"
+    ],
+
+    "Verzorging & gezondheid": [
+    "Tandpasta", "Tandenstokers", "Oordopjes", "Neusdruppels", "Paracetamol", "Saridon", "Vaseline", "Quetiapine", "Macrogol"
     ],
 
     "Zelf maken": [
-    "Brood", "Dressing", "Notenpasta", "Masala, gestampt", "Chilivlokken", "Peper", "Gesn.groenten"    ],
+    "Brood", "Dressing", "Notenpasta", "Masala, gestampt", "Chilivlokken", "Peper", "Gesn.groenten", "Baking soda 1", "Baking soda 2"
+    ],
 
     "Rest": [
         "Brood", "Dressing", "Notenpasta", "Masala, gestampt", "Chilivlokken", "Peper", "Gesneden groenten"
