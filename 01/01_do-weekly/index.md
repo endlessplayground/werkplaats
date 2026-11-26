@@ -44,7 +44,9 @@ window.itemListConfig = {
     "__DIVIDER__",
     "Zaterdag", "Werktas",
     "__DIVIDER__",
-    "Zondag", "Rondom bank"
+    "Zondag", "Rondom bank",
+    "__DIVIDER__",
+    "Extra…"
     ]
     }
 };
