@@ -1,0 +1,19 @@
+---
+---
+{
+  "name": {{ site.title | default: "Werkplaats" | jsonify }},
+  "short_name": "Werkplaats",
+  "description": "My personal workspace",
+  "start_url": "{{ '/' | relative_url }}",
+  "scope": "{{ '/' | relative_url }}",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#c8f7c5",
+  "theme_color": "#00bfff",
+  "icons": [
+    {
+"src": "{{ '/assets/images/favicon.svg' | relative_url }}",      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

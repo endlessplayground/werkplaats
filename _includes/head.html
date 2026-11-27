@@ -23,4 +23,28 @@
 
   <link rel="icon" type="image/svg+xml"
       href="{{ '/assets/images/favicon.svg' | relative_url }}">
+
+<link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+
+<meta name="theme-color" content="#00bfff">
+<meta name="mobile-web-app-capable" content="yes">
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+
+    navigator.serviceWorker.register(
+      "{{ '/sw.js' | relative_url }}"
+    )
+    .then(registration => {
+      console.log('Werkplaats app registered:', registration.scope);
+    })
+    .catch(error => {
+      console.error('Service worker registration failed:', error);
+    });
+
+  });
+}
+</script>
+
 </head>
