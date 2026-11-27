@@ -326,7 +326,7 @@ footer {
   justify-content: flex-end;
   width: 100%;
   max-width: var(--phone-width);
-  height:25px;
+  height:3px;
   background-color: var(--grey-dark);
   border-top: 3px solid var(--line-color);
   z-index: 100;
@@ -338,7 +338,7 @@ footer {
     align-items: flex-start;
     gap: 8px;
 
-    margin-top: -35px; /* Adjust the overlap */
+    margin-top: -38px; /* Adjust the overlap */
     padding-right: 12px;
 }
 
