@@ -229,7 +229,7 @@ header {
 
 .dinges img {
     display: block;
-    width: 300px;
+    width: 320px;
     height: auto;
 }
 
@@ -264,7 +264,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   gap: 17px;
-  padding: 26px 0px 0 30px;
+  padding: 46px 0px 0 30px;
   background: transparent;
 }
 
