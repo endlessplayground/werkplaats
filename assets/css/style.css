@@ -326,7 +326,7 @@ footer {
   justify-content: flex-end;
   width: 100%;
   max-width: var(--phone-width);
-  height:6px;
+  height:26px;
   background-color: var(--grey-dark);
   border-top: 3px solid var(--line-color);
   z-index: 100;
@@ -338,7 +338,7 @@ footer {
     align-items: flex-start;
     gap: 8px;
 
-    margin-top: -46px; /* Adjust the overlap */
+    margin-top: -26px; /* Adjust the overlap */
     padding-right: 12px;
 }
 
@@ -376,7 +376,7 @@ footer {
 .home-main {
     display: flex;
     flex-direction: column;
-    padding: 62px 18px 18px 18px;
+    padding: 86px 18px 18px 18px;
 }
 
 .home-grid {
